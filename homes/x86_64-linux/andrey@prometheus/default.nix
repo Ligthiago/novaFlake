@@ -33,5 +33,18 @@ with lib.nova; {
     };
   };
 
+  modules = {
+    shells = {
+      bash = enabled;
+      parts = {
+        starship = enabled;
+        atuin = enabled;
+      };
+    };
+    tools = {
+      zoxide = enabled;
+    };
+  };
+
   home.stateVersion = "23.11";
 }

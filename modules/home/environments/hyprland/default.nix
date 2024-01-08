@@ -76,18 +76,30 @@ in {
         };
         bind =
           [
-            "SUPER,Q,killactive"
-            "SUPER,E,exec,alacritty"
-            "SUPER,M,exit"
-            "SUPER,V,togglefloating"
+            "SUPER, Q, killactive"
+            "SUPER, M, exit"
+            "SUPER, V, togglefloating"
 
-            "SUPER,W,movefocus,u"
-            "SUPER,A,movefocus,l"
-            "SUPER,S,movefocus,d"
-            "SUPER,D,movefocus,r"
+            "SUPER, F, fullscreen, 1"
+            "SUPER ALT, F, fullscreen"
+            "SUPER SHIFT, F, fakefullscreen"
 
-            #Hycov
-            "SUPER,Tab,hycov:toggleoverview"
+            "SUPER, W, movefocus, u"
+            "SUPER, A, movefocus, l"
+            "SUPER, S, movefocus, d"
+            "SUPER, D, movefocus, r"
+
+            "SUPER SHIFT, W, swapwindow, u"
+            "SUPER SHIFT, A, swapwindow, l"
+            "SUPER SHIFT, S, swapwindow, d"
+            "SUPER SHIFT, D, swapwindow, r"
+
+            "SUPER, P, pin"
+
+            "SUPER, E, exec, alacritty"
+            "SUPER, R, exec, rofi -show drun --theme launcher.rasi"
+
+            "SUPER, Tab, hycov:toggleoverview"
           ]
           ++ (
             builtins.concatLists (builtins.genList (
@@ -108,8 +120,8 @@ in {
           ",XF86MonBrightnessDown, exec, light -U 5"
         ];
         bindm = [
-          "SUPER,mouse:272,movewindow"
-          "SUPER,mouse:273,resizewindow"
+          "SUPER, mouse:272, movewindow"
+          "SUPER, mouse:273, resizewindow"
         ];
       };
       extraConfig = ''

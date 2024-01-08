@@ -6,7 +6,8 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.nova.environments.hyprland;
 in {
   options.nova.environments.hyprland = {
@@ -21,6 +22,9 @@ in {
     nix.settings = {
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
+    nova.environment.parts = {
+      fonts = enabled;
     };
   };
 }
