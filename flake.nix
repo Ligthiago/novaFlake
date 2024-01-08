@@ -20,6 +20,13 @@
       url = "github:DreamMaoMao/hycov";
       inputs.hyprland.follows = "hyprland";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
   };
 
   outputs = inputs: let
@@ -42,6 +49,10 @@
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
+      ];
+
+      homes.modules = with inputs; [
+        nixvim.homeManagerModules.nixvim
       ];
 
       homes.users."andrey@prometheus".specialArgs = {

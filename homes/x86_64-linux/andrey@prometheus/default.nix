@@ -34,6 +34,9 @@ with lib.nova; {
   };
 
   modules = {
+#    applications = {
+ #     neovim = enabled;
+ #   };
     shells = {
       bash = enabled;
       parts = {
