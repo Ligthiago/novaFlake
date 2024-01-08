@@ -13,8 +13,12 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
+      clipboard.providers.wl-copy.enable = true;
       plugins = {
-        nix.enable = true; 
+        nix.enable = true;
+        nvim-tree = {
+          enable = true;
+        };
       };
     };
   };

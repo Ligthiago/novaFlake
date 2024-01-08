@@ -25,8 +25,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-
   };
 
   outputs = inputs: let
@@ -51,7 +49,7 @@
         home-manager.nixosModules.home-manager
       ];
 
-      homes.modules = with inputs; [
+      homes.users."andrey@prometheus".modules = with inputs; [
         nixvim.homeManagerModules.nixvim
       ];
 

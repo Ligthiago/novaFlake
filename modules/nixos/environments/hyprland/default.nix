@@ -9,6 +9,8 @@
 with lib;
 with lib.nova; let
   cfg = config.nova.environments.hyprland;
+  schema = pkgs.gsettings-desktop-schemas;
+  datadir = "${schema}/share/gsettings-schemas/${schema.name}";
 in {
   options.nova.environments.hyprland = {
     enable = mkEnableOption (lib.mdDoc "Enable Hyprland compositor and basic features");
@@ -26,5 +28,18 @@ in {
     nova.environment.parts = {
       fonts = enabled;
     };
+    environment.systemPackages = with pkgs; [
+      glib
+    ];
+    xdg.portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    };
+    programs.dconf = {
+      enable = true;
+    };
+    environment.extraInit = "
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS;
+    ";
   };
 }

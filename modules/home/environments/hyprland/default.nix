@@ -14,6 +14,10 @@ in {
     enable = mkEnableOption (lib.mdDoc "Enable Hyprland configs and basic modules");
   };
   config = mkIf cfg.enable {
+    modules.environments.parts = {
+      gtk = enabled;
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
@@ -21,6 +25,9 @@ in {
         inputs.hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
+        exec = [
+          "configure-gtk"
+        ];
         general = {
           gaps_in = 3;
           gaps_out = 6;
