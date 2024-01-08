@@ -72,6 +72,26 @@
         "type": "github"
       }
     },
+    "hycov": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704674469,
+        "narHash": "sha256-f07DzSBz93SUPohA5eFpLjVF5fnuXs+m1U0HsHLLFUg=",
+        "owner": "DreamMaoMao",
+        "repo": "hycov",
+        "rev": "7867e7b286d3baaa3683571ad09860434c88ace6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DreamMaoMao",
+        "repo": "hycov",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
@@ -188,6 +208,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hycov": "hycov",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_3",
         "snowfall-lib": "snowfall-lib"

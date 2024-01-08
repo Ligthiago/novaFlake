@@ -15,6 +15,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = inputs: let

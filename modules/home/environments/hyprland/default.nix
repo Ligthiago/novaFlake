@@ -1,6 +1,8 @@
 {
   options,
   config,
+  inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -15,6 +17,9 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
+      plugins = [
+        inputs.hycov.packages.${pkgs.system}.hycov
+      ];
       settings = {
         general = {
           gaps_in = 3;
@@ -40,7 +45,7 @@ in {
             "windows,1,6,simple,slide"
             "border,1,5,default"
             "fade,1,3,default"
-            "workspaces,1,6,simple,slidewert"
+            "workspaces,1,6,simple,slidevert"
           ];
         };
         input = {
@@ -69,13 +74,65 @@ in {
           disable_hyprland_logo = true;
           background_color = "rgba(1e1e1eff)";
         };
-        bind = [
-          "SUPER,Q,killactive"
-          "SUPER,E,exec,alacritty"
-          "SUPER,M,exit"
-          "SUPER,V,togglefloating"
+        bind =
+          [
+            "SUPER,Q,killactive"
+            "SUPER,E,exec,alacritty"
+            "SUPER,M,exit"
+            "SUPER,V,togglefloating"
+
+            "SUPER,W,movefocus,u"
+            "SUPER,A,movefocus,l"
+            "SUPER,S,movefocus,d"
+            "SUPER,D,movefocus,r"
+
+            #Hycov
+            "SUPER,Tab,hycov:toggleoverview"
+          ]
+          ++ (
+            builtins.concatLists (builtins.genList (
+                x: let
+                  workspace = let
+                    count = (x + 1) / 10;
+                  in
+                    builtins.toString (x + 1 - (count * 10));
+                in [
+                  "SUPER,${workspace},workspace, ${toString (x + 1)}"
+                  "SUPER SHIFT, ${workspace}, movetoworkspace, ${toString (x + 1)}"
+                ]
+              )
+              10)
+          );
+        binde = [
+          ",XF86MonBrightnessUp, exec, light -A 5"
+          ",XF86MonBrightnessDown, exec, light -U 5"
+        ];
+        bindm = [
+          "SUPER,mouse:272,movewindow"
+          "SUPER,mouse:273,resizewindow"
         ];
       };
+      extraConfig = ''
+        plugin {
+          hycov {
+            overview_gappo = 20
+            overview_gappi = 20
+            hotarea_size = 10
+            enable_hotarea = 0
+            swipe_fingers = 4
+            move_focus_distance = 100
+            enable_gesture = 1
+            disable_workspace_change = 1
+            disable_spawn = 1
+            auto_exit = 1
+            auto_fullscreen = 0
+            only_active_workspace = 0
+            only_active_monitor = 1
+            enable_alt_release_exit = 0
+            alt_toggle_auto_next = 0
+          }
+        }
+      '';
     };
   };
 }

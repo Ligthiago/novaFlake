@@ -44,6 +44,9 @@ with lib.nova; {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nova = {
+    hardware = {
+      light = enabled;
+    };
     services = {
       tlp = enabled;
     };
