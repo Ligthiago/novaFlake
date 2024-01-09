@@ -16,6 +16,9 @@ in {
   config = mkIf cfg.enable {
     modules.environments.parts = {
       gtk = enabled;
+      swayidle = disabled;
+      xdg = enabled;
+      rofi = enabled;
     };
 
     wayland.windowManager.hyprland = {
@@ -23,6 +26,7 @@ in {
       systemd.enable = true;
       plugins = [
         inputs.hycov.packages.${pkgs.system}.hycov
+        #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
       settings = {
         exec = [
@@ -104,7 +108,7 @@ in {
             "SUPER, P, pin"
 
             "SUPER, E, exec, alacritty"
-            "SUPER, R, exec, rofi -show drun --theme launcher.rasi"
+            "SUPER, R, exec, rofi -show drun"
 
             "SUPER, Tab, hycov:toggleoverview"
           ]
@@ -149,6 +153,9 @@ in {
             only_active_monitor = 1
             enable_alt_release_exit = 0
             alt_toggle_auto_next = 0
+          }
+          hyprwinwrap {
+            class = terminal-bg
           }
         }
       '';

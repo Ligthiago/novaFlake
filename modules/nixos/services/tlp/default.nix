@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.nova.services.tlp;
+  cfg = config.modules.services.tlp;
 in {
-  options.nova.services.tlp = {
-    enable = mkEnableOption (lib.mdDoc "Enable tlp service for laptops");
+  options.modules.services.tlp = {
+    enable = mkEnableOption (lib.mdDoc "Enable tlp module");
   };
   config = mkIf cfg.enable {
     services.tlp = {

@@ -47,6 +47,7 @@ with lib.nova; {
     };
     tools = {
       zoxide = enabled;
+      eza = enabled;
     };
   };
 

@@ -8,11 +8,11 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.nova.environments.hyprland;
+  cfg = config.modules.environments.hyprland;
   schema = pkgs.gsettings-desktop-schemas;
   datadir = "${schema}/share/gsettings-schemas/${schema.name}";
 in {
-  options.nova.environments.hyprland = {
+  options.modules.environments.hyprland = {
     enable = mkEnableOption (lib.mdDoc "Enable Hyprland compositor and basic features");
   };
   config = mkIf cfg.enable {
@@ -25,7 +25,7 @@ in {
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
-    nova.environment.parts = {
+    modules.environment.parts = {
       fonts = enabled;
     };
     environment.systemPackages = with pkgs; [

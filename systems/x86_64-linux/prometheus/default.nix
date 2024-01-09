@@ -32,23 +32,15 @@ with lib.nova; {
     neofetch
   ];
 
-  #programs.neovim = {
-  #  enable = true;
-  #  configure = {
-  #    packages.myVimPackage = with pkgs.vimPlugins; {
-  #      start = [vim-nix];
-  #    };
-  #  };
-  #};
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  nova = {
+  modules = {
     hardware = {
       light = enabled;
     };
     services = {
       tlp = enabled;
+      vnstat = enabled;
     };
     environments = {
       hyprland = enabled;

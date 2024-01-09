@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.nova.hardware.light;
+  cfg = config.modules.hardware.light;
 in {
-  options.nova.hardware.light = {
+  options.modules.hardware.light = {
     enable = mkEnableOption (lib.mdDoc "Enable light service for brightness control");
   };
   config = mkIf cfg.enable {

@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.nova.environment.parts.fonts;
+  cfg = config.modules.environment.parts.fonts;
 in {
-  options.nova.environment.parts.fonts = {
+  options.modules.environment.parts.fonts = {
     enable = mkEnableOption (lib.mdDoc "Enable system fonts");
   };
   config = mkIf cfg.enable {
