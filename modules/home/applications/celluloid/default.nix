@@ -23,11 +23,11 @@ in {
       type = "Application";
       terminal = false;
       icon = "io.github.celluloid_player.Celluloid";
-      comment = "Play videos";
+      comment = "Mpv-based video player";
       exec = "firejail celluloid %U";
       settings = {
+        Keywords = "Audio;Video;Media;Player";
         DBusActivatable = "true";
-        StartupWMClass = "celluloid";
       };
     };
   };

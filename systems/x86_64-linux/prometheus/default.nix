@@ -41,6 +41,7 @@ with lib.nova; {
     services = {
       tlp = enabled;
       vnstat = enabled;
+      gvfs = enabled;
     };
     environments = {
       hyprland = enabled;

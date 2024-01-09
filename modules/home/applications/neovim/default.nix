@@ -21,5 +21,18 @@ in {
         };
       };
     };
+    xdg.desktopEntries."nvim" = {
+      name = "Neovim";
+      genericName = "Text Editor";
+      categories = ["Utility" "TextEditor"];
+      type = "Application";
+      terminal = true;
+      icon = "nvim";
+      comment = "Terminal text editor";
+      exec = "nvim %F";
+      settings = {
+        Keywords = "Text;Code;Editor;";
+      };
+    };
   };
 }
