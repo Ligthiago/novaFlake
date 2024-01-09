@@ -45,6 +45,9 @@ with lib.nova; {
     environments = {
       hyprland = enabled;
     };
+    security = {
+      firejail = enabled;
+    };
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

@@ -26,7 +26,6 @@ in {
       systemd.enable = true;
       plugins = [
         inputs.hycov.packages.${pkgs.system}.hycov
-        #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
       ];
       settings = {
         exec = [

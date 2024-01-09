@@ -2,6 +2,7 @@
   options,
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -35,7 +36,24 @@ in {
           XDG_SCREENSHOTS_DIR = "${home}/Pictures/Screenshots";
         };
       };
+      mime.enable = true;
+      mimeApps = let
+        editor = ["nvim.desktop"];
+        terminal = ["Alacritty.desktop"];
+      in {
+        enable = true;
+        defaultApplications = {
+          "text/*" = editor;
+          "text/plain" = editor;
+          "x-scheme-handler/terminal" = terminal;
+        };
+      };
     };
-    #    home.file."./.config/templates/Blank text file".text = "";
+    home.packages = with pkgs; [
+      xdg-utils
+    ];
+    home.sessionVariables = {
+      TERMINAL = "alacritty";
+    };
   };
 }

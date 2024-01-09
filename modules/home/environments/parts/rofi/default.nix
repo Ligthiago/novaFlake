@@ -25,7 +25,7 @@ in {
       location = "center";
       cycle = false;
       extraConfig = {
-        modi = "drun,run,filebrowser";
+        modi = "drun,filebrowser,calc";
         case-sensetive = false;
         show-icons = true;
         icon-theme = "Papirus";
@@ -45,6 +45,7 @@ in {
         display-drun = "Launcher";
         display-keys = "Shortcuts";
         display-filebrowser = "Files";
+        display-calc = "Calculator";
       };
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
@@ -74,7 +75,7 @@ in {
 
         "mainbox" = {
           enabled = true;
-          children = map mkLiteral ["inputbar" "listview"];
+          children = map mkLiteral ["inputbar" "message" "listview"];
           background-color = mkLiteral "inherit";
         };
 
@@ -164,9 +165,9 @@ in {
           lines = 10;
           layout = mkLiteral "vertical";
           dynamic = true;
-          spacing = mkLiteral "6px";
+          spacing = mkLiteral "12px";
 
-          padding = mkLiteral "20px";
+          padding = mkLiteral "12px";
           background-color = mkLiteral "@background-normal";
           text-color = mkLiteral "@foreground";
           border = mkLiteral "0px";
