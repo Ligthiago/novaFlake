@@ -13,10 +13,6 @@ with lib.nova; {
 
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
-    alejandra
-  ];
-
   # Temporally enable git this way
   programs.git = {
     enable = true;
