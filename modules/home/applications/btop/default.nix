@@ -92,7 +92,7 @@ in {
       comment = "Terminal resource monitor";
       exec = "btop";
       settings = {
-        Keywords = "Resource;Monitoring,Processes,Memory,Disks,Network,Statistics";
+        Keywords = "Resource;Monitoring,Processes,Memory,Disks,Network,Statistics;";
       };
     };
   };

@@ -28,6 +28,7 @@ in {
     modules.environment.parts = {
       fonts = enabled;
     };
+
     environment.systemPackages = with pkgs; [
       glib
     ];

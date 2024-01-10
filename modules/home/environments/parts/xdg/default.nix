@@ -38,14 +38,25 @@ in {
       };
       mime.enable = true;
       mimeApps = let
-        editor = ["nvim.desktop"];
-        terminal = ["Alacritty.desktop"];
+        nvim = ["nvim.desktop"];
+        alacritty = ["Alacritty.desktop"];
+        celluloid = ["io.github.celluloid_player.Celluloid.desktop"];
+        loupe = ["org.gnome.Loupe.desktop"];
       in {
         enable = true;
         defaultApplications = {
-          "text/*" = editor;
-          "text/plain" = editor;
-          "x-scheme-handler/terminal" = terminal;
+          "text/*" = nvim;
+          "text/plain" = nvim;
+          "x-scheme-handler/terminal" = alacritty;
+          "video/*" = celluloid;
+          "video/mp4" = celluloid;
+          "video/webm" = celluloid;
+          "image/jpeg" = loupe;
+          "image/png" = loupe;
+          "image/gif" = loupe;
+          "image/jxl" = loupe;
+          "image/tiff" = loupe;
+          "image/avif" = loupe;
         };
       };
     };

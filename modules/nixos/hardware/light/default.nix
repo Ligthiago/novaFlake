@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.hardware.light;
+  cfg = config.modules.hardware.backlight;
 in {
-  options.modules.hardware.light = {
-    enable = mkEnableOption (lib.mdDoc "Enable light service for brightness control");
+  options.modules.hardware.backlight = {
+    enable = mkEnableOption (lib.mdDoc "Enable backlight module");
   };
   config = mkIf cfg.enable {
     programs.light = {

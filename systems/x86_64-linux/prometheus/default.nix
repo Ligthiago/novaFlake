@@ -36,7 +36,8 @@ with lib.nova; {
 
   modules = {
     hardware = {
-      light = enabled;
+      backlight = enabled;
+      audio = enabled;
     };
     services = {
       tlp = enabled;

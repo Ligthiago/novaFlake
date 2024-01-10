@@ -35,9 +35,11 @@ with lib.nova; {
       nautilus = enabled;
       celluloid = enabled;
       btop = enabled;
+      loupe = enabled;
     };
     shells = {
       bash = enabled;
+      nushell = enabled;
       parts = {
         starship = enabled;
         atuin = enabled;
