@@ -19,6 +19,7 @@ in {
       swayidle = disabled;
       xdg = enabled;
       rofi = enabled;
+      eww = enabled;
     };
 
     wayland.windowManager.hyprland = {

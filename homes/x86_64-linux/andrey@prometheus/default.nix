@@ -37,6 +37,7 @@ with lib.nova; {
       btop = enabled;
       loupe = enabled;
       evince = enabled;
+      vscode = enabled;
     };
     shells = {
       bash = enabled;
