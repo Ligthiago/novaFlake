@@ -83,6 +83,7 @@ in {
         extraCss = namedColors + cssTweaks;
       };
       gtk3 = {
+        extraCss = namedColors;
         bookmarks =
           if config.xdg.userDirs.enable
           then bookmarksList

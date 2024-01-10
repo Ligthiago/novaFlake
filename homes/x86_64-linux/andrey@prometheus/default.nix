@@ -41,6 +41,7 @@ with lib.nova; {
       loupe = enabled;
       evince = enabled;
       vscode = enabled;
+      secrets = enabled;
     };
     shells = {
       bash = enabled;
