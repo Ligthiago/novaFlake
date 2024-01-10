@@ -25,6 +25,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs: let
@@ -44,6 +46,10 @@
       channels-config = {
         allowUnfree = true;
       };
+
+      overlays = with inputs; [
+        nur.overlay
+      ];
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager

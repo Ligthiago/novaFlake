@@ -31,6 +31,7 @@ with lib.nova; {
 
   modules = {
     applications = {
+      firefox = enabled;
       neovim = enabled;
       nautilus = enabled;
       celluloid = enabled;
