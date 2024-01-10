@@ -36,6 +36,7 @@ with lib.nova; {
       celluloid = enabled;
       btop = enabled;
       loupe = enabled;
+      evince = enabled;
     };
     shells = {
       bash = enabled;

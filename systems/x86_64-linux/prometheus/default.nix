@@ -34,6 +34,10 @@ with lib.nova; {
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Temp
+  services.dbus.packages = [ pkgs.evince ];
+  systemd.packages = [ pkgs.evince ];
+
   modules = {
     hardware = {
       backlight = enabled;
