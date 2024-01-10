@@ -35,6 +35,8 @@ with lib.nova; {
       nautilus = enabled;
       celluloid = enabled;
       btop = enabled;
+      s-tui = enabled;
+      lazygit = enabled;
       loupe = enabled;
       evince = enabled;
       vscode = enabled;
@@ -50,6 +52,9 @@ with lib.nova; {
     tools = {
       zoxide = enabled;
       eza = enabled;
+    };
+    services = {
+      gammastep = enabled;
     };
   };
 

@@ -62,7 +62,7 @@ in {
 
         "window" = {
           enabled = true;
-          width = mkLiteral "800px";
+          width = mkLiteral "1000px";
           height = mkLiteral "700px";
           margin = 0;
           padding = 0;
@@ -161,7 +161,7 @@ in {
 
         "listview" = {
           enabled = true;
-          columns = 1;
+          columns = 2;
           lines = 10;
           layout = mkLiteral "vertical";
           dynamic = true;

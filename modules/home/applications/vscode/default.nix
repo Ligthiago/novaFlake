@@ -22,7 +22,7 @@ in {
       package = pkgs.vscodium;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      mutableExtensionsDir = true; 
+      mutableExtensionsDir = true;
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
         piousdeer.adwaita-theme
@@ -47,19 +47,20 @@ in {
       };
     };
 
-    #    xdg.desktopEntries."io.github.celluloid_player.Celluloid" = {
-    #      name = "Celluloid";
-    #      genericName = "Media Player";
-    #      categories = ["Audio" "Video"];
-    #      type = "Application";
-    #      terminal = false;
-    #      icon = "io.github.celluloid_player.Celluloid";
-    #      comment = "Mpv-based video player";
-    #      exec = "firejail celluloid %U";
-    #      settings = {
-    #        Keywords = "Audio;Video;Media;Player";
-    #        DBusActivatable = "true";
-    #      };
-    #    };
+    xdg.desktopEntries."codium" = {
+      name = "VSCodium";
+      genericName = "Text Editor";
+      categories = ["Utility" "TextEditor"];
+      type = "Application";
+      terminal = false;
+      icon = "vscodium";
+      comment = "Full-featured graphical text editor";
+      exec = "codium %F";
+      settings = {
+        StartupNotify = "true";
+        StartupWMClass = "vscodium";
+        Keywords = "Text;Code;Editor;IDE;Development;";
+      };
+    };
   };
 }
