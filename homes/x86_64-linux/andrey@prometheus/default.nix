@@ -34,6 +34,7 @@ with lib.nova; {
       neovim = enabled;
       nautilus = enabled;
       celluloid = enabled;
+      btop = enabled;
     };
     shells = {
       bash = enabled;
