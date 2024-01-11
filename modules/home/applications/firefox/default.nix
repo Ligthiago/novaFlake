@@ -123,18 +123,17 @@ in {
           "toolkit.telemetry.unifiedIsOptIn" = false;
           "toolkit.telemetry.updatePing.enabled" = false;
 
-          # Manual configs
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "browser.uidensity" = 0;
+          "svg.context-properties.content.enabled" = true;
           "browser.urlbar.suggest.topsites" = false;
           "browser.newtabpage.activity-stream.default.sites" = "";
 
-          # GPU
           "dom.webgpu.enabled" = true;
           "gfx.webrender.all" = true;
           "layers.gpu-process.enabled" = true;
           "layers.mlgpu.enabled" = true;
 
-          # Decoding
           "media.ffmpeg.vaapi.enabled" = true;
           "media.gpu-process-decoder" = true;
           "media.hardware-video-decoding.enabled" = true;
@@ -211,6 +210,9 @@ in {
         };
       };
     };
+
+    home.file."./.mozilla/firefox/${user}/chrome/".source = ./theme;
+
     xdg.desktopEntries."firefox" = {
       name = "Firefox";
       genericName = "Web Browser";

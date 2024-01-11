@@ -27,6 +27,11 @@
     };
 
     nur.url = "github:nix-community/NUR";
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let
@@ -57,6 +62,7 @@
 
       homes.users."andrey@prometheus".modules = with inputs; [
         nixvim.homeManagerModules.nixvim
+        ags.homeManagerModules.default
       ];
 
       homes.users."andrey@prometheus".specialArgs = {
