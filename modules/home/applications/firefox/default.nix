@@ -21,7 +21,6 @@ in {
           ublock-origin
         ];
         settings = {
-          # Auto-generated configs
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
           "app.shield.optoutstudies.enabled" = false;
@@ -211,7 +210,10 @@ in {
       };
     };
 
-    home.file."./.mozilla/firefox/${user}/chrome/".source = ./theme;
+    home.file."./.mozilla/firefox/${user}/chrome/".source = builtins.fetchGit{
+      url = "https://github.com/rafaelmardojai/firefox-gnome-theme";
+      rev = "7a1a81baa7c31d75764dcea908285e487302d32a";
+    };
 
     xdg.desktopEntries."firefox" = {
       name = "Firefox";
