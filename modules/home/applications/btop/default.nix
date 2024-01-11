@@ -15,11 +15,11 @@ in {
     programs.btop = {
       enable = true;
       settings = {
-        color_scheme = "matcha-dark-sea";
+        color_theme = "nova";
         theme_background = false;
         truecolor = true;
         force_tty = false;
-        presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
+        presets = "cpu:0:default,proc:0:default cpu:0:default,mem:0:default,net:0:default";
         vim_keys = true;
         rounded_corners = true;
         graph_symbol = "block";
@@ -81,6 +81,46 @@ in {
         log_level = "WARNING";
       };
     };
+
+    home.file."./.config/btop/themes/nova.theme".text = ''
+      theme[main_bg]="#1e1e1e"
+      theme[main_fg]="#dddddd"
+      theme[title]="#dddddd"
+      theme[hi_fg]="#12b886"
+      theme[selected_bg]="#323232"
+      theme[selected_fg]="#dddddd"
+      theme[inactive_fg]="#464646"
+      theme[proc_misc]="#12b886"
+      theme[cpu_box]="#464646"
+      theme[mem_box]="#464646"
+      theme[net_box]="#464646"
+      theme[proc_box]="#464646"
+      theme[div_line]="#464646"
+      theme[temp_start]="#12b886"
+      theme[temp_mid]=""
+      theme[temp_end]="#f03e3e"
+      theme[cpu_start]="#12b886"
+      theme[cpu_mid]=""
+      theme[cpu_end]="#f03e3e"
+      theme[free_start]="#12b886"
+      theme[free_mid]=""
+      theme[free_end]=""
+      theme[cached_start]="#228be6"
+      theme[cached_mid]=""
+      theme[cached_end]=""
+      theme[available_start]="#fab005"
+      theme[available_mid]=""
+      theme[available_end]=""
+      theme[used_start]="#f03e3e"
+      theme[used_mid]=""
+      theme[used_end]=""
+      theme[download_start]="#12b886"
+      theme[download_mid]=""
+      theme[download_end]="#f03e3e"
+      theme[upload_start]="#22b8cf"
+      theme[upload_mid]=""
+      theme[upload_end]="#f03e3e"
+    '';
 
     xdg.desktopEntries."btop" = {
       name = "Btop";

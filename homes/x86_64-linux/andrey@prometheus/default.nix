@@ -54,6 +54,8 @@ with lib.nova; {
     tools = {
       zoxide = enabled;
       eza = enabled;
+      yt-dlp = enabled;
+      bat = enabled;
     };
     services = {
       gammastep = enabled;

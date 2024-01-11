@@ -210,7 +210,7 @@ in {
       };
     };
 
-    home.file."./.mozilla/firefox/${user}/chrome/".source = builtins.fetchGit{
+    home.file."./.mozilla/firefox/${user}/chrome/".source = builtins.fetchGit {
       url = "https://github.com/rafaelmardojai/firefox-gnome-theme";
       rev = "7a1a81baa7c31d75764dcea908285e487302d32a";
     };

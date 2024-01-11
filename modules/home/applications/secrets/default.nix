@@ -15,18 +15,18 @@ in {
     home.packages = with pkgs; [
       gnome-secrets
     ];
-  #  xdg.desktopEntries."stui" = {
-  #    name = "S-tui";
-  #    genericName = "Stress Monitor";
-  #    categories = ["System" "Monitor"];
-  #    type = "Application";
-  #    terminal = true;
-  #    icon = "openhardwaremonitor";
-  #    comment = "Terminal-based CPU stress monitoring utility";
-  #    exec = "s-tui";
-  #    settings = {
-  #      Keywords = "Resource;Monitoring,Stress,Statistics,Processor;";
-  #   };
-  #  };
+    #  xdg.desktopEntries."stui" = {
+    #    name = "S-tui";
+    #    genericName = "Stress Monitor";
+    #    categories = ["System" "Monitor"];
+    #    type = "Application";
+    #    terminal = true;
+    #    icon = "openhardwaremonitor";
+    #    comment = "Terminal-based CPU stress monitoring utility";
+    #    exec = "s-tui";
+    #    settings = {
+    #      Keywords = "Resource;Monitoring,Stress,Statistics,Processor;";
+    #   };
+    #  };
   };
 }
