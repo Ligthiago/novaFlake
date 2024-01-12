@@ -49,6 +49,7 @@ with lib.nova; {
       parts = {
         starship = enabled;
         atuin = enabled;
+        zellij = enabled;
       };
     };
     tools = {
