@@ -43,6 +43,7 @@ with lib.nova; {
       vscode = enabled;
       secrets = enabled;
       yazi = enabled;
+      amdgputop = enabled;
     };
     shells = {
       bash = enabled;

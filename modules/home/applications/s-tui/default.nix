@@ -17,7 +17,7 @@ in {
       stress
     ];
     xdg.desktopEntries."stui" = {
-      name = "S-tui";
+      name = "Stress Monitor";
       genericName = "Stress Monitor";
       categories = ["System" "Monitor"];
       type = "Application";

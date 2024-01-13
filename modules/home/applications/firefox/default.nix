@@ -37,6 +37,7 @@ in {
         OfferToSaveLogins = false;
         ShowHomeButton = false;
         NetworkPrediction = false;
+        HardwareAcceleration = true;
         FirefoxHome = {
           Locked = true;
           Search = true;
@@ -175,7 +176,7 @@ in {
           "dom.webgpu.enabled" = true;
           "gfx.webrender.all" = true;
           "layers.gpu-process.enabled" = true;
-          "layers.mlgpu.enabled" = true;
+          "media.hardware-video-decoding.force-enabled" = true;
 
           "media.ffmpeg.vaapi.enabled" = true;
           "media.gpu-process-decoder" = true;

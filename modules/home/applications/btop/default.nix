@@ -34,7 +34,7 @@ in {
         proc_tree = false;
         proc_colors = true;
         proc_gradient = false;
-        proc_per_core = true;
+        proc_per_core = false;
         proc_mem_bytes = true;
         proc_cpu_graphs = true;
         proc_info_smaps = false;
