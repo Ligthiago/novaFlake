@@ -23,6 +23,11 @@ in {
       ags = enabled;
     };
 
+    home.packages = with pkgs; [
+      grimblast
+      hyprpicker
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
@@ -138,6 +143,17 @@ in {
         bindm = [
           "SUPER, mouse:272, movewindow"
           "SUPER, mouse:273, resizewindow"
+        ];
+        windowrule = [
+          "float,^(io.github.celluloid_player.Celluloid)$"
+          "center,^(io.github.celluloid_player.Celluloid)$"
+          "size 80% 80%,^(io.github.celluloid_player.Celluloid)$"
+          "animation popin,^(io.github.celluloid_player.Celluloid)$"
+
+          "float,^(org.gnome.Loupe)$"
+          "center,^(org.gnome.Loupe)$"
+          "size 80% 80%,^(org.gnome.Loupe)$"
+          "animation popin,^(org.gnome.Loupe)$"
         ];
       };
       extraConfig = ''

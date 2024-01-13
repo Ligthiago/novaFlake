@@ -20,11 +20,6 @@ with lib.nova; {
     userEmail = "donets.andre@gmail.com";
   };
 
-  home.packages = with pkgs; [
-    swappy
-    grimblast
-  ];
-
   nova = {
     environments = {
       hyprland = enabled;
@@ -63,6 +58,7 @@ with lib.nova; {
       eza = enabled;
       yt-dlp = enabled;
       bat = enabled;
+      pastel = enabled;
     };
     services = {
       gammastep = enabled;

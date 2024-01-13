@@ -143,6 +143,7 @@ in {
           background-color = mkLiteral "inherit";
           text-color = mkLiteral "inherit";
           width = mkLiteral "300px";
+          padding = mkLiteral "0px 0px 0px 30px";
         };
 
         "button" = {
@@ -180,7 +181,7 @@ in {
         "element" = {
           enabled = true;
           spacing = mkLiteral "14px";
-          padding = mkLiteral "6px 14px";
+          padding = mkLiteral "8px 14px";
           cursor = mkLiteral "pointer";
           border = mkLiteral "1px solid";
           border-radius = mkLiteral "6px";

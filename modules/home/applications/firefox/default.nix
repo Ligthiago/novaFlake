@@ -16,6 +16,61 @@ in {
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
+      package = pkgs.firefox.override {
+        cfg = {
+          speechSynthesisSupport = false;
+        };
+      };
+      policies = {
+        CaptivePortal = false;
+        DisableFirefoxAccounts = true;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableProfileImport = true;
+        DisableTelemetry = true;
+        DisablePrivateBrowsing = true;
+        DisplayBookmarksToolbar = "never";
+        DisplayMenuBar = "never";
+        DisableFeedbackCommands = true;
+        NoDefaultBookmarks = true;
+        PasswordManagerEnabled = false;
+        OfferToSaveLogins = false;
+        ShowHomeButton = false;
+        NetworkPrediction = false;
+        FirefoxHome = {
+          Locked = true;
+          Search = true;
+          TopSites = false;
+          SponsoredTopSites = false;
+          Highlights = false;
+          Pocket = false;
+          SponsoredPocket = false;
+          Snippets = false;
+        };
+        FirefoxSuggest = {
+          Locked = true;
+          WebSuggestions = true;
+          SponsoredSuggestions = false;
+          ImproveSuggest = false;
+        };
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          FeatureRecommendations = false;
+          SkipOnboarding = true;
+          WhatsNew = false;
+        };
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+          EmailTracking = true;
+        };
+        PictureInPicture = {
+          Enabled = false;
+        };
+      };
+
       profiles."${user}" = {
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -23,7 +78,6 @@ in {
         settings = {
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
-          "app.shield.optoutstudies.enabled" = false;
           "app.update.auto" = false;
           "beacon.enabled" = false;
           "breakpad.reportURL" = "";
@@ -34,10 +88,6 @@ in {
           "browser.crashReports.unsubmittedCheck.enabled" = false;
           "browser.disableResetPrompt" = true;
           "browser.newtab.preload" = false;
-          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-          "browser.newtabpage.enabled" = false;
-          "browser.newtabpage.enhanced" = false;
-          "browser.newtabpage.introShown" = true;
           "browser.safebrowsing.appRepURL" = "";
           "browser.safebrowsing.blockedURIs.enabled" = false;
           "browser.safebrowsing.downloads.enabled" = false;
@@ -53,12 +103,8 @@ in {
           "browser.startup.homepage_override.mstone" = "ignore";
           "browser.tabs.crashReporting.sendReport" = false;
           "browser.urlbar.groupLabels.enabled" = false;
-          "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.speculativeConnect.enabled" = false;
           "browser.urlbar.trimURLs" = false;
-          "datareporting.healthreport.service.enabled" = false;
-          "datareporting.healthreport.uploadEnabled" = false;
-          "datareporting.policy.dataSubmissionEnabled" = false;
           "device.sensors.ambientLight.enabled" = false;
           "device.sensors.enabled" = false;
           "device.sensors.motion.enabled" = false;
@@ -73,7 +119,6 @@ in {
           "extensions.getAddons.showPane" = false;
           "extensions.greasemonkey.stats.optedin" = false;
           "extensions.greasemonkey.stats.url" = "";
-          "extensions.pocket.enabled" = false;
           "extensions.shield-recipe-client.api_url" = "";
           "extensions.shield-recipe-client.enabled" = false;
           "extensions.webservice.discoverURL" = "";
@@ -84,7 +129,6 @@ in {
           "media.video_stats.enabled" = false;
           "network.IDN_show_punycode" = true;
           "network.allow-experiments" = false;
-          "network.captive-portal-service.enabled" = false;
           "network.cookie.cookieBehavior" = 1;
           "network.dns.disablePrefetch" = true;
           "network.dns.disablePrefetchFromHTTPS" = true;
@@ -98,10 +142,6 @@ in {
           "privacy.donottrackheader.enabled" = true;
           "privacy.donottrackheader.value" = 1;
           "privacy.query_stripping" = true;
-          "privacy.trackingprotection.cryptomining.enabled" = true;
-          "privacy.trackingprotection.enabled" = true;
-          "privacy.trackingprotection.fingerprinting.enabled" = true;
-          "privacy.trackingprotection.pbmode.enabled" = true;
           "privacy.usercontext.about_newtab_segregation.enabled" = true;
           "security.ssl.disable_session_identifiers" = true;
           "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
@@ -121,6 +161,10 @@ in {
           "toolkit.telemetry.unified" = false;
           "toolkit.telemetry.unifiedIsOptIn" = false;
           "toolkit.telemetry.updatePing.enabled" = false;
+
+          "browser.translations.automaticallyPopup" = false;
+
+          "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "browser.uidensity" = 0;
