@@ -46,6 +46,11 @@ in {
             white = "#dddddd";
           };
         };
+        cursor = {
+          style = {
+            shape = "Beam";
+          };
+        };
       };
     };
   };

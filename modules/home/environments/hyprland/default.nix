@@ -26,6 +26,7 @@ in {
     home.packages = with pkgs; [
       grimblast
       hyprpicker
+      swww
     ];
 
     wayland.windowManager.hyprland = {
@@ -99,7 +100,9 @@ in {
           [
             "SUPER, Q, killactive"
             "SUPER, M, exit"
+
             "SUPER, V, togglefloating"
+            "SUPER SHIFT, Z, alterzorder, bottom"
 
             "SUPER, F, fullscreen, 1"
             "SUPER ALT, F, fullscreen"

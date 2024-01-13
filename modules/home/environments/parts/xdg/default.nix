@@ -27,13 +27,16 @@ in {
         pictures = "${home}/Pictures";
         documents = "${home}/Documents";
         download = "${home}/Downloads";
-        extraConfig = {
+        extraConfig = let
+          pictures = config.xdg.userDirs.pictures;
+        in {
           XDG_MISC_DIR = "${home}/Misc";
           XDG_PROJECTS_DIR = "${home}/Projects";
           XDG_GAMES_DIR = "${home}/Games";
           XDG_LIBRARY_DIR = "${home}/Library";
           XDG_BACKUPS_DIR = "${home}/Backups";
-          XDG_SCREENSHOTS_DIR = "${home}/Pictures/Screenshots";
+          XDG_SCREENSHOTS_DIR = "${pictures}/Screenshots";
+          XDG_WALLPAPERS_DIR = "${pictures}/Wallpapers";
         };
       };
       mime.enable = true;
