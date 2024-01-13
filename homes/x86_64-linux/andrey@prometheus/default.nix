@@ -20,6 +20,11 @@ with lib.nova; {
     userEmail = "donets.andre@gmail.com";
   };
 
+  home.packages = with pkgs; [
+    swappy
+    grimblast
+  ];
+
   nova = {
     environments = {
       hyprland = enabled;
@@ -42,6 +47,7 @@ with lib.nova; {
       evince = enabled;
       vscode = enabled;
       secrets = enabled;
+      yazi = enabled;
     };
     shells = {
       bash = enabled;

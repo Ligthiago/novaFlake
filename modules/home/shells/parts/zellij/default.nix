@@ -2,10 +2,12 @@
   options,
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
   cfg = config.modules.shells.parts.zellij;
+  home = config.home.homeDirectory;
 in {
   options.modules.shells.parts.zellij = {
     enable = mkEnableOption (lib.mdDoc "Enable zellij module");
@@ -35,19 +37,5 @@ in {
         };
       };
     };
-    home.file.".config/zellij/layouts/basic.kdl".text = ''
-      layout {
-        pane split_direction="vertical" {
-          pane
-          pane split_direction="horizontal" {
-            pane
-            pane
-          }
-        }
-        pane size=1 borderless=true {
-          plugin location="zellij:compact-bar"
-        }
-      }
-    '';
   };
 }

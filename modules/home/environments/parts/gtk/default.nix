@@ -72,8 +72,8 @@ in {
     in {
       enable = true;
       theme = {
-        name = "Adwaita";
-        package = pkgs.gnome-themes-extra;
+        name = "adw-gtk3";
+        package = pkgs.adw-gtk3;
       };
       iconTheme = {
         name = "Papirus";
