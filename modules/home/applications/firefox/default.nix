@@ -82,7 +82,6 @@ in {
           "app.update.auto" = false;
           "beacon.enabled" = false;
           "breakpad.reportURL" = "";
-          "browser.aboutConfig.showWarning" = false;
           "browser.cache.offline.enable" = false;
           "browser.crashReports.unsubmittedCheck.autoSubmit" = false;
           "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
@@ -123,8 +122,6 @@ in {
           "extensions.shield-recipe-client.api_url" = "";
           "extensions.shield-recipe-client.enabled" = false;
           "extensions.webservice.discoverURL" = "";
-          "media.autoplay.default" = 1;
-          "media.autoplay.enabled" = false;
           "media.eme.enabled" = false;
           "media.gmp-widevinecdm.enabled" = false;
           "media.video_stats.enabled" = false;
@@ -147,6 +144,8 @@ in {
           "security.ssl.disable_session_identifiers" = true;
           "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
           "signon.autofillForms" = false;
+
+          # Telemetry
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.bhrPing.enabled" = false;
           "toolkit.telemetry.cachedClientID" = "";
@@ -163,25 +162,31 @@ in {
           "toolkit.telemetry.unifiedIsOptIn" = false;
           "toolkit.telemetry.updatePing.enabled" = false;
 
-          "browser.translations.automaticallyPopup" = false;
-
-          "extensions.htmlaboutaddons.recommendations.enabled" = false;
-
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "browser.uidensity" = 0;
-          "svg.context-properties.content.enabled" = true;
-          "browser.urlbar.suggest.topsites" = false;
-          "browser.newtabpage.activity-stream.default.sites" = "";
-
+          # Hardware acceleration and decoding
           "dom.webgpu.enabled" = true;
           "gfx.webrender.all" = true;
           "layers.gpu-process.enabled" = true;
           "media.hardware-video-decoding.force-enabled" = true;
-
           "media.ffmpeg.vaapi.enabled" = true;
           "media.gpu-process-decoder" = true;
           "media.hardware-video-decoding.enabled" = true;
+
+          # Customization
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "browser.uidensity" = 0;
+          "svg.context-properties.content.enabled" = true;
+
+          # Be simple and quiet
+          "browser.aboutConfig.showWarning" = false;
+          "browser.preferences.moreFromMozilla" = false;
+          "reader.parse-on-load.enabled" = false;
+          "browser.translations.automaticallyPopup" = false;
+          "extensions.htmlaboutaddons.recommendations.enabled" = false;
+          "media.autoplay.default" = 1;
+          "media.autoplay.enabled" = false;
         };
+
+        # Search engines configurations
         search = {
           default = "DuckDuckGo";
           force = true;
@@ -255,11 +260,26 @@ in {
       };
     };
 
-    home.file."./.mozilla/firefox/${user}/chrome/".source = builtins.fetchGit {
-      url = "https://github.com/rafaelmardojai/firefox-gnome-theme";
-      rev = "7a1a81baa7c31d75764dcea908285e487302d32a";
+    # Apply custom theme
+    home.file = let
+      chrome = ".mozilla/firefox/${user}/chrome";
+    in {
+      # Apply Firefox Gnome theme
+      "${chrome}" = {
+        source = builtins.fetchGit {
+          url = "https://github.com/rafaelmardojai/firefox-gnome-theme";
+          rev = "7a1a81baa7c31d75764dcea908285e487302d32a";
+        };
+        recursive = true;
+      };
+      # Add custom modifications
+      "${chrome}/customContent.css".source = ./custom/customContent.css;
+      "${chrome}/customChrome.css".source = ./custom/customChrome.css;
+      "${chrome}/custom/pages".source = ./custom/pages;
+      "${chrome}/custom/interface".source = ./custom/interface;
     };
 
+    # Create custom desktop entry
     xdg.desktopEntries."firefox" = {
       name = "Firefox";
       genericName = "Web Browser";
