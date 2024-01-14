@@ -46,17 +46,17 @@ in {
         };
         nix_shell = {
           format = "via [ $state$name](bold blue) ";
-          impure_msg = "Impure ";
+          impure_msg = "";
           pure_msg = "Pure ";
-          unknown_msg = "Unknown ";
+          unknown_msg = "";
         };
         git_branch = {
-          format = "on [$symbol$branch]($style)";
+          format = "on [$symbol$branch]($style) ";
           style = "bold green";
           symbol = " ";
         };
         lua = {
-          format = "via [$symbol($version )]($style)";
+          format = "via [$symbol($version )]($style) ";
           symbol = "";
           style = "blue";
         };

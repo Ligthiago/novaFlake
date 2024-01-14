@@ -4,6 +4,7 @@ pkgs.mkShell {
     deadnix
     dconf2nix
     alejandra
+    vulnix
   ];
   shellHook = ''
     echo ""
@@ -13,6 +14,7 @@ pkgs.mkShell {
     echo "Alejandra: format Nix code"
     echo "Deadnix: search for dead code"
     echo "Dconf2nix: convert dconf files to Nix"
+    echo "Vulnix: scan packages for vulnerabilities"
     echo ""
   '';
 }

@@ -37,11 +37,21 @@ in {
           };
           normal = {
             black = "#343a40";
-            red = "#f03e3e";
+            red = "#ed333b";
             green = "#12b886";
-            yellow = "#fab005";
-            blue = "#228be6";
-            magenta = "#be4bdb";
+            yellow = "#ffa348";
+            blue = "#3584e4";
+            magenta = "#c061cb";
+            cyan = "#22b8cf";
+            white = "#dddddd";
+          };
+          bright = {
+            black = "#343a40";
+            red = "#ed333b";
+            green = "#12b886";
+            yellow = "#ffa348";
+            blue = "#3584e4";
+            magenta = "#c061cb";
             cyan = "#22b8cf";
             white = "#dddddd";
           };

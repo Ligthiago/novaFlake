@@ -184,6 +184,9 @@ in {
           "extensions.htmlaboutaddons.recommendations.enabled" = false;
           "media.autoplay.default" = 1;
           "media.autoplay.enabled" = false;
+
+          # Bypass Russian censorship
+          "network.proxy.autoconfig_url" = "https://antizapret.prostovpn.org:8443/proxy.pac";
         };
 
         # Search engines configurations
@@ -276,7 +279,7 @@ in {
       "${chrome}/customContent.css".source = ./custom/customContent.css;
       "${chrome}/customChrome.css".source = ./custom/customChrome.css;
       "${chrome}/custom/pages".source = ./custom/pages;
-      "${chrome}/custom/interface".source = ./custom/interface;
+      #"${chrome}/custom/interface".source = ./custom/interface;
     };
 
     # Create custom desktop entry
