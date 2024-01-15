@@ -29,7 +29,6 @@ with lib.nova; {
 
   environment.systemPackages = with pkgs; [
     git
-    neofetch
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

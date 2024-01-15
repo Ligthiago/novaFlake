@@ -60,6 +60,8 @@ with lib.nova; {
       yt-dlp = enabled;
       bat = enabled;
       pastel = enabled;
+      fastfetch = enabled;
+      jaq = enabled;
     };
     services = {
       gammastep = enabled;
