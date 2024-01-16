@@ -38,7 +38,6 @@ in {
       settings = {
         env = [
           "GDK_BACKEND,wayland"
-          "QT_QPA_PLATFORM,wayland,xcb"
           "SDL_VIDEODRIVER,wayland,x11"
           "CLUTTER_BACKEND,wayland"
           "NIXOS_OZONE_WL,1"
@@ -96,6 +95,9 @@ in {
           disable_hyprland_logo = true;
           background_color = "rgba(1e1e1eff)";
         };
+        dwindle = {
+          preserve_split = true;
+        };
         bind =
           [
             "SUPER, Q, killactive"
@@ -112,16 +114,25 @@ in {
             "SUPER, A, movefocus, l"
             "SUPER, S, movefocus, d"
             "SUPER, D, movefocus, r"
+            "SUPER, up, movefocus, u"
+            "SUPER, left, movefocus, l"
+            "SUPER, down, movefocus, d"
+            "SUPER, right, movefocus, r"
 
             "SUPER SHIFT, W, swapwindow, u"
             "SUPER SHIFT, A, swapwindow, l"
             "SUPER SHIFT, S, swapwindow, d"
             "SUPER SHIFT, D, swapwindow, r"
+            "SUPER SHIFT, up, swapwindow, u"
+            "SUPER SHIFT, left, swapwindow, l"
+            "SUPER SHIFT, down, swapwindow, d"
+            "SUPER SHIFT, right, swapwindow, r"
+
+            "SUPER, X, togglesplit"
 
             "SUPER, P, pin"
 
-            "SUPER, E, exec, alacritty"
-            "SUPER, R, exec, rofi -show drun"
+            "SUPER, E, exec, rofi -show drun"
 
             "SUPER, Tab, hycov:toggleoverview"
           ]
@@ -160,6 +171,32 @@ in {
         ];
       };
       extraConfig = ''
+        bind = SUPER, R, submap, resize
+        submap = resize
+        binde = SUPER, W, resizeactive, 0 -20
+        binde = SUPER, A, resizeactive, -20 0
+        binde = SUPER, S, resizeactive, 0 20
+        binde = SUPER, D, resizeactive, 20 0
+        binde = SUPER, up, resizeactive, 0 -20
+        binde = SUPER, left, resizeactive, -20 0
+        binde = SUPER, down, resizeactive, 0 20
+        binde = SUPER, right, resizeactive, 20 0
+
+        bind = SUPER SHIFT, W, movefocus, u
+        bind = SUPER SHIFT, A, movefocus, l
+        bind = SUPER SHIFT, S, movefocus, d
+        bind = SUPER SHIFT, D, movefocus, r
+        bind = SUPER SHIFT, up, movefocus, u
+        bind = SUPER SHIFT, left, movefocus, l
+        bind = SUPER SHIFT, down, movefocus, d
+        bind = SUPER SHIFT, right, movefocus, r
+
+        bind = SUPER, X, togglesplit
+        bind = SUPER, E, splitratio, exact 1
+        bind = SUPER, R, submap, reset
+        bind = , escape, submap, reset
+        submap = reset
+
         plugin {
           hycov {
             overview_gappo = 20
@@ -177,9 +214,6 @@ in {
             only_active_monitor = 1
             enable_alt_release_exit = 0
             alt_toggle_auto_next = 0
-          }
-          hyprwinwrap {
-            class = terminal-bg
           }
         }
       '';
