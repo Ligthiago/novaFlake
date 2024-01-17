@@ -8,6 +8,7 @@
 with lib; let
   cfg = config.modules.environments.parts.gtk;
   home = config.home.homeDirectory;
+  user = config.home.username;
 in {
   options.modules.environments.parts.gtk = {
     enable = mkEnableOption (lib.mdDoc "Enable gtk customisation module");
@@ -68,6 +69,8 @@ in {
         "file:///${home}/Misc"
         "file:///${home}/Backups"
         "file:///${home}/Screenshots"
+        "file:///${home}/.config Configuration"
+        "file:///${home}/.mozilla/firefox/${user} Profile"
       ];
     in {
       enable = true;

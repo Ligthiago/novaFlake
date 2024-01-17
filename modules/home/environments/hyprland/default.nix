@@ -129,10 +129,14 @@ in {
             "SUPER SHIFT, right, swapwindow, r"
 
             "SUPER, X, togglesplit"
-
             "SUPER, P, pin"
 
             "SUPER, E, exec, rofi -show drun"
+
+            "SUPER, T, exec, alacritty"
+            "SUPER, Y, exec, nautilus"
+            "SUPER, U, exec, firefox"
+            "SUPER, I, exec, codium"
 
             "SUPER, Tab, hycov:toggleoverview"
           ]
