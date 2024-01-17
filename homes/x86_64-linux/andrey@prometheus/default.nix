@@ -63,6 +63,7 @@ with lib.nova; {
       pastel = enabled;
       fastfetch = enabled;
       jaq = enabled;
+      tldr = enabled;
     };
     services = {
       gammastep = enabled;
