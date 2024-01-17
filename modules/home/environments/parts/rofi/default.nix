@@ -25,6 +25,7 @@ in {
       location = "center";
       cycle = false;
       extraConfig = {
+        cache-dir = "${config.home.homeDirectory}/.config/rofi/history/";
         modi = "drun,filebrowser,calc";
         case-sensetive = false;
         show-icons = true;
@@ -212,5 +213,23 @@ in {
         };
       };
     };
+    # Fixed and reproducible history. Rofi can't change read-only file, just give a warning.
+    home.file.".config/rofi/history/rofi3.druncache".text = ''
+      99 Alacritty.desktop
+      98 org.gnome.Nautilus.desktop
+      97 firefox.desktop
+      96 codium.desktop
+      95 nvim.desktop
+      94 com.obsproject.Studio.desktop
+      93 org.gnome.Evince.desktop
+      92 io.github.celluloid_player.Celluloid.desktop
+      91 org.gnome.Loupe.desktop
+      90 org.gnome.World.Secrets.desktop
+      89 btop.desktop
+      88 stui.desktop
+      87 lazygit.desktop
+      86 yazi.desktop
+      85 amdgpu_top.desktop
+    '';
   };
 }
