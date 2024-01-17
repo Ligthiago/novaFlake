@@ -67,6 +67,7 @@ with lib.nova; {
     };
     services = {
       gammastep = enabled;
+      pueue = enabled;
     };
   };
 
