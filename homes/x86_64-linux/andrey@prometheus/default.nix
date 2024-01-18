@@ -64,6 +64,7 @@ with lib.nova; {
       fastfetch = enabled;
       jaq = enabled;
       tldr = enabled;
+      hyperfine = enabled;
     };
     services = {
       gammastep = enabled;
