@@ -5,7 +5,8 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.environments.parts.gtk;
   home = config.home.homeDirectory;
   user = config.home.username;
@@ -22,43 +23,43 @@ in {
     };
     gtk = let
       namedColors = ''
-        @define-color window_bg_color #242424;
-        @define-color window_fg_color #dddddd;
-        @define-color view_bg_color #1e1e1e;
-        @define-color view_fg_color #dddddd;
-        @define-color headerbar_bg_color #323232;
-        @define-color headerbar_fg_color #dddddd;
+        @define-color window_bg_color ${palette.background.dim};
+        @define-color window_fg_color ${palette.foreground.normal};
+        @define-color view_bg_color ${palette.background.dark};
+        @define-color view_fg_color ${palette.foreground.normal};
+        @define-color headerbar_bg_color ${palette.background.normal};
+        @define-color headerbar_fg_color ${palette.foreground.normal};
         @define-color headerbar_border_color transparent;
-        @define-color headerbar_backdrop_color #323232;
+        @define-color headerbar_backdrop_color ${palette.background.bright};
         @define-color headerbar_shade_color transparent;
         @define-color headerbar_darker_shade_color transparent;
-        @define-color sidebar_bg_color #242424;
-        @define-color sidebar_fg_color #dddddd;
-        @define-color sidebar_backdrop_color #242424;
-        @define-color card_bg_color #363636;
-        @define-color card_fg_color #dddddd;
-        @define-color card_shade_color #242424;
+        @define-color sidebar_bg_color ${palette.background.dim};
+        @define-color sidebar_fg_color ${palette.foreground.normal};
+        @define-color sidebar_backdrop_color ${palette.background.dim};
+        @define-color card_bg_color ${palette.background.shiny};
+        @define-color card_fg_color ${palette.foreground.normal}; 
+        @define-color card_shade_color ${palette.background.dim};
       '';
       cssTweaks = ''
         .top-bar {
-          background-color: #323232;
+          background-color: ${palette.background.normal};
         }
         .navigation-sidebar {
-          border-right: 1px solid #323232;
+          border-right: ${geometry.border} ${palette.background.normal};
         }
         .close image {
           background-color: transparent;
           -gtk-icon-size: 20px;
         }
         .close:hover {
-          background-color: #464646;
+          background-color: ${palette.background.bright};
         }
         .maximize image {
           background-color: transparent;
           -gtk-icon-size: 20px;
         }
         .maximize:hover {
-          background-color: #464646;
+          background-color: ${palette.background.bright};
         }
 
       '';

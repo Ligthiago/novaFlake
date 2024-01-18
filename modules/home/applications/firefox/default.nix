@@ -6,7 +6,8 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.firefox;
   user = config.home.username;
 in {

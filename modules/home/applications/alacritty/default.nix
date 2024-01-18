@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.nova.applications.alacritty;
 in {
   options.nova.applications.alacritty = {
@@ -30,31 +31,24 @@ in {
             style = "Regular";
           };
         };
-        colors = {
+        colors = let
+          colors = {
+            black = palette.foreground.dim;
+            red = palette.accents.red;
+            green = palette.accents.green;
+            yellow = palette.accents.yellow;
+            blue = palette.accents.blue;
+            magenta = palette.accents.magenta;
+            cyan = palette.accents.cyan;
+            white = palette.foreground.normal;
+          };
+        in {
           primary = {
             background = "#1e1e1e";
             foreground = "#dddddd";
           };
-          normal = {
-            black = "#343a40";
-            red = "#ed333b";
-            green = "#12b886";
-            yellow = "#ffa348";
-            blue = "#3584e4";
-            magenta = "#c061cb";
-            cyan = "#22b8cf";
-            white = "#dddddd";
-          };
-          bright = {
-            black = "#343a40";
-            red = "#ed333b";
-            green = "#12b886";
-            yellow = "#ffa348";
-            blue = "#3584e4";
-            magenta = "#c061cb";
-            cyan = "#22b8cf";
-            white = "#dddddd";
-          };
+          normal = colors;
+          bright = colors;
         };
         cursor = {
           style = {

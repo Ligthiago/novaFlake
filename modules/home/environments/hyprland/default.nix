@@ -46,8 +46,8 @@ in {
           gaps_in = 3;
           gaps_out = 6;
           border_size = 1;
-          "col.active_border" = "rgba(464646ff)";
-          "col.inactive_border" = "rgba(464646ff)";
+          "col.active_border" = hexToHyprland palette.background.bright;
+          "col.inactive_border" = hexToHyprland palette.background.bright;
           layout = "dwindle";
         };
         decoration = {
