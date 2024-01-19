@@ -16,6 +16,7 @@ in {
       enable = true;
       config = {
         theme = "ansi";
+        plain = true;
       };
     };
   };

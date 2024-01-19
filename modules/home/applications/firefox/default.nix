@@ -268,22 +268,13 @@ in {
     home.file = let
       chrome = ".mozilla/firefox/${user}/chrome";
     in {
-      # Apply Firefox Gnome theme
+      # Apply theme
       "${chrome}" = {
-        source = builtins.fetchGit {
-          url = "https://github.com/rafaelmardojai/firefox-gnome-theme";
-          rev = "7a1a81baa7c31d75764dcea908285e487302d32a";
-        };
+        source = ./chrome;
         recursive = true;
       };
-      # Add custom modifications
-      "${chrome}/customContent.css".source = ./custom/customContent.css;
-      "${chrome}/customChrome.css".source = ./custom/customChrome.css;
-      "${chrome}/custom/pages" = {
-        source = ./custom/pages;
-        recursive = true;
-      }
-      "${chrome}/custom/pages/customColors.css".text = ''
+      # Add global colors
+      "${chrome}/web/customColors.css".text = ''
         :root {
           --nova-background-dark: ${palette.background.dark} !important;
           --nova-background-dim: ${palette.background.dim} !important;
@@ -305,8 +296,6 @@ in {
 
         }
       '';
-
-      #"${chrome}/custom/interface".source = ./custom/interface;
     };
 
     # Create custom desktop entry

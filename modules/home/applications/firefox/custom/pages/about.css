@@ -1,7 +1,0 @@
-@-moz-document url-prefix("about:"){
-	* {
-		font-family: Cantarell;
-		background-color: var(--nova-background-dim);
-		color: var(--nova-foreground-normal);
-	}
-}

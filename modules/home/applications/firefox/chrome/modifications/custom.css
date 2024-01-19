@@ -1,0 +1,16 @@
+:root[tabsintitlebar] #titlebar .titlebar-button, :root[tabsintitlebar]:not([inFullscreen]) #titlebar .titlebar-button{
+    border-radius: 6px !important;
+    height: 34px;
+    width: 34px;
+    min-height: 34px;
+    min-width: 34px;
+    margin: 1px !important;
+    background: inherit !important;
+    &:hover{
+        background: var(--gnome-button-background) !important 
+    }
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon, :root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon{
+    width: 20px;
+}
