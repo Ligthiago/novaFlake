@@ -1,6 +1,5 @@
 {lib, ...}:
 with lib; rec {
-
   # Convert HEX color to Hyprland format
   hexToHyprland = c: "rgb(${builtins.substring 1 7 c})";
 

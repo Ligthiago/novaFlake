@@ -37,7 +37,7 @@ in {
         @define-color sidebar_fg_color ${palette.foreground.normal};
         @define-color sidebar_backdrop_color ${palette.background.dim};
         @define-color card_bg_color ${palette.background.shiny};
-        @define-color card_fg_color ${palette.foreground.normal}; 
+        @define-color card_fg_color ${palette.foreground.normal};
         @define-color card_shade_color ${palette.background.dim};
       '';
       cssTweaks = ''

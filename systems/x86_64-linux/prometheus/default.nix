@@ -29,6 +29,7 @@ with lib.nova; {
 
   environment.systemPackages = with pkgs; [
     git
+    python3
   ];
 
   services.dbus.implementation = "broker";
