@@ -268,34 +268,12 @@ in {
     home.file = let
       chrome = ".mozilla/firefox/${user}/chrome";
     in {
-      # Apply theme
       "${chrome}" = {
-        source = ./chrome;
-        recursive = true;
+        source = builtins.fetchGit {
+          url = "https://github.com/Ligthiago/novaFirefox";
+          rev = "abdb87c2b62afef66772be3071a14796f02d87d3";
+        };
       };
-      # Add global colors
-      "${chrome}/web/customColors.css".text = ''
-        :root {
-          --nova-background-dark: ${palette.background.dark} !important;
-          --nova-background-dim: ${palette.background.dim} !important;
-          --nova-background-normal: ${palette.background.normal} !important;
-          --nova-background-shiny: ${palette.background.shiny} !important;
-          --nova-background-bright: ${palette.background.bright} !important;
-          --nova-background-vivid: ${palette.background.vivid} !important;
-
-          --nova-foreground-dim: ${palette.foreground.dim} !important;
-          --nova-foreground-normal: ${palette.foreground.normal} !important;
-          --nova-foreground-bright: ${palette.foreground.bright} !important;
-
-          --nova-accent-red: ${palette.accents.red} !important;
-          --nova-accent-green: ${palette.accents.green} !important;
-          --nova-accent-yellow: ${palette.accents.yellow} !important;
-          --nova-accent-blue: ${palette.accents.blue} !important;
-          --nova-accent-magenta: ${palette.accents.magenta} !important;
-          --nova-accent-cyan: ${palette.accents.cyan} !important;
-
-        }
-      '';
     };
 
     # Create custom desktop entry
