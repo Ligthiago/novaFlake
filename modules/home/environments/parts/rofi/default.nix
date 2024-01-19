@@ -26,7 +26,7 @@ in {
       cycle = false;
       extraConfig = {
         cache-dir = "${config.home.homeDirectory}/.config/rofi/history/";
-        modi = "drun,filebrowser,calc";
+        modi = "drun";
         case-sensetive = false;
         show-icons = true;
         icon-theme = "Papirus";
@@ -63,8 +63,7 @@ in {
 
         "window" = {
           enabled = true;
-          width = mkLiteral "1000px";
-          height = mkLiteral "700px";
+          width = mkLiteral "60%";
           margin = 0;
           padding = 0;
           background-color = mkLiteral "@background-dim";
@@ -82,7 +81,7 @@ in {
 
         "inputbar" = {
           enabled = true;
-          children = map mkLiteral ["textbox-logo" "input-box" "mode-switcher"];
+          children = map mkLiteral ["textbox-logo" "input-box" "textbox-logo2"];
           padding = mkLiteral "6px";
           margin = mkLiteral "0px";
           spacing = mkLiteral "6px";
@@ -115,11 +114,22 @@ in {
         "textbox-logo" = {
           enabled = true;
           expand = false;
-          padding = mkLiteral "6px 30px";
+          padding = mkLiteral "6px 50px";
           background-color = mkLiteral "inherit";
           text-color = mkLiteral "@foreground";
           border = mkLiteral "0px solid";
-          str = "Rofi";
+          str = "Applications";
+          font = "Cantarell Bold 12";
+        };
+
+        "textbox-logo2" = {
+          enabled = true;
+          expand = false;
+          padding = mkLiteral "6px 50px";
+          background-color = mkLiteral "inherit";
+          text-color = mkLiteral "transparent";
+          border = mkLiteral "0px solid";
+          str = "Applications";
           font = "Cantarell Bold 12";
         };
 
