@@ -45,6 +45,8 @@ with lib.nova; {
       secrets = enabled;
       yazi = enabled;
       amdgputop = enabled;
+      baobab = enabled;
+      helix = enabled;
     };
     shells = {
       bash = enabled;

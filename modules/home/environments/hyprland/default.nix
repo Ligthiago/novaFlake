@@ -172,6 +172,11 @@ in {
           "center,^(org.gnome.Loupe)$"
           "size 80% 80%,^(org.gnome.Loupe)$"
           "animation popin,^(org.gnome.Loupe)$"
+
+          "float,^(org.gnome.baobab)$"
+          "center,^(org.gnome.baobab)$"
+          "size 80% 80%,^(org.gnome.baobab)$"
+          "animation popin,^(org.gnome.baobab)$"
         ];
       };
       extraConfig = ''
