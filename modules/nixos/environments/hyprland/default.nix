@@ -45,5 +45,18 @@ in {
     environment.extraInit = "
       export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS;
     ";
+    services.greetd = let
+      session = {
+        command = "${lib.getExe config.programs.hyprland.package}";
+        user = "andrey";
+      };
+    in {
+      enable = true;
+      settings = {
+        terminal.vt = 1;
+        default_session = session;
+        initial_session = session;
+      };
+    };
   };
 }

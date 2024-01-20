@@ -16,10 +16,6 @@ in {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [
-        rofi-calc
-        rofi-file-browser
-      ];
       terminal = "${pkgs.alacritty}/bin/alacritty";
       font = "Cantarell 12";
       location = "center";

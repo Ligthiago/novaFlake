@@ -32,8 +32,6 @@ with lib.nova; {
     python3
   ];
 
-  services.dbus.implementation = "broker";
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Temp
