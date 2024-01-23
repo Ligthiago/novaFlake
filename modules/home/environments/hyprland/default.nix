@@ -31,6 +31,7 @@ in {
       libnotify
       hyprpicker
       swww
+      nova.hyprscreen
     ];
 
     wayland.windowManager.hyprland = {
