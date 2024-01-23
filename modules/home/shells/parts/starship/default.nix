@@ -21,7 +21,7 @@ in {
       settings = {
         format = ''
           $shell$directory$git_branch$nix_shell$lua$status
-          [❱ ](bold green)
+          [❱ ](green)
         '';
         add_newline = false;
         follow_symlinks = false;
@@ -45,7 +45,7 @@ in {
           read_only = " ";
         };
         nix_shell = {
-          format = "via [ $state$name](bold blue) ";
+          format = "via [ $state$name](blue) ";
           impure_msg = "";
           pure_msg = "Pure ";
           unknown_msg = "";
@@ -63,7 +63,7 @@ in {
         status = {
           disabled = false;
           format = "[$symbol $common_meaning:$status]($style) ";
-          style = "bold red";
+          style = "red";
           symbol = "";
           success_symbol = "";
           not_executable_symbol = "";

@@ -86,7 +86,7 @@ in {
           keyColor = "green";
         }
         {
-          type = "disk";
+        type = "disk";
           keyColor = "green";
         }
         {

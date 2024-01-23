@@ -21,10 +21,14 @@ in {
       rofi = enabled;
       eww = disabled;
       ags = enabled;
+      dunst = enabled;
     };
 
     home.packages = with pkgs; [
-      grimblast
+      grim
+      slurp
+      wl-clipboard
+      libnotify
       hyprpicker
       swww
     ];
@@ -139,6 +143,8 @@ in {
             "SUPER, I, exec, codium"
 
             "SUPER, Tab, hycov:toggleoverview"
+
+            "SUPER, Print, exec, ~/Projects/randomScripts/hyprscreen/hyprscreen"
           ]
           ++ (
             builtins.concatLists (builtins.genList (

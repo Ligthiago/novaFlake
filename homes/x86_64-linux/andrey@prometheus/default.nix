@@ -20,6 +20,19 @@ with lib.nova; {
     userEmail = "donets.andre@gmail.com";
   };
 
+  home.packages = with pkgs; [
+    imagemagick
+    grim
+    slurp
+    jq
+    wl-clipboard
+    libnotify
+  ];
+
+   services.dunst = {
+     enable = true;
+   };
+
   nova = {
     environments = {
       hyprland = enabled;
@@ -64,9 +77,10 @@ with lib.nova; {
       bat = enabled;
       pastel = enabled;
       fastfetch = enabled;
-      jaq = enabled;
+      jq = enabled;
       tldr = enabled;
       hyperfine = enabled;
+      imagemagick = enabled;
     };
     services = {
       gammastep = enabled;
