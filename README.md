@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="Nova Flake" src="assets/novaFlake.png" width="200px"/>
+    <img alt="Nova Flake" src="assets/logo.png" width="200px"/>
     <h1> Nova Flake </h1>
 </div>
 

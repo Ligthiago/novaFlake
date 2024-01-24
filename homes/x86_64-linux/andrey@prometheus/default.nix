@@ -61,6 +61,7 @@ with lib.nova; {
       baobab = enabled;
       helix = enabled;
       kitty = enabled;
+      disks = enabled;
     };
     shells = {
       bash = enabled;

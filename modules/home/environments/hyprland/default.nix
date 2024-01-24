@@ -14,14 +14,19 @@ in {
     enable = mkEnableOption (lib.mdDoc "Enable Hyprland configs and basic modules");
   };
   config = mkIf cfg.enable {
-    modules.environments.parts = {
-      gtk = enabled;
-      swayidle = disabled;
-      xdg = enabled;
-      rofi = enabled;
-      eww = disabled;
-      ags = enabled;
-      dunst = enabled;
+    modules = {
+      environments.parts = {
+        gtk = enabled;
+        swayidle = disabled;
+        xdg = enabled;
+        rofi = enabled;
+        eww = disabled;
+        ags = enabled;
+        dunst = enabled;
+      };
+      services = {
+        polkit-agent = enabled;
+      };
     };
 
     home.packages = with pkgs; [
@@ -32,6 +37,7 @@ in {
       hyprpicker
       swww
       nova.hyprscreen
+      socat
     ];
 
     wayland.windowManager.hyprland = {
