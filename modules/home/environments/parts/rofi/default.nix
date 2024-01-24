@@ -221,7 +221,7 @@ in {
     };
     # Fixed and reproducible history. Rofi can't change read-only file, just give a warning.
     home.file.".config/rofi/history/rofi3.druncache".text = ''
-      99 Alacritty.desktop
+      99 kitty.desktop
       98 org.gnome.Nautilus.desktop
       97 firefox.desktop
       96 codium.desktop
@@ -236,6 +236,7 @@ in {
       87 lazygit.desktop
       86 yazi.desktop
       85 amdgpu_top.desktop
+      99 Alacritty.desktop
     '';
   };
 }

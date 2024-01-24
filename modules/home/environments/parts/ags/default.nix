@@ -17,6 +17,7 @@ in {
     };
     home.packages = with pkgs; [
       libdbusmenu-gtk3
+      sassc
     ];
   };
 }

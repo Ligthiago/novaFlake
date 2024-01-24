@@ -1,8 +1,8 @@
-{ lib
-, stdenv
-, fetchFromGitHub
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
 }:
-
 stdenv.mkDerivation rec {
   pname = "hyprscreen";
   version = "unstable-2024-01-22";
@@ -20,11 +20,11 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin
     cp hyprscreen $out/bin
   '';
-  
+
   meta = with lib; {
     description = "Screenshot helper for Hyprland.";
     homepage = "https://github.com/Ligthiago/hyprlandScripts/";
-    maintainers = with maintainers; [ "Ligthiago" ];
+    maintainers = with maintainers; ["Ligthiago"];
     mainProgram = "hyprscreen";
     platforms = platforms.all;
   };

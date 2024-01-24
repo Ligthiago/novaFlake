@@ -60,6 +60,7 @@ with lib.nova; {
       amdgputop = enabled;
       baobab = enabled;
       helix = enabled;
+      kitty = enabled;
     };
     shells = {
       bash = enabled;
