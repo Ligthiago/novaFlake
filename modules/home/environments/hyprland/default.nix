@@ -37,6 +37,7 @@ in {
       hyprpicker
       swww
       nova.hyprscreen
+      nova.hyprzen
       socat
     ];
 
@@ -47,6 +48,10 @@ in {
         inputs.hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
+        exec = [
+          "swww init"
+          # "~/Projects/hyprlandScripts/hyprzen/hyprzen -s 20 ~/Pictures/Wallpapers/wallhaven-3kpvkd_2560x1600.png ~/Pictures/Wallpapers/Dark.png"
+        ];
         env = [
           "GDK_BACKEND,wayland"
           "SDL_VIDEODRIVER,wayland,x11"
@@ -66,7 +71,10 @@ in {
           blur = {
             enabled = false;
           };
-          drop_shadow = false;
+          drop_shadow = true;
+          shadow_range = 40;
+          "col.shadow" = "rgba(00000050)";
+          shadow_render_power = 3;
         };
         animations = {
           enabled = true;
@@ -104,7 +112,7 @@ in {
         };
         misc = {
           disable_hyprland_logo = true;
-          background_color = "rgba(1e1e1eff)";
+          background_color = "rgba(161616ff)";
         };
         dwindle = {
           preserve_split = true;
@@ -151,7 +159,8 @@ in {
 
             "SUPER, Tab, hycov:toggleoverview"
 
-            "SUPER, Print, exec, ~/Projects/randomScripts/hyprscreen/hyprscreen"
+            "SUPER, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -m screen"
+            "SUPER SHIFT, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -f"
           ]
           ++ (
             builtins.concatLists (builtins.genList (
@@ -179,17 +188,18 @@ in {
           "float,^(io.github.celluloid_player.Celluloid)$"
           "center,^(io.github.celluloid_player.Celluloid)$"
           "size 80% 80%,^(io.github.celluloid_player.Celluloid)$"
-          "animation popin,^(io.github.celluloid_player.Celluloid)$"
 
           "float,^(org.gnome.Loupe)$"
           "center,^(org.gnome.Loupe)$"
           "size 80% 80%,^(org.gnome.Loupe)$"
-          "animation popin,^(org.gnome.Loupe)$"
 
           "float,^(org.gnome.baobab)$"
           "center,^(org.gnome.baobab)$"
           "size 80% 80%,^(org.gnome.baobab)$"
-          "animation popin,^(org.gnome.baobab)$"
+        ];
+        windowrulev2 = [
+          "animation popin,floating:1"
+          "noshadow, floating:0"
         ];
       };
       extraConfig = ''

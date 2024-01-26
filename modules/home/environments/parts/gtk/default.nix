@@ -69,7 +69,7 @@ in {
         "file:///${home}/Games"
         "file:///${home}/Misc"
         "file:///${home}/Backups"
-        "file:///${home}/Screenshots"
+        "file:///${home}/Pictures/Screenshots"
         "file:///${home}/.config Configuration"
         "file:///${home}/.mozilla/firefox/${user} Profile"
       ];

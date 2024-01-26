@@ -27,6 +27,8 @@ with lib.nova; {
     jq
     wl-clipboard
     libnotify
+    ffmpeg
+    wev
   ];
 
   services.dunst = {

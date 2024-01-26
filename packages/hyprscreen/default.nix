@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Ligthiago";
     repo = "hyprlandScripts";
-    rev = "b1964d52dd676d7002f30a428388368529a50b67";
-    hash = "sha256-1HKpwJYM7QtL/TYWsSxxr332Yy07MmdOSMtkZuJdRTo=";
+    rev = "b681b1799954bbdd40d02c3cc1738c1cdf154c49";
+    hash = "sha256-a65f5oGf4C3jZgmN2uYXvIzrqzXGmRU4+uykX4dZyMA=";
   };
 
   sourceRoot = "${src.name}/hyprscreen";

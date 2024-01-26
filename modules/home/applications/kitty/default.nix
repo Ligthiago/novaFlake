@@ -37,7 +37,7 @@ in {
 
         window_padding_width = 6;
         enable_audio_bell = false;
-        confirm_os_window_close = -1;
+        confirm_os_window_close = "-1";
 
         touch_scroll_multiplier = "2.0";
       };

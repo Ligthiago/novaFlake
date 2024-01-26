@@ -22,7 +22,7 @@ with lib.nova; {
   users.users.andrey = {
     isNormalUser = true;
     initialPassword = "changeme";
-    extraGroups = ["wheel" "storage" "disk" "audio" "video" "networkmanager"];
+    extraGroups = ["wheel" "storage" "disk" "audio" "video" "networkmanager" "input"];
     packages = with pkgs; [
     ];
   };
@@ -37,6 +37,8 @@ with lib.nova; {
   # Temp
   services.dbus.packages = [pkgs.evince];
   systemd.packages = [pkgs.evince];
+
+  services.gnome.gnome-keyring.enable = true;
 
   modules = {
     hardware = {
