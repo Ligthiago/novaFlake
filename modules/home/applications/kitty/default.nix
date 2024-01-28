@@ -32,6 +32,14 @@ in {
         color5 = palette.accents.magenta;
         color6 = palette.accents.cyan;
         color7 = palette.foreground.normal;
+        color8 = palette.foreground.dim;
+        color9 = palette.accents.red;
+        color10 = palette.accents.green;
+        color11 = palette.accents.yellow;
+        color12 = palette.accents.blue;
+        color13 = palette.accents.magenta;
+        color14 = palette.accents.cyan;
+        color15 = palette.foreground.normal;
 
         cursor_shape = "beam";
 

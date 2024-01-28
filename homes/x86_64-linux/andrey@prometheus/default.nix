@@ -28,7 +28,6 @@ with lib.nova; {
     wl-clipboard
     libnotify
     ffmpeg
-    wev
   ];
 
   services.dunst = {
@@ -65,9 +64,13 @@ with lib.nova; {
       kitty = enabled;
       disks = enabled;
     };
+    webApplications = {
+      yarr = enabled;
+    };
     shells = {
       bash = enabled;
       nushell = enabled;
+      fish = disabled;
       parts = {
         starship = enabled;
         atuin = enabled;
@@ -85,10 +88,14 @@ with lib.nova; {
       tldr = enabled;
       hyperfine = enabled;
       imagemagick = enabled;
+      curl = enabled;
     };
     services = {
       gammastep = enabled;
       pueue = enabled;
+    };
+    development = {
+      javascript = enabled;
     };
   };
 

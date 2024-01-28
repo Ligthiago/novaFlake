@@ -231,12 +231,13 @@ in {
       92 io.github.celluloid_player.Celluloid.desktop
       91 org.gnome.Loupe.desktop
       90 org.gnome.World.Secrets.desktop
-      89 btop.desktop
-      88 stui.desktop
-      87 lazygit.desktop
-      86 yazi.desktop
-      85 amdgpu_top.desktop
-      99 Alacritty.desktop
+      89 yarr.desktop
+      80 btop.desktop
+      79 stui.desktop
+      78 lazygit.desktop
+      77 yazi.desktop
+      76 amdgpu_top.desktop
+      75 Alacritty.desktop
     '';
   };
 }

@@ -10,6 +10,7 @@ with lib;
 with lib.nova; let
   cfg = config.modules.applications.firefox;
   user = config.home.username;
+  home = config.home.homeDirectory;
 in {
   options.modules.applications.firefox = {
     enable = mkEnableOption (lib.mdDoc "Enable firefox module");
@@ -271,7 +272,7 @@ in {
       "${chrome}" = {
         source = builtins.fetchGit {
           url = "https://github.com/Ligthiago/novaFirefox";
-          rev = "abdb87c2b62afef66772be3071a14796f02d87d3";
+          rev = "c2d303964e49ac1e6b64ba45119839b9a4b1e87d";
         };
       };
     };

@@ -49,7 +49,7 @@ in {
       ];
       settings = {
         exec = [
-          "swww init"
+          # "swww init"
           # "~/Projects/hyprlandScripts/hyprzen/hyprzen -s 20 ~/Pictures/Wallpapers/wallhaven-3kpvkd_2560x1600.png ~/Pictures/Wallpapers/Dark.png"
         ];
         env = [

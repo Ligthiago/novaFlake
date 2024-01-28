@@ -1,0 +1,14 @@
+Usage:
+  /nix/store/6wr24w6zfc04is0nfp0c7wg4pmjr4fnw-tesseract-5.3.3/bin/tesseract --help | --help-extra | --version
+  /nix/store/6wr24w6zfc04is0nfp0c7wg4pmjr4fnw-tesseract-5.3.3/bin/tesseract --list-langs
+  /nix/store/6wr24w6zfc04is0nfp0c7wg4pmjr4fnw-tesseract-5.3.3/bin/tesseract imagename outputbase [options...] [configfile...]
+
+OCR options:
+  -l LANG[+LANG]        Specify language(s) used for OCR.
+NOTE: These options must occur before any configfile.
+
+Single options:
+  --help                Show this help message.
+  --help-extra          Show extra help for advanced users.
+  --version             Show version information.
+  --list-langs          List available languages for tesseract engine.
