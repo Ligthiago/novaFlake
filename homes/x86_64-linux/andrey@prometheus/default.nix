@@ -63,6 +63,16 @@ with lib.nova; {
       helix = enabled;
       kitty = enabled;
       disks = enabled;
+      file-roller = enabled;
+      
+      defaultApplications = {
+        terminal = "kitty";
+        fileManager = "nautilus";
+        textEditor = "helix";
+        browser = "firefox";
+        videoPlayer = "celluloid";
+        imageViewer = "loupe";
+      };
     };
     webApplications = {
       yarr = enabled;
@@ -89,6 +99,7 @@ with lib.nova; {
       hyperfine = enabled;
       imagemagick = enabled;
       curl = enabled;
+      gallery-dl = enabled;
     };
     services = {
       gammastep = enabled;

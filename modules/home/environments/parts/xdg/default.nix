@@ -40,27 +40,113 @@ in {
         };
       };
       mime.enable = true;
-      mimeApps = let
-        nvim = ["nvim.desktop"];
-        alacritty = ["Alacritty.desktop"];
-        celluloid = ["io.github.celluloid_player.Celluloid.desktop"];
-        loupe = ["org.gnome.Loupe.desktop"];
-      in {
+      mimeApps = {
         enable = true;
-        defaultApplications = {
-          "text/*" = nvim;
-          "text/plain" = nvim;
-          "x-scheme-handler/terminal" = alacritty;
-          "video/*" = celluloid;
-          "video/mp4" = celluloid;
-          "video/webm" = celluloid;
-          "image/jpeg" = loupe;
-          "image/png" = loupe;
-          "image/gif" = loupe;
-          "image/jxl" = loupe;
-          "image/tiff" = loupe;
-          "image/avif" = loupe;
-        };
+        defaultApplications = let
+          defaultApps = config.modules.applications.defaultApplications;
+          apps = let
+            terminal =
+              if defaultApps.terminal == "kitty"
+              then "kitty"
+              else if defaultApps.terminal == "alacritty"
+              then "Alacritty"
+              else "unknown";
+            fileManager =
+              if defaultApps.fileManager == "nautilus"
+              then "org.gnome.Nautilus"
+              else if defaultApps.fileManager == "yazi"
+              then "yazi"
+              else "unknown";
+            textEditor =
+              if defaultApps.textEditor == "helix"
+              then "Helix"
+              else if defaultApps.textEditor == "neovim"
+              then "nvim"
+              else if defaultApps.textEditor == "codium"
+              then "codium"
+              else "unknown";
+            browser =
+              if defaultApps.browser == "firefox"
+              then "firefox"
+              else "unknown";
+            videoPlayer =
+              if defaultApps.videoPlayer == "celluloid"
+              then "io.github.celluloid_player.Celluloid"
+              else "unknown";
+            imageViewer =
+              if defaultApps.imageViewer == "loupe"
+              then "org.gnome.Loupe"
+              else "unknown";
+          in {
+            terminal = ["${terminal}.desktop"];
+            directory = ["${fileManager}.desktop"];
+            pdf = ["org.gnome.Evince.desktop"];
+            text = ["${textEditor}.desktop"];
+            video = ["${videoPlayer}.desktop"];
+            image = ["${imageViewer}.desktop"];
+            archive = ["org.gnome.FileRoller.desktop"];
+            browser = ["${browser}.desktop"];
+          };
+          mimeTypes = {
+            directory = ["inode/directory"];
+            text = [
+              "text/plain"
+            ];
+            browser = [
+              "text/html"
+            ];
+            video = [
+              "video/avi"
+              "video/mpeg"
+              "video/x-matroska"
+              "video/quicktime"
+              "video/mp4"
+              "video/ogg"
+              "video/webm"
+              "video/mp2t"
+            ];
+            image = [
+              "image/png"
+              "image/jpg"
+              "image/jpeg"
+              "image/gif"
+              "image/jxl"
+              "image/tiff"
+              "image/svg+xml"
+              "image/x-dwg"
+              "image/webp"
+              "image/bmp"
+            ];
+            pdf = ["application/pdf"];
+            archive = [
+              "application/bzip2"
+              "application/gzip"
+              "application/vnd.rar"
+              "application/x-7z-compressed"
+              "application/x-7z-compressed-tar"
+              "application/x-bzip"
+              "application/x-bzip-compressed-tar"
+              "application/x-compress"
+              "application/x-compressed-tar"
+              "application/x-cpio"
+              "application/x-gzip"
+              "application/x-lha"
+              "application/x-lzip"
+              "application/x-lzip-compressed-tar"
+              "application/x-lzma"
+              "application/x-lzma-compressed-tar"
+              "application/x-tar"
+              "application/x-tarz"
+              "application/x-xar"
+              "application/x-xz"
+              "application/x-xz-compressed-tar"
+              "application/zip"
+            ];
+          };
+        in
+          builtins.listToAttrs (flatten (mapAttrsToList (key: types:
+            map (type: nameValuePair type (apps."${key}")) types)
+          mimeTypes));
       };
     };
     home.packages = with pkgs; [

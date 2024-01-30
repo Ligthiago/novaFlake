@@ -32,6 +32,7 @@ in {
     environment.systemPackages = with pkgs; [
       glib
       polkit_gnome
+      ffmpegthumbnailer
     ];
     xdg.portal = {
       enable = true;

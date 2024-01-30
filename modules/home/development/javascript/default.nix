@@ -14,6 +14,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       bun
+      nodePackages_latest.typescript-language-server
     ];
   };
 }
