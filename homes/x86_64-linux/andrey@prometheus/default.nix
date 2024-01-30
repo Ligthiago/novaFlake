@@ -28,6 +28,7 @@ with lib.nova; {
     wl-clipboard
     libnotify
     ffmpeg
+    just
   ];
 
   services.dunst = {
@@ -106,10 +107,7 @@ with lib.nova; {
       gammastep = enabled;
       pueue = enabled;
     };
-    development = {
-      javascript = enabled;
-    };
-  };
+   };
 
   home.stateVersion = "23.11";
 }

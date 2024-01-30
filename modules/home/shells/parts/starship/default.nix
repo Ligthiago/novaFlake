@@ -8,10 +8,12 @@ with lib; let
   cfg = config.modules.shells.parts.starship;
 in {
   options.modules.shells.parts.starship = {
-    enable = mkEnableOption (lib.mdDoc ''      Enable starship module. 
-          Starship is a minimal, blazing-fast, and infinitely customizable prompt for any shell.
-          Github: https://github.com/starship/starship
-          Documentation: https://starship.rs/config/'');
+    enable = mkEnableOption (lib.mdDoc ''
+      Enable starship module.
+      Starship is a minimal, blazing-fast, and infinitely customizable prompt for any shell.
+      Github: https://github.com/starship/starship
+      Documentation: https://starship.rs/config/
+    '');
   };
 
   config = mkIf cfg.enable {
@@ -64,7 +66,7 @@ in {
         };
 
         nix_shell = {
-          format = "via [ $state$name](blue)";
+          format = "via [ $state$name ](blue)";
           impure_msg = "";
           pure_msg = "Pure ";
           unknown_msg = "";

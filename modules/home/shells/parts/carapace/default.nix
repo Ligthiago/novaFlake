@@ -8,10 +8,12 @@ with lib; let
   cfg = config.modules.shells.parts.carapace;
 in {
   options.modules.shells.parts.carapace = {
-    enable = mkEnableOption (lib.mdDoc ''Enable carapace module.
-    Carapace provides argument completion for multiple CLI commands. 
-    Github: https://github.com/rsteube/carapace-bin
-    Documentation: https://rsteube.github.io/carapace-bin/'');
+    enable = mkEnableOption (lib.mdDoc ''
+      Enable carapace module.
+      Carapace provides argument completion for multiple CLI commands.
+      Github: https://github.com/rsteube/carapace-bin
+      Documentation: https://rsteube.github.io/carapace-bin/
+    '');
   };
 
   config = mkIf cfg.enable {

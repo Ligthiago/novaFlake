@@ -68,5 +68,21 @@
       homes.users."andrey@prometheus".specialArgs = {
         home-manager.useGlobalPkgs = true;
       };
+
+      templates = { 
+      
+        shell = {
+          path = ./templates/shell;
+          description = "Default shell developmemt template";
+          welcomeText = "Development template initialised.";
+        };
+        
+        bun = {
+          path = ./templates/bun;
+          description = "Default JS/TS development environment with Bun";
+          welcomeText = "Development template initialised.";
+        };
+        
+      };
     };
 }
