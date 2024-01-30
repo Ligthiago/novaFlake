@@ -64,7 +64,7 @@ with lib.nova; {
       kitty = enabled;
       disks = enabled;
       file-roller = enabled;
-      
+
       defaultApplications = {
         terminal = "kitty";
         fileManager = "nautilus";
@@ -85,6 +85,7 @@ with lib.nova; {
         starship = enabled;
         atuin = enabled;
         zellij = enabled;
+        carapace = enabled;
       };
     };
     tools = {
