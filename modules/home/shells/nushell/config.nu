@@ -1,0 +1,53 @@
+$env.config = {
+    show_banner: false
+    table: {
+        mode: rounded
+        index_mode: auto
+        show_empty: true
+        padding: { left: 1, right: 1 }
+        header_on_separator: false
+        trim: {
+            methodology: wrapping 
+            wrapping_try_keep_words: true
+            truncating_suffix: "..."
+        }
+    }
+    completions: {
+        case_sensitive: false 
+        quick: true 
+        partial: true 
+        algorithm: "fuzzy"
+        external: {
+            max_results: 20
+        }
+    }
+    error_style: "fancy"
+    use_grid_icons: true
+    ls: {
+        use_ls_colors: true 
+        clickable_links: true
+    }
+    rm: {
+        always_trash: true
+    }
+    menus: [
+        {
+            name: completion_menu
+            only_buffer_difference: false
+            marker: "| "
+            type: {
+                layout: columnar
+                columns: 4
+                col_width: 20
+                col_padding: 2
+            }
+            style: {
+                text: green
+                selected_text: {attr: r}
+                description_text: normal
+                match_text: {attr: u}
+                selected_match_text: {attr: ur}
+            }
+        }
+    ]
+}

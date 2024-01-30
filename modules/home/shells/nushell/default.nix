@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     programs.nushell = {
       enable = true;
-      # No permanent config for now.
+      configFile.source = ./config.nu;
     };
   };
 }
