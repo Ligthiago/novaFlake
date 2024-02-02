@@ -15,6 +15,9 @@ in {
     enable = mkEnableOption (lib.mdDoc "Enable gtk customisation module");
   };
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      adw-gtk3
+    ];
     home.pointerCursor = {
       gtk.enable = true;
       name = "capitaine-cursors";
@@ -30,7 +33,7 @@ in {
         @define-color headerbar_bg_color ${palette.background.normal};
         @define-color headerbar_fg_color ${palette.foreground.normal};
         @define-color headerbar_border_color transparent;
-        @define-color headerbar_backdrop_color ${palette.background.bright};
+        @define-color headerbar_backdrop_color ${palette.background.normal};
         @define-color headerbar_shade_color transparent;
         @define-color headerbar_darker_shade_color transparent;
         @define-color sidebar_bg_color ${palette.background.dim};
@@ -61,23 +64,27 @@ in {
         .maximize:hover {
           background-color: ${palette.background.bright};
         }
+        windowhandle{
+          filter: opacity(1)
+        }
 
       '';
       bookmarksList = [
-        "file:///${home}/Projects"
-        "file:///${home}/Library"
-        "file:///${home}/Games"
-        "file:///${home}/Misc"
-        "file:///${home}/Backups"
-        "file:///${home}/Pictures/Screenshots"
-        "file:///${home}/.config Configuration"
-        "file:///${home}/.mozilla/firefox/${user} Profile"
+        "file://${home}/Projects"
+        "file://${home}/Library"
+        "file://${home}/Games"
+        "file://${home}/Misc"
+        "file://${home}/Backups"
+        "file://${home}/Pictures/Screenshots"
+        "file://${home}/.config Configuration"
+        "file://${home}/.mozilla/firefox/${user} Profile"
+        (mkIf (config.modules.applications.obsidian.enable) "file://${home}/Vaults")
       ];
     in {
       enable = true;
       theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
+        name = "adw-gtk3-dark";
+        # package = pkgs.gnome.gnome-themes-extra;
       };
       iconTheme = {
         name = "Papirus";
@@ -87,7 +94,7 @@ in {
         extraCss = namedColors + cssTweaks;
       };
       gtk3 = {
-        extraCss = namedColors;
+        extraCss = namedColors + cssTweaks;
         bookmarks =
           if config.xdg.userDirs.enable
           then bookmarksList

@@ -50,6 +50,9 @@
     lib.mkFlake {
       channels-config = {
         allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+        ];
       };
 
       overlays = with inputs; [
@@ -69,20 +72,18 @@
         home-manager.useGlobalPkgs = true;
       };
 
-      templates = { 
-      
+      templates = {
         shell = {
           path = ./templates/shell;
           description = "Default shell developmemt template";
           welcomeText = "Development template initialised.";
         };
-        
+
         bun = {
           path = ./templates/bun;
           description = "Default JS/TS development environment with Bun";
           welcomeText = "Development template initialised.";
         };
-        
       };
     };
 }

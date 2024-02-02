@@ -8,9 +8,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.nova.environments.hyprland;
+  cfg = config.modules.environments.hyprland;
 in {
-  options.nova.environments.hyprland = {
+  options.modules.environments.hyprland = {
     enable = mkEnableOption (lib.mdDoc "Enable Hyprland configs and basic modules");
   };
   config = mkIf cfg.enable {
@@ -23,6 +23,7 @@ in {
         eww = disabled;
         ags = enabled;
         dunst = enabled;
+        dconf = enabled;
       };
       services = {
         polkit-agent = enabled;

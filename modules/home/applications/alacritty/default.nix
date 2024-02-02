@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.nova.applications.alacritty;
+  cfg = config.modules.applications.alacritty;
 in {
-  options.nova.applications.alacritty = {
+  options.modules.applications.alacritty = {
     enable = mkEnableOption (lib.mdDoc "Enable Alacritty, a modern GPU-powered terminal emulator");
   };
   config = mkIf cfg.enable {

@@ -35,18 +35,13 @@ with lib.nova; {
     enable = true;
   };
 
-  nova = {
+  modules = {
     environments = {
       hyprland = enabled;
     };
     applications = {
-      alacritty = enabled;
-    };
-  };
-
-  modules = {
-    applications = {
       firefox = enabled;
+      obsidian = enabled;
       obs-studio = enabled;
       neovim = enabled;
       nautilus = enabled;
@@ -107,7 +102,7 @@ with lib.nova; {
       gammastep = enabled;
       pueue = enabled;
     };
-   };
+  };
 
   home.stateVersion = "23.11";
 }
