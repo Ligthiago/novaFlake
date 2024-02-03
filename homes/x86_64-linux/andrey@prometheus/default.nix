@@ -97,6 +97,7 @@ with lib.nova; {
       imagemagick = enabled;
       curl = enabled;
       gallery-dl = enabled;
+      tdl = enabled;
     };
     services = {
       gammastep = enabled;
