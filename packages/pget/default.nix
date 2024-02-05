@@ -1,8 +1,8 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
 }:
-
 buildGoModule rec {
   pname = "pget";
   version = "0.2.1";
@@ -26,7 +26,7 @@ buildGoModule rec {
     description = "The fast, resumable file download client";
     homepage = "https://github.com/Code-Hex/pget?tab=readme-ov-file";
     license = licenses.mit;
-    maintainers = with maintainers; [ Ligthiagssso ];
+    maintainers = with maintainers; [Ligthiagssso];
     mainProgram = "pget";
   };
 }

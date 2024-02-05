@@ -85,6 +85,7 @@ with lib.nova; {
         zellij = enabled;
         carapace = enabled;
       };
+      default = "nu";
     };
     tools = {
       zoxide = enabled;
@@ -100,6 +101,7 @@ with lib.nova; {
       curl = enabled;
       gallery-dl = enabled;
       tdl = enabled;
+      pet = enabled;
     };
     services = {
       gammastep = enabled;
