@@ -39,6 +39,7 @@ in {
       swww
       nova.hyprscreen
       nova.hyprzen
+      nova.pget
       socat
     ];
 

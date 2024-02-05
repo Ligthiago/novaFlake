@@ -89,6 +89,7 @@ in {
           };
           mimeTypes = {
             directory = ["inode/directory"];
+            terminal = ["x-scheme-handler/terminal"];
             text = [
               "text/plain"
             ];
@@ -153,7 +154,7 @@ in {
       xdg-utils
     ];
     home.sessionVariables = {
-      TERMINAL = "alacritty";
+      TERMINAL = "kitty";
     };
   };
 }

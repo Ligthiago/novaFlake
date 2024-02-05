@@ -73,7 +73,7 @@ in {
         };
 
         git_branch = {
-          format = "on [$symbol$branch]($style)";
+          format = "on [$symbol$branch ]($style)";
           style = "bold green";
           symbol = " ";
         };

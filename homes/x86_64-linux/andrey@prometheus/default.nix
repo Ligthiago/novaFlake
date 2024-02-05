@@ -60,6 +60,8 @@ with lib.nova; {
       kitty = enabled;
       disks = enabled;
       file-roller = enabled;
+      musikcube = enabled;
+      alacritty = disabled;
 
       defaultApplications = {
         terminal = "kitty";

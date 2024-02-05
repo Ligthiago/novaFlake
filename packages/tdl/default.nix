@@ -28,7 +28,7 @@ buildGoModule rec {
     description = "A Telegram downloader/tools written in Golang";
     homepage = "https://github.com/iyear/tdl";
     license = licenses.agpl3Only;
+    platforms = platforms.all;
     maintainers = with maintainers; [Ligthiago];
-    mainProgram = "tdl";
   };
 }

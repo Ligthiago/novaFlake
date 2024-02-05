@@ -1,8 +1,8 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
 }:
-
 buildGoModule rec {
   pname = "s";
   version = "0.6.9";
@@ -16,13 +16,13 @@ buildGoModule rec {
 
   vendorHash = "sha256-0aban/2Gn85mE5sv97uPDuH7OhOHpcFmHGiYaOMUyks=";
 
-  ldflags = [ "-s" "-w" ];
+  ldflags = ["-s" "-w"];
 
   meta = with lib; {
     description = "Open a web search in your terminal";
     homepage = "https://github.com/zquestz/s";
     license = licenses.mit;
-    maintainers = with maintainers; [ Ligthiago ];
+    maintainers = with maintainers; [Ligthiago];
     mainProgram = "s";
   };
 }

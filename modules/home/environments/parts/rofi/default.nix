@@ -16,7 +16,7 @@ in {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      # terminal = "${pkgs.alacritty}/bin/alacritty";
       font = "Cantarell 12";
       location = "center";
       cycle = false;
@@ -236,8 +236,9 @@ in {
       79 stui.desktop
       78 lazygit.desktop
       77 yazi.desktop
-      76 amdgpu_top.desktop
-      75 Alacritty.desktop
+      76 musikcube.desktop
+      70 amdgpu_top.desktop
+      69 Alacritty.desktop
     '';
   };
 }
