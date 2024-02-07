@@ -82,7 +82,7 @@ in {
       };
     };
 
-    home.file."./.config/btop/themes/nova.theme".text = ''
+    home.file."${config.xdg.configHome}/btop/themes/nova.theme".text = ''
       theme[main_bg]="#1e1e1e"
       theme[main_fg]="#dddddd"
       theme[title]="#dddddd"

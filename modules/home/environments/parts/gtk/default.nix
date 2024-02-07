@@ -76,7 +76,7 @@ in {
         "file://${home}/Misc"
         "file://${home}/Backups"
         "file://${home}/Pictures/Screenshots"
-        "file://${home}/.config Configuration"
+        "file://${config.xdg.configHome} Configuration"
         "file://${home}/.mozilla/firefox/${user} Profile"
         (mkIf (config.modules.applications.obsidian.enable) "file://${home}/Vaults")
       ];

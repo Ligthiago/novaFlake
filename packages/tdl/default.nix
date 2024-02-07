@@ -21,7 +21,7 @@ buildGoModule rec {
     "-w"
     "-X=github.com/iyear/tdl/pkg/consts.Version=${version}"
   ];
-
+  
   doCheck = false;
 
   meta = with lib; {

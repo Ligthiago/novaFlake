@@ -199,6 +199,7 @@ in {
             "DuckDuckGo"
             "Nix Packages"
             "MyNixOS"
+            "Github"
           ];
           engines = {
             "Nix Packages" = {
@@ -290,7 +291,7 @@ in {
       settings = {
         StartupNotify = "true";
         StartupWMClass = "firefox";
-        Keywords = "Browser;Internet;Network;";
+        Keywords = "Browser;Internet;Network;Web;";
       };
     };
   };

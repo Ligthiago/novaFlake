@@ -29,7 +29,14 @@ with lib.nova; {
     libnotify
     ffmpeg
     just
+    glxinfo
+    libva-utils
   ];
+
+  # xdg.cacheHome = "${config.home.homeDirectory}/System/Cache";
+  # xdg.stateHome = "${config.home.homeDirectory}/System/State";
+  # xdg.dataHome = "${config.home.homeDirectory}/System/Data";
+  # xdg.configHome = "${config.home.homeDirectory}/System/Config";
 
   services.dunst = {
     enable = true;

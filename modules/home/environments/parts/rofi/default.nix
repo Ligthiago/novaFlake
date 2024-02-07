@@ -21,7 +21,7 @@ in {
       location = "center";
       cycle = false;
       extraConfig = {
-        cache-dir = "${config.home.homeDirectory}/.config/rofi/history/";
+        cache-dir = "${config.xdg.dataHome}/rofi/history/";
         modi = "drun";
         case-sensetive = false;
         show-icons = true;
@@ -220,7 +220,7 @@ in {
       };
     };
     # Fixed and reproducible history. Rofi can't change read-only file, just give a warning.
-    home.file.".config/rofi/history/rofi3.druncache".text = ''
+    home.file."${config.xdg.dataHome}/rofi/history/rofi3.druncache".text = ''
       99 kitty.desktop
       98 org.gnome.Nautilus.desktop
       97 firefox.desktop

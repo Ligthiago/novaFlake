@@ -129,5 +129,9 @@ in {
         };
       };
     };
+    home.sessionVariables = {
+      STARSHIP_CONFIG = "${config.xdg.configHome}/starship.toml";
+      STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
+    };
   };
 }

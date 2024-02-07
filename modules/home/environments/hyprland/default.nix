@@ -39,8 +39,9 @@ in {
       swww
       nova.hyprscreen
       nova.hyprzen
-      nova.pget
+      nova.heynote
       socat
+      asar
     ];
 
     wayland.windowManager.hyprland = {

@@ -21,7 +21,7 @@ in {
       settings = {
         plugins = {
           preload = [
-            "~/.config/yazi/plugins/rounded.lua"
+            "${config.xdg.configHome}/yazi/plugins/rounded.lua"
           ];
         };
         manager = {
@@ -31,7 +31,7 @@ in {
       };
     };
 
-    home.file.".config/yazi/plugins/".source = ./plugins;
+    home.file."${config.xdg.configHome}/yazi/plugins/".source = ./plugins;
 
     xdg.desktopEntries."yazi" = {
       name = "Yazi";
