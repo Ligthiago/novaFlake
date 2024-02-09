@@ -39,7 +39,7 @@ in {
       swww
       nova.hyprscreen
       nova.hyprzen
-      nova.heynote
+      # nova.heynote
       socat
       asar
     ];

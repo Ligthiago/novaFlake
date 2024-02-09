@@ -17,9 +17,9 @@ in {
       fastfetch
     ];
 
-    home.file = let 
+    home.file = let
       path = config.xdg.configHome;
-    in{
+    in {
       "${path}/fastfetch/logo.png".source = ../../../../assets/logo.png;
       "${path}/fastfetch/config.jsonc".text = builtins.toJSON {
         "$schema" = "https=://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";

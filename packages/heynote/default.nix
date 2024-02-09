@@ -1,11 +1,12 @@
-{ lib
-, stdenv
-, fetchurl
-, appimageTools
-, electron
-, makeWrapper
+{
+  lib,
+  stdenv,
+  fetchurl,
+  appimageTools,
+  electron,
+  makeWrapper,
 }:
-stdenv.mkDerivation rec{
+stdenv.mkDerivation rec {
   pname = "heynote";
   version = "1.6.0";
 
@@ -23,7 +24,7 @@ stdenv.mkDerivation rec{
   dontConfigure = true;
   dontBuild = true;
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [makeWrapper];
 
   installPhase = ''
     runHook preInstall
@@ -50,9 +51,9 @@ stdenv.mkDerivation rec{
     homepage = "https://github.com/heyman/heynote";
     changelog = "https://github.com/heyman/heynote/releases/tag/v${version}";
     license = licenses.mit;
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
-    platforms = [ "x86_64-linux" ];
-    maintainers = with maintainers; [ Ligthiago ];
+    sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
+    platforms = ["x86_64-linux"];
+    maintainers = with maintainers; [Ligthiago];
     mainProgram = "heynote";
   };
 }

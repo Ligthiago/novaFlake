@@ -1,31 +1,61 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
+  makeWrapper,
+  coreutils,
+  grim,
+  slurp,
+  hyprland,
+  hyprpicker,
+  jq,
+  libnotify,
+  wl-clipboard,
 }:
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "hyprscreen";
-  version = "unstable-2024-01-22";
+  version = "unstable-2024-02-9";
 
   src = fetchFromGitHub {
     owner = "Ligthiago";
-    repo = "hyprlandScripts";
-    rev = "b681b1799954bbdd40d02c3cc1738c1cdf154c49";
-    hash = "sha256-a65f5oGf4C3jZgmN2uYXvIzrqzXGmRU4+uykX4dZyMA=";
+    repo = "hyprscreen";
+    rev = "00f41a6629b22ef9abae5526f37ebd02c8ba3c6e";
+    hash = "sha256-qMWCM2N1W0RNxg7Cd+wDCrjgOiBgdVPO/tiyqBv95Y0=";
   };
+  strictDeps = true;
 
-  sourceRoot = "${src.name}/hyprscreen";
+  nativeBuildInputs = [
+    makeWrapper
+  ];
+
+  makeFlags = [
+    "PREFIX=$(out)"
+  ];
 
   installPhase = ''
     mkdir -p $out/bin
     cp hyprscreen $out/bin
   '';
 
+  postInstall = ''
+    wrapProgram $out/bin/grimblast --prefix PATH ':' \
+      "${lib.makeBinPath [
+      coreutils
+      grim
+      hyprland
+      hyprpicker
+      jq
+      libnotify
+      slurp
+      wl-clipboard
+    ]}"
+  '';
+
   meta = with lib; {
     description = "Screenshot helper for Hyprland.";
     homepage = "https://github.com/Ligthiago/hyprlandScripts/";
-    maintainers = with maintainers; ["Ligthiago"];
+    platforms = platforms.unix;
+    maintainers = with maintainers; [Ligthiago];
     mainProgram = "hyprscreen";
-    platforms = platforms.all;
   };
-}
+})
