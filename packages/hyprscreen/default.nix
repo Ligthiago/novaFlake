@@ -18,9 +18,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   src = fetchFromGitHub {
     owner = "Ligthiago";
-    repo = "hyprscreen";
-    rev = "00f41a6629b22ef9abae5526f37ebd02c8ba3c6e";
-    hash = "sha256-qMWCM2N1W0RNxg7Cd+wDCrjgOiBgdVPO/tiyqBv95Y0=";
+    repo = "hyprlandScripts";
+    rev = "d0ee6dd756a9c563ffb30178c14e61ae3a8da941";
+    hash = "sha256-wibX6leqqqsmzGAC3R37Tnn0f+nCUp0G7EdUJScwNRM=";
   };
   strictDeps = true;
 
@@ -33,8 +33,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   installPhase = ''
+    make install-hyprscreen PREFIX=$out
     mkdir -p $out/bin
-    cp hyprscreen $out/bin
+    cp hyprscreen/hyprscreen $out/bin
   '';
 
   postInstall = ''

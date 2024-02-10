@@ -39,9 +39,9 @@ in {
       swww
       nova.hyprscreen
       nova.hyprzen
-      # nova.heynote
+      nova.hyprexclusive
+      nova.heynote
       socat
-      asar
     ];
 
     wayland.windowManager.hyprland = {
@@ -52,8 +52,8 @@ in {
       ];
       settings = {
         exec = [
-          # "swww init"
-          # "~/Projects/hyprlandScripts/hyprzen/hyprzen -s 20 ~/Pictures/Wallpapers/wallhaven-3kpvkd_2560x1600.png ~/Pictures/Wallpapers/Dark.png"
+          "swww init"
+          "hyprzen ~/Pictures/Wallpapers/wire.png ~/Pictures/Wallpapers/dark.png"
         ];
         env = [
           "GDK_BACKEND,wayland"

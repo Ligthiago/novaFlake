@@ -5,7 +5,7 @@
   makeWrapper,
 }:
 stdenv.mkDerivation rec {
-  pname = "hyprzen";
+  pname = "hyprexclusive";
   version = "unstable-2024-01-26";
 
   src = fetchFromGitHub {
@@ -26,16 +26,16 @@ stdenv.mkDerivation rec {
   ];
 
   installPhase = ''
-    make install-hyprzen PREFIX=$out
+    make install-hyprexclusive PREFIX=$out
     mkdir -p $out/bin
-    cp hyprzen/hyprzen $out/bin
+    cp hyprexclusive/hyprexclusive $out/bin
   '';
 
   meta = with lib; {
-    description = "Zen mode helper for Hyprland.";
+    description = "Exclusive window helper for Hyprland";
     homepage = "https://github.com/Ligthiago/hyprlandScripts/";
     maintainers = with maintainers; [Ligthiago];
-    mainProgram = "hyprzen";
+    mainProgram = "hyprexclusive";
     platforms = platforms.all;
   };
 }

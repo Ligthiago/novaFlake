@@ -44,6 +44,7 @@ with lib.nova; {
     hardware = {
       backlight = enabled;
       audio = enabled;
+      bluetooth = enabled;
     };
     services = {
       tlp = enabled;
