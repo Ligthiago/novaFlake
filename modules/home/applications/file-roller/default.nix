@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.file-roller;
 in {
   options.modules.applications.file-roller = {
-    enable = mkEnableOption (lib.mdDoc "Enable file-roller module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable file-roller module.
+      File Roller is an archive manager utility.
+      Source: https://gitlab.gnome.org/GNOME/file-roller
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome.file-roller

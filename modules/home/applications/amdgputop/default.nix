@@ -5,16 +5,23 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.amdgputop;
 in {
   options.modules.applications.amdgputop = {
-    enable = mkEnableOption (lib.mdDoc "Enable amdgpu_top module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable amdgputop module.
+      amdgputop is a tool to display AMD GPU usage.
+      Source: https://github.com/Umio-Yasuno/amdgpu_top
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       amdgpu_top
     ];
+
     xdg.desktopEntries."amdgpu_top" = {
       name = "GPU Monitor";
       genericName = "GPU Monitor";

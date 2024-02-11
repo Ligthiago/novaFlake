@@ -5,12 +5,19 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.vscode;
 in {
   options.modules.applications.vscode = {
-    enable = mkEnableOption (lib.mdDoc "Enable vscode module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable vscode module.
+      VSCode is a extensible graphical text editor.
+      Source: https://code.visualstudio.com/
+      Documentation: https://code.visualstudio.com/docs
+    '');
   };
+  
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       nil

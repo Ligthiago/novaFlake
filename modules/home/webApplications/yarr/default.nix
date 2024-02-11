@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.webApplications.yarr;
 in {
   options.modules.webApplications.yarr = {
-    enable = mkEnableOption (lib.mdDoc "Enable yarr module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable yarr module.
+      yarr is a web-based rss reader.
+      Source: https://github.com/nkanaev/yarr
+    '');
   };
+  
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       yarr

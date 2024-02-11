@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.celluloid;
 in {
   options.modules.applications.celluloid = {
-    enable = mkEnableOption (lib.mdDoc "Enable celluloid module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable celluloid module.
+      Celluloid is a simple GTK+ frontend for mpv 
+      Source: https://github.com/celluloid-player/celluloid
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       celluloid

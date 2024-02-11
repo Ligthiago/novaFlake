@@ -11,8 +11,14 @@ with lib.nova; let
   cfg = config.modules.environments.hyprland;
 in {
   options.modules.environments.hyprland = {
-    enable = mkEnableOption (lib.mdDoc "Enable Hyprland configs and basic modules");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable hyprland module.
+      Hyprland is a highly customizable dynamic tiling Wayland compositor. 
+      Source: https://github.com/hyprwm/Hyprland
+      Documentation: https://wiki.hyprland.org/
+    '');
   };
+  
   config = mkIf cfg.enable {
     modules = {
       environments.parts = {
@@ -41,6 +47,9 @@ in {
       nova.hyprzen
       nova.hyprexclusive
       nova.heynote
+      nova.sttr
+      nova.leetgo
+      nova.pget
       socat
     ];
 

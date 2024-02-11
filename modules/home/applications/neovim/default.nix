@@ -4,12 +4,19 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.neovim;
 in {
   options.modules.applications.neovim = {
-    enable = mkEnableOption (lib.mdDoc "Enable neovim module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable neovim module.
+      Neovim is a terminal editor, focused on extensibility and usability.
+      Source: https://github.com/neovim/neovim
+      Documentation: https://neovim.io/doc/
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;

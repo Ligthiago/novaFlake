@@ -11,8 +11,9 @@ with lib.nova; let
   home = config.home.homeDirectory;
 in {
   options.modules.environments.parts.xdg = {
-    enable = mkEnableOption (lib.mdDoc "Enable xdg module");
+    enable = mkOptEnable (lib.mdDoc "Enable xdg module");
   };
+
   config = mkIf cfg.enable {
     xdg = {
       enable = true;
@@ -150,9 +151,11 @@ in {
           mimeTypes));
       };
     };
+
     home.packages = with pkgs; [
       xdg-utils
     ];
+
     home.sessionVariables = {
       TERMINAL = "kitty";
     };

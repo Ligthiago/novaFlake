@@ -6,12 +6,14 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.environments.parts.rofi;
 in {
   options.modules.environments.parts.rofi = {
-    enable = mkEnableOption (lib.mdDoc "Enable rofi module");
+    enable = mkOptEnable (lib.mdDoc "Enable rofi module");
   };
+  
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;

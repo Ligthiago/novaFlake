@@ -4,12 +4,18 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.eza;
 in {
   options.modules.tools.eza = {
-    enable = mkEnableOption (lib.mdDoc "Enable eza module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable eza module.
+      Eza is a modern, maintained replacement for ls.
+      Source: https://github.com/eza-community/eza
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.eza = {
       enable = true;

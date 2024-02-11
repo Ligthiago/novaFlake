@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.btop;
 in {
   options.modules.applications.btop = {
-    enable = mkEnableOption (lib.mdDoc "Enable btop module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable btop module.
+      Btop is a terminal resource monitor.
+      Source: https://github.com/aristocratos/btop
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.btop = {
       enable = true;

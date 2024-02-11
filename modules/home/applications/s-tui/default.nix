@@ -5,17 +5,24 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.s-tui;
 in {
   options.modules.applications.s-tui = {
-    enable = mkEnableOption (lib.mdDoc "Enable s-tui module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable s-tui module.
+      s-yui is a terminal-based CPU stress and monitoring utility.
+      Source: https://github.com/amanusk/s-tui
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       s-tui
       stress
     ];
+
     xdg.desktopEntries."stui" = {
       name = "Stress Monitor";
       genericName = "Stress Monitor";

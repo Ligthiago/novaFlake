@@ -78,7 +78,6 @@
           description = "Default shell developmemt template";
           welcomeText = "Development template initialised.";
         };
-
         bun = {
           path = ./templates/bun;
           description = "Default JS/TS development environment with Bun";

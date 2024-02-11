@@ -33,6 +33,8 @@ with lib.nova; {
     libva-utils
   ];
 
+  programs.go.enable = true;
+
   # xdg.cacheHome = "${config.home.homeDirectory}/System/Cache";
   # xdg.stateHome = "${config.home.homeDirectory}/System/State";
   # xdg.dataHome = "${config.home.homeDirectory}/System/Data";
@@ -85,7 +87,7 @@ with lib.nova; {
     shells = {
       bash = enabled;
       nushell = enabled;
-      fish = disabled;
+      fish = enabled;
       parts = {
         starship = enabled;
         atuin = enabled;

@@ -13,8 +13,13 @@ with lib.nova; let
   home = config.home.homeDirectory;
 in {
   options.modules.applications.firefox = {
-    enable = mkEnableOption (lib.mdDoc "Enable firefox module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable firefox module.
+      Firefox is a customizable web browser.
+      Source: https://www.mozilla.org/en-US/firefox/
+    '');
   };
+  
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;

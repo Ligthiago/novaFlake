@@ -4,31 +4,25 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.zoxide;
 in {
   options.modules.tools.zoxide = {
-    enable = mkEnableOption (lib.mdDoc "Enable zoxide module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable zoxide module.
+      zoxide is a smarter cd command, inspired by z and autojump.
+      Source: https://github.com/ajeetdsouza/zoxide
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.zoxide = {
       enable = true;
-      enableNushellIntegration =
-        if config.programs.nushell.enable
-        then true
-        else false;
-      enableFishIntegration =
-        if config.programs.fish.enable
-        then true
-        else false;
-      enableBashIntegration =
-        if config.programs.bash.enable
-        then true
-        else false;
-      enableZshIntegration =
-        if config.programs.zsh.enable
-        then true
-        else false;
+      enableBashIntegration = mkIf (config.programs.bash.enable) true;
+      enableZshIntegration = mkIf (config.programs.zsh.enable) true;
+      enableFishIntegration = mkIf (config.programs.fish.enable) true;
+      enableNushellIntegration = mkIf (config.programs.nushell.enable) true;
     };
   };
 }

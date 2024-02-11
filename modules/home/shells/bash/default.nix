@@ -4,11 +4,17 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.shells.bash;
 in {
   options.modules.shells.bash = {
-    enable = mkEnableOption (lib.mdDoc "Enable bash shell module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable bash module.
+      Bash is the GNU Project's sh-compatible shell.
+      Source: https://savannah.gnu.org/projects/bash/
+      Documentation: https://www.gnu.org/software/bash/manual/
+    '');
   };
   config = mkIf cfg.enable {
     programs.bash = {

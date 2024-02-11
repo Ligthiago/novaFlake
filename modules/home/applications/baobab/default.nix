@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.baobab;
 in {
   options.modules.applications.baobab = {
-    enable = mkEnableOption (lib.mdDoc "Enable baobab module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable baobab module.
+      Baobab is a graphical disk usage analyzer.
+      Source: https://gitlab.gnome.org/GNOME/baobab
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       baobab

@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.pet;
 in {
   options.modules.tools.pet = {
-    enable = mkEnableOption (lib.mdDoc "Enable pet module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable pet module.
+      pet  is a simple command-line snippet manager.
+      Source: https://github.com/knqyf263/pet
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.pet = {
       enable = true;

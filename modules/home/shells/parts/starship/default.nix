@@ -4,14 +4,15 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.shells.parts.starship;
 in {
   options.modules.shells.parts.starship = {
-    enable = mkEnableOption (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable starship module.
       Starship is a minimal, blazing-fast, and infinitely customizable prompt for any shell.
-      Github: https://github.com/starship/starship
+      Source: https://github.com/starship/starship
       Documentation: https://starship.rs/config/
     '');
   };

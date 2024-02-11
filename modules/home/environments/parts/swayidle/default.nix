@@ -6,13 +6,15 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   cfg = config.modules.environments.parts.swayidle;
 in {
   options.modules.environments.parts.swayidle = {
-    enable = mkEnableOption (lib.mdDoc "Enable vnstat module");
+    enable = mkOptEnable (lib.mdDoc "Enable swayidle module");
   };
+
   config = mkIf cfg.enable {
     services.swayidle = {
       enable = true;

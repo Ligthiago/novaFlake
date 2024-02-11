@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.nautilus;
 in {
   options.modules.applications.nautilus = {
-    enable = mkEnableOption (lib.mdDoc "Enable nautilus module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable nautilus module.
+      Nautilus is a graphical file manager.
+      Source: https://gitlab.gnome.org/GNOME/nautilus
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome.nautilus

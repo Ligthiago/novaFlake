@@ -5,27 +5,32 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.fastfetch;
-  home = config.home.homeDirectory;
+  userConfig = config.xdg.configHome;
 in {
   options.modules.tools.fastfetch = {
-    enable = mkEnableOption (lib.mdDoc "Enable fastfetch module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable fastfetch module.
+      Fastfetch is like neofetch, but much faster because written mostly in C.
+      Source: https://github.com/fastfetch-cli/fastfetch
+      Documentation: https://github.com/fastfetch-cli/fastfetch/wiki/Configuration
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       fastfetch
     ];
 
-    home.file = let
-      path = config.xdg.configHome;
-    in {
-      "${path}/fastfetch/logo.png".source = ../../../../assets/logo.png;
-      "${path}/fastfetch/config.jsonc".text = builtins.toJSON {
+    home.file = {
+      "${userConfig}/fastfetch/logo.png".source = ../../../../assets/logo.png;
+      "${userConfig}/fastfetch/config.jsonc".text = builtins.toJSON {
         "$schema" = "https=://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         logo = {
           "type" = "kitty-direct";
-          "source" = "${path}/fastfetch/logo.png";
+          "source" = "${userConfig}/fastfetch/logo.png";
           "width" = 40;
           "height" = 20;
         };

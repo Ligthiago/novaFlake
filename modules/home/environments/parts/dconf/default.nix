@@ -5,12 +5,14 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.environments.parts.dconf;
 in {
   options.modules.environments.parts.dconf = {
-    enable = mkEnableOption (lib.mdDoc "Enable dconf module");
+    enable = mkOptEnable (lib.mdDoc "Enable dconf module");
   };
+
   config = mkIf cfg.enable {
     dconf.settings = {
       "io/github/celluloid-player/celluloid" = {

@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.loupe;
 in {
   options.modules.applications.loupe = {
-    enable = mkEnableOption (lib.mdDoc "Enable loupe module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable loupe module.
+      Loupe is a image viewer.
+      Source: https://gitlab.gnome.org/GNOME/loupe
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       loupe

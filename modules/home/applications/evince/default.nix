@@ -5,14 +5,19 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.evince;
 in {
   options.modules.applications.evince = {
-    enable = mkEnableOption (lib.mdDoc "Enable evince module. Also need a system module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable evince module.
+      Evince is a document viewer for multiple document formats.
+      Source: https://gitlab.gnome.org/GNOME/evince
+    '');
   };
+
   config = mkIf cfg.enable {
-    # For now preview dont work, need to configure PATH or something
     home.packages = with pkgs; [
       evince
     ];

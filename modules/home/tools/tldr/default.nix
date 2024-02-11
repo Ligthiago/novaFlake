@@ -5,12 +5,19 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.tldr;
 in {
   options.modules.tools.tldr = {
-    enable = mkEnableOption (lib.mdDoc "Enable tldr module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable tldr module.
+      tldr is a collaborative cheatsheets for console commands
+      Source: https://github.com/dbrgn/tealdeer
+      Documentation: https://dbrgn.github.io/tealdeer/
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.tealdeer = {
       enable = true;

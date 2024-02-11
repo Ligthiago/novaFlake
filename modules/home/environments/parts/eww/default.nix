@@ -5,12 +5,14 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.environments.parts.eww;
 in {
   options.modules.environments.parts.eww = {
-    enable = mkEnableOption (lib.mdDoc "Enable eww module");
+    enable = mkOptEnable (lib.mdDoc "Enable eww module");
   };
+  
   config = mkIf cfg.enable {
     programs.eww = {
       enable = true;

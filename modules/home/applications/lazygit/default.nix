@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.lazygit;
 in {
   options.modules.applications.lazygit = {
-    enable = mkEnableOption (lib.mdDoc "Enable lazygit module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable lazygit module.
+      Lazygit is a simple terminal UI for git commands.
+      Source: https://github.com/jesseduffield/lazygit
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.lazygit = {
       enable = true;

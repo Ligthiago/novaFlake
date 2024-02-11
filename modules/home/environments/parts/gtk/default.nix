@@ -12,18 +12,21 @@ with lib.nova; let
   user = config.home.username;
 in {
   options.modules.environments.parts.gtk = {
-    enable = mkEnableOption (lib.mdDoc "Enable gtk customisation module");
+    enable = mkOptEnable (lib.mdDoc "Enable gtk module");
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       adw-gtk3
     ];
+
     home.pointerCursor = {
       gtk.enable = true;
       name = "capitaine-cursors";
       package = pkgs.capitaine-cursors;
       size = 24;
     };
+
     gtk = let
       namedColors = ''
         @define-color window_bg_color ${palette.background.dim};

@@ -5,11 +5,12 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.services.polkit-agent;
 in {
   options.modules.services.polkit-agent = {
-    enable = mkEnableOption (lib.mdDoc "Enable polkit-agent module");
+    enable = mkOptEnable (lib.mdDoc "Enable polkit-agent module");
   };
   config = mkIf cfg.enable {
     systemd.user.services.polkit-gnome-authentication-agent-1 = {

@@ -5,13 +5,19 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.obsidian;
   home = config.home.homeDirectory;
 in {
   options.modules.applications.obsidian = {
-    enable = mkEnableOption (lib.mdDoc "Enable obsidian module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable obsidian module.
+      Obsidian is a application for live notetaking and planing.
+      Source: https://obsidian.md/
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       obsidian

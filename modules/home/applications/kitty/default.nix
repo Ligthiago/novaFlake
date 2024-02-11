@@ -10,8 +10,14 @@ with lib.nova; let
   cfg = config.modules.applications.kitty;
 in {
   options.modules.applications.kitty = {
-    enable = mkEnableOption (lib.mdDoc "Enable kitty module");
+     enable = mkOptEnable (lib.mdDoc ''
+      Enable kitty module.
+      Kitty is a cross-platform, fast, feature-rich, GPU based terminal 
+      Source: https://github.com/kovidgoyal/kitty
+      Documentation: https://sw.kovidgoyal.net/kitty/
+    '');
   };
+  
   config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;

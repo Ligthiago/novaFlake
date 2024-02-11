@@ -5,28 +5,35 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.secrets;
 in {
   options.modules.applications.secrets = {
-    enable = mkEnableOption (lib.mdDoc "Enable gnome-secrets module");
+      enable = mkOptEnable (lib.mdDoc ''
+      Enable secrets module.
+      Secrets is a graphical password manager.
+      Source: https://gitlab.gnome.org/World/secrets
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome-secrets
     ];
-    #  xdg.desktopEntries."stui" = {
-    #    name = "S-tui";
-    #    genericName = "Stress Monitor";
-    #    categories = ["System" "Monitor"];
-    #    type = "Application";
-    #    terminal = true;
-    #    icon = "openhardwaremonitor";
-    #    comment = "Terminal-based CPU stress monitoring utility";
-    #    exec = "s-tui";
-    #    settings = {
-    #      Keywords = "Resource;Monitoring,Stress,Statistics,Processor;";
-    #   };
-    #  };
+
+     xdg.desktopEntries."org.gnome.World.Secrets" = {
+       name = "Secrets";
+       genericName = "Password Manager";
+       categories = ["Utility"];
+       type = "Application";
+       terminal = false;
+       icon = "org.gnome.World.Secrets";
+       comment = "Password manager";
+       exec = "secrets %U";
+       settings = {
+         Keywords = "Password;Encrypt,Security;";
+      };
+     };
   };
 }

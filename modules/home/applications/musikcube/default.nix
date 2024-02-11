@@ -5,17 +5,19 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.musikcube;
 in {
   options.modules.applications.musikcube = {
-    enable = mkEnableOption (lib.mdDoc ''
-      Enable musikcube module
-      Musikcube is a terminal-based audio engine, library, player and sezrver.
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable musikcube module.
+      Musikcube is a terminal-based audio engine, library, player and server.
+      Source: https://github.com/clangen/musikcube
       Documentation: https://github.com/clangen/musikcube/wiki/user-guide
-      Github: https://github.com/clangen/musikcube
     '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       musikcube

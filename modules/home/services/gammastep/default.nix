@@ -4,12 +4,14 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.services.gammastep;
 in {
   options.modules.services.gammastep = {
-    enable = mkEnableOption (lib.mdDoc "Enable gammastep module");
+    enable = mkOptEnable (lib.mdDoc "Enable gammastep module");
   };
+  
   config = mkIf cfg.enable {
     services.gammastep = {
       enable = true;

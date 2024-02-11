@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.tools.hyperfine;
 in {
   options.modules.tools.hyperfine = {
-    enable = mkEnableOption (lib.mdDoc "Enable hyperfine module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable hyperfine module.
+      Hyperfine is a command-line benchmarking tool.
+      Source: https://github.com/sharkdp/hyperfine
+    '');
   };
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       hyperfine

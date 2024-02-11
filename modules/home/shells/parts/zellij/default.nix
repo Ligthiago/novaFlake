@@ -2,15 +2,19 @@
   options,
   config,
   lib,
-  pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.shells.parts.zellij;
-  home = config.home.homeDirectory;
 in {
   options.modules.shells.parts.zellij = {
-    enable = mkEnableOption (lib.mdDoc "Enable zellij module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable zellij module.
+      Zellij is a terminal multiplexer aimed at developers, ops-oriented people and anyone who loves the terminal.
+      Source: https://github.com/zellij-org/zellij
+      Documentation: https://zellij.dev/documentation/
+    '');
   };
   config = mkIf cfg.enable {
     programs.zellij = {

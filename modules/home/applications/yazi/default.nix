@@ -5,12 +5,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+with lib.nova; let
   cfg = config.modules.applications.yazi;
 in {
   options.modules.applications.yazi = {
-    enable = mkEnableOption (lib.mdDoc "Enable yazi module");
+    enable = mkOptEnable (lib.mdDoc ''
+      Enable yazi module.
+      Yazi is a terminal file manager.
+      Source: https://yazi-rs.github.io/docs/configuration/overview
+    '');
   };
+
   config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;
