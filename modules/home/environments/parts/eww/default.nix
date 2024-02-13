@@ -12,7 +12,7 @@ in {
   options.modules.environments.parts.eww = {
     enable = mkOptEnable (lib.mdDoc "Enable eww module");
   };
-  
+
   config = mkIf cfg.enable {
     programs.eww = {
       enable = true;

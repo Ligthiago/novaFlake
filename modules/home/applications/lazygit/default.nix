@@ -10,7 +10,7 @@ with lib.nova; let
   cfg = config.modules.applications.lazygit;
 in {
   options.modules.applications.lazygit = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable lazygit module.
       Lazygit is a simple terminal UI for git commands.
       Source: https://github.com/jesseduffield/lazygit

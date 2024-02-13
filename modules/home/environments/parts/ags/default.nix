@@ -17,7 +17,7 @@ in {
     programs.ags = {
       enable = true;
     };
-    
+
     home.packages = with pkgs; [
       libdbusmenu-gtk3
       dart-sass

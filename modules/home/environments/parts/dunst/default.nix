@@ -12,7 +12,7 @@ in {
   options.modules.environments.parts.dunst = {
     enable = mkOptEnable (lib.mdDoc "Enable dunst module");
   };
-  
+
   config = mkIf cfg.enable {
     services.dunst = {
       enable = true;

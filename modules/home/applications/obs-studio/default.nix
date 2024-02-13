@@ -22,20 +22,20 @@ in {
       enable = true;
     };
 
-     xdg.desktopEntries."com.obsproject.Studio" = {
-       name = "OBS Studio";
-       genericName = "Streaming/Recording Application";
-       categories = ["AudioVideo" "Recorder"];
-       type = "Application";
-       terminal = false;
-       icon = "com.obsproject.Studio";
-       comment = "Streaming and recording application";
-       exec = "obs";
-       settings = {
-         Keywords = "Streaming;Recoarding,Screensharing,Video,Audio;";
-         StartupNotify = "true";
-         StartupWMClass = "obs";
+    xdg.desktopEntries."com.obsproject.Studio" = {
+      name = "OBS Studio";
+      genericName = "Streaming/Recording Application";
+      categories = ["AudioVideo" "Recorder"];
+      type = "Application";
+      terminal = false;
+      icon = "com.obsproject.Studio";
+      comment = "Streaming and recording application";
+      exec = "obs";
+      settings = {
+        Keywords = "Streaming;Recoarding,Screensharing,Video,Audio;";
+        StartupNotify = "true";
+        StartupWMClass = "obs";
       };
-     };
+    };
   };
 }

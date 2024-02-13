@@ -12,7 +12,7 @@ in {
   options.modules.applications.celluloid = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable celluloid module.
-      Celluloid is a simple GTK+ frontend for mpv 
+      Celluloid is a simple GTK+ frontend for mpv
       Source: https://github.com/celluloid-player/celluloid
     '');
   };

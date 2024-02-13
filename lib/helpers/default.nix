@@ -1,13 +1,10 @@
-{
-  lib,
-  ...
-}:
+{lib, ...}:
 with lib; rec {
   enabled = {enable = true;};
   disabled = {enable = false;};
 
-  # userHome = config.home.homeDirectory;
-  # userConfig = config.xdg.configHome;
+  mkOpt = type: default: description:
+    mkOption {inherit type default description;};
 
   mkOptEnable = name:
     mkOption {

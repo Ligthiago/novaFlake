@@ -11,14 +11,14 @@ with lib.nova; let
   cfg = config.modules.environments.hyprland;
 in {
   options.modules.environments.hyprland = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable hyprland module.
-      Hyprland is a highly customizable dynamic tiling Wayland compositor. 
+      Hyprland is a highly customizable dynamic tiling Wayland compositor.
       Source: https://github.com/hyprwm/Hyprland
       Documentation: https://wiki.hyprland.org/
     '');
   };
-  
+
   config = mkIf cfg.enable {
     modules = {
       environments.parts = {
@@ -46,7 +46,7 @@ in {
       nova.hyprscreen
       nova.hyprzen
       nova.hyprexclusive
-      nova.heynote
+      # nova.heynote
       nova.sttr
       nova.leetgo
       nova.pget
@@ -61,8 +61,8 @@ in {
       ];
       settings = {
         exec = [
-          "swww init"
-          "hyprzen ~/Pictures/Wallpapers/wire.png ~/Pictures/Wallpapers/dark.png"
+          # "swww init"
+          # "hyprzen ~/Pictures/Wallpapers/wire.png ~/Pictures/Wallpapers/dark.png"
         ];
         env = [
           "GDK_BACKEND,wayland"
@@ -97,7 +97,7 @@ in {
             "windows,1,6,simple,slide"
             "border,1,5,default"
             "fade,1,3,default"
-            "workspaces,1,6,simple,slidevert"
+            "workspaces,0,6,simple,slidevert"
           ];
         };
         input = {
@@ -161,6 +161,7 @@ in {
 
             "SUPER, X, togglesplit"
             "SUPER, P, pin"
+            # "SUPER, L, exec, hyprctl keyword animations:enabled $(hyprctl getoption -j animations:enabled | jq .int | grep -q 1 && echo false || echo true)"
 
             "SUPER, E, exec, rofi -show drun"
 

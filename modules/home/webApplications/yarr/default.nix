@@ -16,7 +16,7 @@ in {
       Source: https://github.com/nkanaev/yarr
     '');
   };
-  
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       yarr

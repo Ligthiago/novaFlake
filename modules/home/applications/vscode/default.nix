@@ -17,7 +17,7 @@ in {
       Documentation: https://code.visualstudio.com/docs
     '');
   };
-  
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       nil

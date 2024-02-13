@@ -13,7 +13,7 @@ in {
   options.modules.environments.parts.rofi = {
     enable = mkOptEnable (lib.mdDoc "Enable rofi module");
   };
-  
+
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;

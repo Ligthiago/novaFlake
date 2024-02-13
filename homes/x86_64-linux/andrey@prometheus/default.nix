@@ -13,13 +13,6 @@ with lib.nova; {
 
   programs.home-manager.enable = true;
 
-  # Temporally enable git this way
-  programs.git = {
-    enable = true;
-    userName = "Andrey Donets";
-    userEmail = "donets.andre@gmail.com";
-  };
-
   home.packages = with pkgs; [
     imagemagick
     grim
@@ -97,6 +90,11 @@ with lib.nova; {
       default = "nu";
     };
     tools = {
+      git = {
+        enable = true;
+        userName = "Andrey Donets";
+        userEmail = "donets.andre@gmail.com";
+      };
       zoxide = enabled;
       eza = enabled;
       yt-dlp = enabled;

@@ -10,7 +10,7 @@ with lib.nova; let
   cfg = config.modules.applications.loupe;
 in {
   options.modules.applications.loupe = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable loupe module.
       Loupe is a image viewer.
       Source: https://gitlab.gnome.org/GNOME/loupe

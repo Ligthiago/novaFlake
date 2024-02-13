@@ -10,7 +10,7 @@ with lib.nova; let
   cfg = config.modules.applications.evince;
 in {
   options.modules.applications.evince = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable evince module.
       Evince is a document viewer for multiple document formats.
       Source: https://gitlab.gnome.org/GNOME/evince

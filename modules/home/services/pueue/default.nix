@@ -16,7 +16,7 @@ in {
       Source: https://github.com/Nukesor/pueue
     '');
   };
-  
+
   config = mkIf cfg.enable {
     services.pueue = {
       enable = true;

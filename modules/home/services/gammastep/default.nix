@@ -11,7 +11,7 @@ in {
   options.modules.services.gammastep = {
     enable = mkOptEnable (lib.mdDoc "Enable gammastep module");
   };
-  
+
   config = mkIf cfg.enable {
     services.gammastep = {
       enable = true;

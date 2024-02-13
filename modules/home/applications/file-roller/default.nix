@@ -10,7 +10,7 @@ with lib.nova; let
   cfg = config.modules.applications.file-roller;
 in {
   options.modules.applications.file-roller = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable file-roller module.
       File Roller is an archive manager utility.
       Source: https://gitlab.gnome.org/GNOME/file-roller

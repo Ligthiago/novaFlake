@@ -10,9 +10,9 @@ with lib.nova; let
   cfg = config.modules.applications.helix;
 in {
   options.modules.applications.helix = {
-     enable = mkOptEnable (lib.mdDoc ''
+    enable = mkOptEnable (lib.mdDoc ''
       Enable helix module.
-      Helix is a post-modern modal text editor. 
+      Helix is a post-modern modal text editor.
       Source: https://github.com/helix-editor/helix
       Documentation: https://docs.helix-editor.com/
     '');
