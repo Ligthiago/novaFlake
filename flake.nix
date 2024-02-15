@@ -48,6 +48,7 @@
     };
   in
     lib.mkFlake {
+      # Channels configuration
       channels-config = {
         allowUnfree = true;
         permittedInsecurePackages = [
@@ -55,28 +56,50 @@
         ];
       };
 
+      # Global overlays
       overlays = with inputs; [
         nur.overlay
       ];
 
-      systems.modules.nixos = with inputs; [
-        home-manager.nixosModules.home-manager
-      ];
-
-      homes.users."andrey@prometheus".modules = with inputs; [
-        nixvim.homeManagerModules.nixvim
-        ags.homeManagerModules.default
-      ];
-
-      homes.users."andrey@prometheus".specialArgs = {
-        home-manager.useGlobalPkgs = true;
+      # System-wide configurations
+      systems = {
+        modules = {
+          nixos = with inputs; [
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
 
+      # User-specific configurations
+      homes = {
+        users = {
+          "ligthiago@prometheus" = {
+            modules = with inputs; [
+              nixvim.homeManagerModules.nixvim
+              ags.homeManagerModules.default
+            ];
+            specialArgs = {
+              home-manager.useGlobalPkgs = true;
+            };
+          };
+          "ligthiago@theseus" = {
+            modules = with inputs; [
+              nixvim.homeManagerModules.nixvim
+              ags.homeManagerModules.default
+            ];
+            specialArgs = {
+              home-manager.useGlobalPkgs = true;
+            };
+          };
+        };
+      };
+
+      # Templates for fast initialisation of flake-based projects
       templates = {
         shell = {
           path = ./templates/shell;
           description = "Default shell developmemt template";
-          welcomeText = "Development template initialised.";
+          welcomeText = "Development template initialised";
         };
         bun = {
           path = ./templates/bun;

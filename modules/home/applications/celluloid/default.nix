@@ -30,7 +30,7 @@ in {
       terminal = false;
       icon = "io.github.celluloid_player.Celluloid";
       comment = "Mpv-based video player";
-      exec = "firejail celluloid %U";
+      exec = "celluloid %U";
       settings = {
         Keywords = "Audio;Video;Media;Player";
         DBusActivatable = "true";

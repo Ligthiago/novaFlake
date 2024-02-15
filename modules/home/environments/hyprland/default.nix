@@ -46,10 +46,6 @@ in {
       nova.hyprscreen
       nova.hyprzen
       nova.hyprexclusive
-      # nova.heynote
-      nova.sttr
-      nova.leetgo
-      nova.pget
       socat
     ];
 
