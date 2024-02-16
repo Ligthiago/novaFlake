@@ -2,28 +2,15 @@
   lib,
   pkgs,
   config,
-  ligthiago,
   ...
 }:
 with lib;
-with lib.nova; {
-  home = {
-    username = "ligthiago";
-    homeDirectory = "/home/ligthiago";
+with lib.nova;
+with userData.ligthiago; {
+  home =  {
+    username = username;
+    homeDirectory = "/home/${username}";
   };
-
-  programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    imagemagick
-    grim
-    slurp
-    jq
-    wl-clipboard
-    libnotify
-    ffmpeg
-    just
-  ];
 
   services.dunst = {
     enable = true;
@@ -73,8 +60,8 @@ with lib.nova; {
     tools = {
       git = {
         enable = true;
-        userName = "Andrey Donets";
-        userEmail = "donets.andre@gmail.com";
+        userName = name;
+        userEmail = email;
       };
       zoxide = enabled;
       eza = enabled;
@@ -83,13 +70,16 @@ with lib.nova; {
       pastel = enabled;
       fastfetch = enabled;
       jq = enabled;
-      # tldr = enabled;
+      tldr = enabled;
       hyperfine = enabled;
       imagemagick = enabled;
       curl = enabled;
       gallery-dl = enabled;
       tdl = enabled;
       pet = enabled;
+      just = enabled;
+      ffmpeg = enabled;
+      pget = enabled;
     };
     services = {
       pueue = enabled;
