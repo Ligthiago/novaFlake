@@ -12,7 +12,7 @@ in {
   options.modules.tools.pget = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable pget module.
-      pget is a fast, resumable file download client 
+      pget is a fast, resumable file download client
       Source: https://github.com/Code-Hex/pget
     '');
   };

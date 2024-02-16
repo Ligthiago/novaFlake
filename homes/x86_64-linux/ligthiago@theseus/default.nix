@@ -7,7 +7,7 @@
 with lib;
 with lib.nova;
 with userData.ligthiago; {
-  home =  {
+  home = {
     username = username;
     homeDirectory = "/home/${username}";
   };
@@ -80,6 +80,7 @@ with userData.ligthiago; {
       just = enabled;
       ffmpeg = enabled;
       pget = enabled;
+      yq = enabled;
     };
     services = {
       pueue = enabled;

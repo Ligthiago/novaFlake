@@ -5,33 +5,12 @@
   ...
 }:
 with lib;
-with lib.nova; {
+with lib.nova;
+with userData.ligthiago; {
   home = {
-    username = "andrey";
-    homeDirectory = "/home/andrey";
+    username = username;
+    homeDirectory = "/home/${username}";
   };
-
-  programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    imagemagick
-    grim
-    slurp
-    jq
-    wl-clipboard
-    libnotify
-    ffmpeg
-    just
-    glxinfo
-    libva-utils
-  ];
-
-  programs.go.enable = true;
-
-  # xdg.cacheHome = "${config.home.homeDirectory}/System/Cache";
-  # xdg.stateHome = "${config.home.homeDirectory}/System/State";
-  # xdg.dataHome = "${config.home.homeDirectory}/System/Data";
-  # xdg.configHome = "${config.home.homeDirectory}/System/Config";
 
   services.dunst = {
     enable = true;
@@ -63,7 +42,6 @@ with lib.nova; {
       disks = enabled;
       file-roller = enabled;
       musikcube = enabled;
-      alacritty = disabled;
 
       defaultApplications = {
         terminal = "kitty";
@@ -92,8 +70,8 @@ with lib.nova; {
     tools = {
       git = {
         enable = true;
-        userName = "Andrey Donets";
-        userEmail = "donets.andre@gmail.com";
+        userName = name;
+        userEmail = email;
       };
       zoxide = enabled;
       eza = enabled;
@@ -109,6 +87,9 @@ with lib.nova; {
       gallery-dl = enabled;
       tdl = enabled;
       pet = enabled;
+      just = enabled;
+      ffmpeg = enabled;
+      pget = enabled;
     };
     services = {
       gammastep = enabled;
