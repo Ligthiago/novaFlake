@@ -26,8 +26,10 @@ with lib; rec {
       cyan = "#22b8cf";
     };
   };
-  geometry = {
-    border = "1px solid";
-    borderRadius = "6px";
+  
+  geometry = rec {
+    borderSize = "1";
+    border = "${borderSize}px solid";
+    borderRadius = "10px";
   };
 }

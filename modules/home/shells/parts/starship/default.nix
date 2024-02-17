@@ -73,6 +73,18 @@ in {
           unknown_msg = "";
         };
 
+        # Failing right now
+        # Will fixed in starship 1.18.0
+        # direnv = {
+        #   disabled = false;
+        #   format = "aboba[$symbol$loaded/$allowed]($style) ";
+        #   symbol = "direnv ";
+        #   allowed_msg = "allowed";
+        #   denied_msg = "denied";
+        #   unloaded_msg = "not loaded";
+        #   style = "bold green";
+        # };
+
         git_branch = {
           format = "on [$symbol$branch ]($style)";
           style = "bold green";

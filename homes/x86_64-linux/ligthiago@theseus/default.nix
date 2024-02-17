@@ -54,6 +54,7 @@ with userData.ligthiago; {
         atuin = enabled;
         zellij = enabled;
         carapace = enabled;
+        direnv = enabled;
       };
       default = "nu";
     };
