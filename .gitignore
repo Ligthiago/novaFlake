@@ -1,5 +1,10 @@
 modules/home/environments/parts/ags/config
 
+# direnv cache
 .direnv
+
+# build result
 result
-default.nix
+
+# files created with nix-init
+/default.nix

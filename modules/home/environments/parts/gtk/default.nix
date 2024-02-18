@@ -53,6 +53,12 @@ in {
         .navigation-sidebar {
           border-right: ${geometry.border} ${palette.background.normal};
         }
+        .top-bar {
+          border-bottom: 1px solid #161616;
+        }
+        .sidebar-pane viewport{
+          border-right: 1px solid #161616;
+        }
         .close image {
           background-color: transparent;
           -gtk-icon-size: 20px;

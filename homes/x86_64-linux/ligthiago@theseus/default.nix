@@ -9,7 +9,7 @@ with lib.nova; {
     settings = {
       user = {
         username = "ligthiago";
-        name = "Donets Andrey";
+        name = "Andrey Donets";
         email = "donets.andre@gmail.com";
       };
       defaults = {
@@ -83,6 +83,7 @@ with lib.nova; {
 
     services = {
       pueue = enabled;
+      rclone = enabled;
     };
   };
 }

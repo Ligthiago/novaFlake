@@ -5,13 +5,12 @@
   ...
 }:
 with lib;
-with lib.nova;
-with userData.ligthiago; {
+with lib.nova; {
   configuration = {
     settings = {
       user = {
         username = "ligthiago";
-        name = "Donets Andrey";
+        name = "Andrey Donets";
         email = "donets.andre@gmail.com";
       };
       defaults = {

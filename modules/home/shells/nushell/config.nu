@@ -54,7 +54,7 @@ $env.config = {
         {
             name: ide_completion_menu
             only_buffer_difference: false
-            marker: "| "
+            marker: ""
             type: {
                 layout: ide
                 min_completion_width: 0,
@@ -105,6 +105,20 @@ $env.config = {
                     { edit: complete }
                 ]
             }
+        }
+        {
+            name: move_to_line_start
+            modifier: control
+            keycode: char_s
+            mode: [emacs, vi_normal, vi_insert]
+            event: {edit: movetolinestart}
+        }
+        {
+            name: move_to_line_start
+            modifier: control
+            keycode: char_e
+            mode: [emacs, vi_normal, vi_insert]
+            event: {edit: movetolineend}
         }
     ]
 

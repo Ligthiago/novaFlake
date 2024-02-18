@@ -53,8 +53,8 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
-      plugins = [
-        inputs.hycov.packages.${pkgs.system}.hycov
+      plugins = with inputs; [
+        # hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
         exec = [
@@ -71,8 +71,8 @@ in {
           gaps_in = 3;
           gaps_out = 6;
           border_size = 1;
-          "col.active_border" = hexToHyprland palette.background.bright;
-          "col.inactive_border" = hexToHyprland palette.background.bright;
+          "col.active_border" = "rgb(323232) rgb(525252) 270deg";
+          "col.inactive_border" = "rgb(323232) rgb(525252) 270deg";
           layout = "dwindle";
         };
         decoration = {
@@ -167,7 +167,7 @@ in {
             "SUPER, U, exec, firefox"
             "SUPER, I, exec, codium"
 
-            "SUPER, Tab, hycov:toggleoverview"
+            # "SUPER, Tab, hycov:toggleoverview"
 
             "SUPER, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -m screen"
             "SUPER SHIFT, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -f"
@@ -198,6 +198,7 @@ in {
           "float,^(io.github.celluloid_player.Celluloid)$"
           "center,^(io.github.celluloid_player.Celluloid)$"
           "size 80% 80%,^(io.github.celluloid_player.Celluloid)$"
+          "fakefullscreen,^(io.github.celluloid_player.Celluloid)$"
 
           "float,^(org.gnome.Loupe)$"
           "center,^(org.gnome.Loupe)$"
@@ -240,23 +241,29 @@ in {
         submap = reset
 
         plugin {
-          hycov {
-            overview_gappo = 20
-            overview_gappi = 20
-            hotarea_size = 10
-            enable_hotarea = 0
-            swipe_fingers = 4
-            move_focus_distance = 100
-            enable_gesture = 1
-            disable_workspace_change = 1
-            disable_spawn = 1
-            auto_exit = 1
-            auto_fullscreen = 0
-            only_active_workspace = 0
-            only_active_monitor = 1
-            enable_alt_release_exit = 0
-            alt_toggle_auto_next = 0
-          }
+          # hycov {
+          #   overview_gappo = 20
+          #   overview_gappi = 20
+          #   hotarea_size = 10
+          #   enable_hotarea = 0
+          #   swipe_fingers = 4
+          #   move_focus_distance = 100
+          #   enable_gesture = 1
+          #   disable_workspace_change = 1
+          #   disable_spawn = 1
+          #   auto_exit = 1
+          #   auto_fullscreen = 0
+          #   only_active_workspace = 0
+          #   only_active_monitor = 1
+          #   enable_alt_release_exit = 0
+          #   alt_toggle_auto_next = 0
+          # }
+          # borders-plus-plus {
+          #   add_borders = 0 # 0 - 9
+          #   col.border_1 = rgb(0b0b0b)
+          #   border_size_1 = 1
+          #   natural_rounding = no
+          # }
         }
       '';
     };
