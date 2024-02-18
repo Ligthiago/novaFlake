@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.dunst;
+  cfg = config.configuration.environments.parts.dunst;
 in {
-  options.modules.environments.parts.dunst = {
+  options.configuration.environments.parts.dunst = {
     enable = mkOptEnable (lib.mdDoc "Enable dunst module");
   };
 

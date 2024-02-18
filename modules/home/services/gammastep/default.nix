@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.services.gammastep;
+  cfg = config.configuration.services.gammastep;
 in {
-  options.modules.services.gammastep = {
+  options.configuration.services.gammastep = {
     enable = mkOptEnable (lib.mdDoc "Enable gammastep module");
   };
 

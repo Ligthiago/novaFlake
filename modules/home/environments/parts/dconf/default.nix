@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.dconf;
+  cfg = config.configuration.environments.parts.dconf;
 in {
-  options.modules.environments.parts.dconf = {
+  options.configuration.environments.parts.dconf = {
     enable = mkOptEnable (lib.mdDoc "Enable dconf module");
   };
 

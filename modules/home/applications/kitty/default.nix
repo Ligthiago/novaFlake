@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.kitty;
+  cfg = config.configuration.applications.kitty;
 in {
-  options.modules.applications.kitty = {
+  options.configuration.applications.kitty = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable kitty module.
       Kitty is a cross-platform, fast, feature-rich, GPU based terminal

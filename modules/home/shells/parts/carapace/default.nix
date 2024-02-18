@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.parts.carapace;
+  cfg = config.configuration.shells.parts.carapace;
 in {
-  options.modules.shells.parts.carapace = {
+  options.configuration.shells.parts.carapace = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable carapace module.
       Carapace provides argument completion for multiple CLI commands.

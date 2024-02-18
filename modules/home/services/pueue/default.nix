@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.services.pueue;
+  cfg = config.configuration.services.pueue;
 in {
-  options.modules.services.pueue = {
+  options.configuration.services.pueue = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable pueue module.
       pueue is  a command-line task management tool.

@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.zoxide;
+  cfg = config.configuration.tools.zoxide;
 in {
-  options.modules.tools.zoxide = {
+  options.configuration.tools.zoxide = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable zoxide module.
       zoxide is a smarter cd command, inspired by z and autojump.

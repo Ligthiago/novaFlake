@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.ags;
+  cfg = config.configuration.environments.parts.ags;
 in {
-  options.modules.environments.parts.ags = {
+  options.configuration.environments.parts.ags = {
     enable = mkOptEnable (lib.mdDoc "Enable xdg module");
   };
 

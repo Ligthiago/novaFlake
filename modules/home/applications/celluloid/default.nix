@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.celluloid;
+  cfg = config.configuration.applications.celluloid;
 in {
-  options.modules.applications.celluloid = {
+  options.configuration.applications.celluloid = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable celluloid module.
       Celluloid is a simple GTK+ frontend for mpv

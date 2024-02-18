@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.obsidian;
+  cfg = config.configuration.applications.obsidian;
   home = config.home.homeDirectory;
 in {
-  options.modules.applications.obsidian = {
+  options.configuration.applications.obsidian = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable obsidian module.
       Obsidian is a application for live notetaking and planing.

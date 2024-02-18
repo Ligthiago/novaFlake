@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.yt-dlp;
+  cfg = config.configuration.tools.yt-dlp;
 in {
-  options.modules.tools.yt-dlp = {
+  options.configuration.tools.yt-dlp = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable yt-dlp module.
       yt-dlp is a command-line benchmarking tool.

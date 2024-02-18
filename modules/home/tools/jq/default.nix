@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.jq;
+  cfg = config.configuration.tools.jq;
 in {
-  options.modules.tools.jq = {
+  options.configuration.tools.jq = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable jq module.
       jq is a lightweight and flexible command-line JSON processor.

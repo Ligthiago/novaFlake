@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.webApplications.yarr;
+  cfg = config.configuration.webApplications.yarr;
 in {
-  options.modules.webApplications.yarr = {
+  options.configuration.webApplications.yarr = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable yarr module.
       yarr is a web-based rss reader.

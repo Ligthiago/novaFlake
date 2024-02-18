@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.pastel;
+  cfg = config.configuration.tools.pastel;
 in {
-  options.modules.tools.pastel = {
+  options.configuration.tools.pastel = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable pastel module.
       pastel is a command-line tool to generate, analyze, convert and manipulate colors.

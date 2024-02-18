@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.xdg;
+  cfg = config.configuration.environments.parts.xdg;
   home = config.home.homeDirectory;
 in {
-  options.modules.environments.parts.xdg = {
+  options.configuration.environments.parts.xdg = {
     enable = mkOptEnable (lib.mdDoc "Enable xdg module");
   };
 
@@ -44,7 +44,7 @@ in {
       mimeApps = {
         enable = true;
         defaultApplications = let
-          defaultApps = config.modules.applications.defaultApplications;
+          defaultApps = config.configuration.settings.defaults;
           apps = let
             terminal =
               if defaultApps.terminal == "kitty"

@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.s-tui;
+  cfg = config.configuration.applications.s-tui;
 in {
-  options.modules.applications.s-tui = {
+  options.configuration.applications.s-tui = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable s-tui module.
       s-yui is a terminal-based CPU stress and monitoring utility.

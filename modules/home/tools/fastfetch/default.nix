@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.fastfetch;
+  cfg = config.configuration.tools.fastfetch;
   userConfig = config.xdg.configHome;
 in {
-  options.modules.tools.fastfetch = {
+  options.configuration.tools.fastfetch = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable fastfetch module.
       Fastfetch is like neofetch, but much faster because written mostly in C.
@@ -36,6 +36,9 @@ in {
         };
         display = {
           separator = ": ";
+          percent = {
+            type = "2";
+          };
         };
         modules = [
           {
@@ -59,8 +62,9 @@ in {
             keyColor = "cyan";
           }
           {
-            type = "lm";
+            type = "terminal";
             keyColor = "cyan";
+            format = "{3}";
           }
           {
             type = "packages";
@@ -127,7 +131,7 @@ in {
             keyColor = "yellow";
           }
           {
-            type = "terminalfont";
+            type = "cursor";
             keyColor = "yellow";
           }
           {

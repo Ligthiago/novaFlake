@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.parts.zellij;
+  cfg = config.configuration.shells.parts.zellij;
 in {
-  options.modules.shells.parts.zellij = {
+  options.configuration.shells.parts.zellij = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable zellij module.
       Zellij is a terminal multiplexer aimed at developers, ops-oriented people and anyone who loves the terminal.

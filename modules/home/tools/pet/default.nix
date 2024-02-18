@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.pet;
+  cfg = config.configuration.tools.pet;
 in {
-  options.modules.tools.pet = {
+  options.configuration.tools.pet = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable pet module.
       pet  is a simple command-line snippet manager.
@@ -23,7 +23,7 @@ in {
       selectcmdPackage = pkgs.fzf;
       settings = {
         general = {
-          cmd = ["${config.modules.shells.default}" "-c"];
+          cmd = ["${config.configuration.settings.defaults.shell}" "-c"];
         };
       };
     };

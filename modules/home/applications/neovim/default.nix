@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.neovim;
+  cfg = config.configuration.applications.neovim;
 in {
-  options.modules.applications.neovim = {
+  options.configuration.applications.neovim = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable neovim module.
       Neovim is a terminal editor, focused on extensibility and usability.

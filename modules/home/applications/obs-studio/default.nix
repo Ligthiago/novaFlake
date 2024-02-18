@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.obs-studio;
+  cfg = config.configuration.applications.obs-studio;
 in {
-  options.modules.applications.obs-studio = {
+  options.configuration.applications.obs-studio = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable obs-studio module.
       OBS Studio is a application for live streaming and screen recording.

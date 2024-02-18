@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.tldr;
-  tomlFormat = pkgs.formats.toml { };
+  cfg = config.configuration.tools.tldr;
+  tomlFormat = pkgs.formats.toml {};
 in {
-  options.modules.tools.tldr = {
+  options.configuration.tools.tldr = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable tldr module.
       tldr is a collaborative cheatsheets for console commands
@@ -60,7 +60,7 @@ in {
     })
 
     (mkIf (cfg.implementation == "tlrc") {
-      home.packages = [ pkgs.tlrc ];
+      home.packages = [pkgs.tlrc];
       xdg.configFile."tlrc/config.toml" = {
         source = tomlFormat.generate "tlrc-config" {
           cache = {

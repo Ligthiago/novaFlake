@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.nautilus;
+  cfg = config.configuration.applications.nautilus;
 in {
-  options.modules.applications.nautilus = {
+  options.configuration.applications.nautilus = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable nautilus module.
       Nautilus is a graphical file manager.

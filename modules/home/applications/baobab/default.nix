@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.baobab;
+  cfg = config.configuration.applications.baobab;
 in {
-  options.modules.applications.baobab = {
+  options.configuration.applications.baobab = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable baobab module.
       Baobab is a graphical disk usage analyzer.

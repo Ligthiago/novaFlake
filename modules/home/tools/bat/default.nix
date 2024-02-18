@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.bat;
+  cfg = config.configuration.tools.bat;
 in {
-  options.modules.tools.bat = {
+  options.configuration.tools.bat = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable bat module.
       Bash is a cat(1) clone with syntax highlighting and Git integration.

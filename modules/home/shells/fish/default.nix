@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.fish;
+  cfg = config.configuration.shells.fish;
 in {
-  options.modules.shells.fish = {
+  options.configuration.shells.fish = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable fish module.
       Fish is a user-friendly command shell with good out-of-the-box experience.

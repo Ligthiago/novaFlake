@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.services.polkit-agent;
+  cfg = config.configuration.services.polkit-agent;
 in {
-  options.modules.services.polkit-agent = {
+  options.configuration.services.polkit-agent = {
     enable = mkOptEnable (lib.mdDoc "Enable polkit-agent module");
   };
   config = mkIf cfg.enable {

@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.eza;
+  cfg = config.configuration.tools.eza;
 in {
-  options.modules.tools.eza = {
+  options.configuration.tools.eza = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable eza module.
       Eza is a modern, maintained replacement for ls.

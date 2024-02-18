@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.disks;
+  cfg = config.configuration.applications.disks;
 in {
-  options.modules.applications.disks = {
+  options.configuration.applications.disks = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable gnome-disks module.
       Gnome-disks is a tool for dealing with storage devices.

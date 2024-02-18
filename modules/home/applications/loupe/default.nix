@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.loupe;
+  cfg = config.configuration.applications.loupe;
 in {
-  options.modules.applications.loupe = {
+  options.configuration.applications.loupe = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable loupe module.
       Loupe is a image viewer.

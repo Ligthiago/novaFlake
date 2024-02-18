@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.parts.starship;
+  cfg = config.configuration.shells.parts.starship;
 in {
-  options.modules.shells.parts.starship = {
+  options.configuration.shells.parts.starship = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable starship module.
       Starship is a minimal, blazing-fast, and infinitely customizable prompt for any shell.

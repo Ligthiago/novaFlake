@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.file-roller;
+  cfg = config.configuration.applications.file-roller;
 in {
-  options.modules.applications.file-roller = {
+  options.configuration.applications.file-roller = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable file-roller module.
       File Roller is an archive manager utility.

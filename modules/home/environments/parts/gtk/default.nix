@@ -7,11 +7,11 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.gtk;
+  cfg = config.configuration.environments.parts.gtk;
   home = config.home.homeDirectory;
   user = config.home.username;
 in {
-  options.modules.environments.parts.gtk = {
+  options.configuration.environments.parts.gtk = {
     enable = mkOptEnable (lib.mdDoc "Enable gtk module");
   };
 
@@ -81,7 +81,7 @@ in {
         "file://${home}/Pictures/Screenshots"
         "file://${config.xdg.configHome} Configuration"
         "file://${home}/.mozilla/firefox/${user} Profile"
-        (mkIf (config.modules.applications.obsidian.enable) "file://${home}/Vaults")
+        (mkIf (config.configuration.applications.obsidian.enable) "file://${home}/Vaults")
       ];
     in {
       enable = true;

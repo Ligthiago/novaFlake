@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.parts.direnv;
+  cfg = config.configuration.shells.parts.direnv;
 in {
-  options.modules.shells.parts.direnv = {
+  options.configuration.shells.parts.direnv = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable direnv module.
       Direnv is a shell extension that can manage project environment.

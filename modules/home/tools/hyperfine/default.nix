@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.hyperfine;
+  cfg = config.configuration.tools.hyperfine;
 in {
-  options.modules.tools.hyperfine = {
+  options.configuration.tools.hyperfine = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable hyperfine module.
       Hyperfine is a command-line benchmarking tool.

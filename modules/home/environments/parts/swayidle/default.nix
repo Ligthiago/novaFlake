@@ -9,9 +9,9 @@
 with lib;
 with lib.nova; let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  cfg = config.modules.environments.parts.swayidle;
+  cfg = config.configuration.environments.parts.swayidle;
 in {
-  options.modules.environments.parts.swayidle = {
+  options.configuration.environments.parts.swayidle = {
     enable = mkOptEnable (lib.mdDoc "Enable swayidle module");
   };
 

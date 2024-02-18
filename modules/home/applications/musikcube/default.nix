@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.musikcube;
+  cfg = config.configuration.applications.musikcube;
 in {
-  options.modules.applications.musikcube = {
+  options.configuration.applications.musikcube = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable musikcube module.
       Musikcube is a terminal-based audio engine, library, player and server.

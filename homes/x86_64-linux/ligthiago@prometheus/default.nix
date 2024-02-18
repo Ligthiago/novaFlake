@@ -7,19 +7,29 @@
 with lib;
 with lib.nova;
 with userData.ligthiago; {
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-  };
+  configuration = {
+    settings = {
+      user = {
+        username = "ligthiago";
+        name = "Donets Andrey";
+        email = "donets.andre@gmail.com";
+      };
+      defaults = {
+        terminal = "kitty";
+        fileManager = "nautilus";
+        textEditor = "helix";
+        browser = "firefox";
+        videoPlayer = "celluloid";
+        imageViewer = "loupe";
+        shell = "nu";
+      };
+      stateVersion = "23.11";
+    };
 
-  services.dunst = {
-    enable = true;
-  };
-
-  modules = {
     environments = {
       hyprland = enabled;
     };
+
     applications = {
       firefox = enabled;
       obsidian = enabled;
@@ -42,19 +52,8 @@ with userData.ligthiago; {
       disks = enabled;
       file-roller = enabled;
       musikcube = enabled;
+    };
 
-      defaultApplications = {
-        terminal = "kitty";
-        fileManager = "nautilus";
-        textEditor = "helix";
-        browser = "firefox";
-        videoPlayer = "celluloid";
-        imageViewer = "loupe";
-      };
-    };
-    webApplications = {
-      yarr = enabled;
-    };
     shells = {
       bash = enabled;
       nushell = enabled;
@@ -64,15 +63,12 @@ with userData.ligthiago; {
         atuin = enabled;
         zellij = enabled;
         carapace = enabled;
+        direnv = enabled;
       };
-      default = "nu";
     };
+
     tools = {
-      git = {
-        enable = true;
-        userName = name;
-        userEmail = email;
-      };
+      git = enabled;
       zoxide = enabled;
       eza = enabled;
       yt-dlp = enabled;
@@ -90,12 +86,11 @@ with userData.ligthiago; {
       just = enabled;
       ffmpeg = enabled;
       pget = enabled;
+      yq = enabled;
     };
+
     services = {
-      gammastep = enabled;
       pueue = enabled;
     };
   };
-
-  home.stateVersion = "23.11";
 }

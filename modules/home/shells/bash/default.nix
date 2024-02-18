@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.bash;
+  cfg = config.configuration.shells.bash;
 in {
-  options.modules.shells.bash = {
+  options.configuration.shells.bash = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable bash module.
       Bash is the GNU Project's sh-compatible shell.

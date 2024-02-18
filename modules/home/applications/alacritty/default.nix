@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.alacritty;
+  cfg = config.configuration.applications.alacritty;
 in {
-  options.modules.applications.alacritty = {
+  options.configuration.applications.alacritty = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable alacritty module.
       Alacritty is a cross-platform, OpenGL terminal emulator.

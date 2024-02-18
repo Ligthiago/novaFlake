@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.eww;
+  cfg = config.configuration.environments.parts.eww;
 in {
-  options.modules.environments.parts.eww = {
+  options.configuration.environments.parts.eww = {
     enable = mkOptEnable (lib.mdDoc "Enable eww module");
   };
 

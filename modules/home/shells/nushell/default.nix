@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.nushell;
+  cfg = config.configuration.shells.nushell;
 in {
-  options.modules.shells.nushell = {
+  options.configuration.shells.nushell = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable nushell module.
       Nushell is a modern command shell, in which all data is structured.

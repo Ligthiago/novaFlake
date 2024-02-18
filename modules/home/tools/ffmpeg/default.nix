@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.ffmpeg;
+  cfg = config.configuration.tools.ffmpeg;
 in {
-  options.modules.tools.ffmpeg = {
+  options.configuration.tools.ffmpeg = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable ffmpeg module.
       FFmpeg is a collection of libraries and tools to process all types of multimedia.

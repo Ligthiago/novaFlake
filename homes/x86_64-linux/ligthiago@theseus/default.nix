@@ -1,51 +1,51 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
 with lib;
-with lib.nova;
-with userData.ligthiago; {
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-  };
-
-  services.dunst = {
-    enable = true;
-  };
-
-  modules = {
-    environments = {
-      hyprland = enabled;
-    };
-    applications = {
-      firefox = enabled;
-      obs-studio = enabled;
-      nautilus = enabled;
-      celluloid = enabled;
-      btop = enabled;
-      loupe = enabled;
-      evince = enabled;
-      vscode = enabled;
-      secrets = enabled;
-      yazi = enabled;
-      baobab = enabled;
-      helix = enabled;
-      kitty = enabled;
-      disks = enabled;
-      file-roller = enabled;
-
-      defaultApplications = {
+with lib.nova; {
+  configuration = {
+    settings = {
+      user = {
+        username = "ligthiago";
+        name = "Donets Andrey";
+        email = "donets.andre@gmail.com";
+      };
+      defaults = {
         terminal = "kitty";
         fileManager = "nautilus";
         textEditor = "helix";
         browser = "firefox";
         videoPlayer = "celluloid";
         imageViewer = "loupe";
+        shell = "nu";
       };
+      stateVersion = "23.11";
     };
+
+    environments = {
+      hyprland = enabled;
+    };
+
+    applications = {
+      kitty = enabled;
+      nautilus = enabled;
+      firefox = enabled;
+      vscode = enabled;
+      obs-studio = enabled;
+      celluloid = enabled;
+      loupe = enabled;
+      evince = enabled;
+      secrets = enabled;
+      btop = enabled;
+      yazi = enabled;
+      baobab = enabled;
+      helix = enabled;
+      disks = enabled;
+      file-roller = enabled;
+    };
+
     shells = {
       bash = enabled;
       nushell = enabled;
@@ -56,14 +56,10 @@ with userData.ligthiago; {
         carapace = enabled;
         direnv = enabled;
       };
-      default = "nu";
     };
+
     tools = {
-      git = {
-        enable = true;
-        userName = name;
-        userEmail = email;
-      };
+      git = enabled;
       zoxide = enabled;
       eza = enabled;
       yt-dlp = enabled;
@@ -83,10 +79,9 @@ with userData.ligthiago; {
       pget = enabled;
       yq = enabled;
     };
+
     services = {
       pueue = enabled;
     };
   };
-
-  home.stateVersion = "23.11";
 }

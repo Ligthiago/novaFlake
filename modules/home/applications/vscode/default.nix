@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.vscode;
+  cfg = config.configuration.applications.vscode;
 in {
-  options.modules.applications.vscode = {
+  options.configuration.applications.vscode = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable vscode module.
       VSCode is a extensible graphical text editor.

@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.imagemagick;
+  cfg = config.configuration.tools.imagemagick;
 in {
-  options.modules.tools.imagemagick = {
+  options.configuration.tools.imagemagick = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable tdl module.
       ImageMagick includes a command-line tool for executing complex image processing tasks.

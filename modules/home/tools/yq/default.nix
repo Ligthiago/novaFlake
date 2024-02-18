@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.yq;
+  cfg = config.configuration.tools.yq;
 in {
-  options.modules.tools.yq = {
+  options.configuration.tools.yq = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable yq module.
       yq is a portable command-line YAML, JSON, XML, CSV, TOML and properties processor

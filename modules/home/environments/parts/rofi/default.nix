@@ -8,9 +8,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.parts.rofi;
+  cfg = config.configuration.environments.parts.rofi;
 in {
-  options.modules.environments.parts.rofi = {
+  options.configuration.environments.parts.rofi = {
     enable = mkOptEnable (lib.mdDoc "Enable rofi module");
   };
 

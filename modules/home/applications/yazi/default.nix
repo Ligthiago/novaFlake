@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.yazi;
+  cfg = config.configuration.applications.yazi;
 in {
-  options.modules.applications.yazi = {
+  options.configuration.applications.yazi = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable yazi module.
       Yazi is a terminal file manager.

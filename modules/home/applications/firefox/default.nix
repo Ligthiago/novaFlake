@@ -8,11 +8,11 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.firefox;
+  cfg = config.configuration.applications.firefox;
   user = config.home.username;
   home = config.home.homeDirectory;
 in {
-  options.modules.applications.firefox = {
+  options.configuration.applications.firefox = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable firefox module.
       Firefox is a customizable web browser.

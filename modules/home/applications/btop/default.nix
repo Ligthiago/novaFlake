@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.btop;
+  cfg = config.configuration.applications.btop;
 in {
-  options.modules.applications.btop = {
+  options.configuration.applications.btop = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable btop module.
       Btop is a terminal resource monitor.

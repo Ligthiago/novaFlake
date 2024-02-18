@@ -8,9 +8,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.environments.hyprland;
+  cfg = config.configuration.environments.hyprland;
 in {
-  options.modules.environments.hyprland = {
+  options.configuration.environments.hyprland = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable hyprland module.
       Hyprland is a highly customizable dynamic tiling Wayland compositor.
@@ -20,7 +20,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    modules = {
+    configuration = {
       environments.parts = {
         gtk = enabled;
         swayidle = disabled;
@@ -33,6 +33,7 @@ in {
       };
       services = {
         polkit-agent = enabled;
+        dunst = enabled;
       };
     };
 

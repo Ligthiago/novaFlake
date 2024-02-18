@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.tdl;
+  cfg = config.configuration.tools.tdl;
 in {
-  options.modules.tools.tdl = {
+  options.configuration.tools.tdl = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable tdl module.
       tdl is a set of tools for Telegram, such as parser and downloader.

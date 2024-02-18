@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.shells.parts.atuin;
+  cfg = config.configuration.shells.parts.atuin;
 in {
-  options.modules.shells.parts.atuin = {
+  options.configuration.shells.parts.atuin = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable atuin module.
       Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.

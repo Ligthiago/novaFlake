@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.evince;
+  cfg = config.configuration.applications.evince;
 in {
-  options.modules.applications.evince = {
+  options.configuration.applications.evince = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable evince module.
       Evince is a document viewer for multiple document formats.

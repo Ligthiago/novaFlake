@@ -4,7 +4,10 @@ with lib; rec {
   disabled = {enable = false;};
 
   mkOpt = type: default: description:
-    mkOption {inherit type default description;};
+    mkOption {
+      inherit type default;
+      description = lib.mdDoc "${description.text}";
+    };
 
   mkOptEnable = name:
     mkOption {

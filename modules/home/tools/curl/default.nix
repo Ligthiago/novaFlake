@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.tools.curl;
+  cfg = config.configuration.tools.curl;
 in {
-  options.modules.tools.curl = {
+  options.configuration.tools.curl = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable curlie module.
       Curlie is a frontend to curl that adds the ease of use of httpie.

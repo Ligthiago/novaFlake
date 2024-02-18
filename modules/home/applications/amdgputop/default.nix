@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.amdgputop;
+  cfg = config.configuration.applications.amdgputop;
 in {
-  options.modules.applications.amdgputop = {
+  options.configuration.applications.amdgputop = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable amdgputop module.
       amdgputop is a tool to display AMD GPU usage.

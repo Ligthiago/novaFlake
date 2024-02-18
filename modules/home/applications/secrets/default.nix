@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.modules.applications.secrets;
+  cfg = config.configuration.applications.secrets;
 in {
-  options.modules.applications.secrets = {
+  options.configuration.applications.secrets = {
     enable = mkOptEnable (lib.mdDoc ''
       Enable secrets module.
       Secrets is a graphical password manager.
