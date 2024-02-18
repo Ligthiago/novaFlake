@@ -91,7 +91,7 @@ in {
       };
       iconTheme = {
         name = "Papirus";
-        package = pkgs.papirus-icon-theme.override {color = "brown";};
+        package = pkgs.papirus-icon-theme;
       };
       gtk4 = {
         extraCss = namedColors + cssTweaks;

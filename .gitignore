@@ -2,4 +2,4 @@ modules/home/environments/parts/ags/config
 
 .direnv
 result
-
+default.nix

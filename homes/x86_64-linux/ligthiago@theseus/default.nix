@@ -44,6 +44,7 @@ with lib.nova; {
       helix = enabled;
       disks = enabled;
       file-roller = enabled;
+      # yarr = enabled;
     };
 
     shells = {

@@ -52,6 +52,7 @@ with userData.ligthiago; {
       disks = enabled;
       file-roller = enabled;
       musikcube = enabled;
+      yarr = enabled;
     };
 
     shells = {

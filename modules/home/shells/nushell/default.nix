@@ -2,6 +2,7 @@
   options,
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -21,6 +22,7 @@ in {
     programs.nushell = {
       enable = true;
       configFile.source = ./config.nu;
+      package = pkgs.nushell;
     };
   };
 }
