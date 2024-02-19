@@ -44,7 +44,7 @@ with lib.nova; {
       helix = enabled;
       disks = enabled;
       file-roller = enabled;
-      # yarr = enabled;
+      newsflash = enabled;
     };
 
     shells = {
@@ -79,11 +79,11 @@ with lib.nova; {
       ffmpeg = enabled;
       pget = enabled;
       yq = enabled;
+      rclone = enabled;
     };
 
     services = {
       pueue = enabled;
-      rclone = enabled;
     };
   };
 }

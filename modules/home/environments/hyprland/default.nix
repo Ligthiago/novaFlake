@@ -54,7 +54,7 @@ in {
       enable = true;
       systemd.enable = true;
       plugins = with inputs; [
-        # hycov.packages.${pkgs.system}.hycov
+        hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
         exec = [
@@ -158,7 +158,6 @@ in {
 
             "SUPER, X, togglesplit"
             "SUPER, P, pin"
-            # "SUPER, L, exec, hyprctl keyword animations:enabled $(hyprctl getoption -j animations:enabled | jq .int | grep -q 1 && echo false || echo true)"
 
             "SUPER, E, exec, rofi -show drun"
 
@@ -167,10 +166,10 @@ in {
             "SUPER, U, exec, firefox"
             "SUPER, I, exec, codium"
 
-            # "SUPER, Tab, hycov:toggleoverview"
+            "SUPER, Tab, hycov:toggleoverview"
 
-            "SUPER, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -m screen"
-            "SUPER SHIFT, Print, exec, ~/Projects/hyprlandScripts/hyprscreen/hyprscreen -f"
+            "SUPER, Print, exec, hyprscreen -m screen"
+            "SUPER SHIFT, Print, exec, hyprscreen -f"
           ]
           ++ (
             builtins.concatLists (builtins.genList (
@@ -241,29 +240,23 @@ in {
         submap = reset
 
         plugin {
-          # hycov {
-          #   overview_gappo = 20
-          #   overview_gappi = 20
-          #   hotarea_size = 10
-          #   enable_hotarea = 0
-          #   swipe_fingers = 4
-          #   move_focus_distance = 100
-          #   enable_gesture = 1
-          #   disable_workspace_change = 1
-          #   disable_spawn = 1
-          #   auto_exit = 1
-          #   auto_fullscreen = 0
-          #   only_active_workspace = 0
-          #   only_active_monitor = 1
-          #   enable_alt_release_exit = 0
-          #   alt_toggle_auto_next = 0
-          # }
-          # borders-plus-plus {
-          #   add_borders = 0 # 0 - 9
-          #   col.border_1 = rgb(0b0b0b)
-          #   border_size_1 = 1
-          #   natural_rounding = no
-          # }
+          hycov {
+            overview_gappo = 20
+            overview_gappi = 20
+            hotarea_size = 10
+            enable_hotarea = 0
+            swipe_fingers = 4
+            move_focus_distance = 100
+            enable_gesture = 1
+            disable_workspace_change = 1
+            disable_spawn = 1
+            auto_exit = 1
+            auto_fullscreen = 0
+            only_active_workspace = 0
+            only_active_monitor = 1
+            enable_alt_release_exit = 0
+            alt_toggle_auto_next = 0
+          }
         }
       '';
     };
