@@ -45,6 +45,9 @@ with lib.nova; {
       disks = enabled;
       file-roller = enabled;
       newsflash = enabled;
+      calculator = enabled;
+      easyeffects = enabled;
+      warpinator = enabled;
     };
 
     shells = {

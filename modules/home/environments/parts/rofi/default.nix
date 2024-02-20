@@ -235,6 +235,8 @@ in {
       90 org.gnome.World.Secrets.desktop
       89 yarr.desktop
       88 io.gitlab.news_flash.NewsFlash.desktop
+      87 org.x.Warpinator.desktop
+      87 org.gnome.Calculator
       80 btop.desktop
       79 stui.desktop
       78 lazygit.desktop

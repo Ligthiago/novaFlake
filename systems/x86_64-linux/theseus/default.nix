@@ -62,5 +62,15 @@ with lib.nova; {
     };
   };
 
+  networking.firewall = {
+  allowedTCPPorts = [
+    42000
+    42001
+  ];
+  allowedUDPPorts = [
+    5353
+  ];
+};
+
   system.stateVersion = "23.11";
 }

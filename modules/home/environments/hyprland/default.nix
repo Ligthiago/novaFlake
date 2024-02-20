@@ -206,6 +206,10 @@ in {
           "float,^(org.gnome.baobab)$"
           "center,^(org.gnome.baobab)$"
           "size 80% 80%,^(org.gnome.baobab)$"
+
+          "float,^(org.gnome.Calculator)$"
+          "center,^(org.gnome.Calculator)$"
+          "size 400 640,^(org.gnome.Calculator)$"
         ];
         windowrulev2 = [
           "animation popin,floating:1"
