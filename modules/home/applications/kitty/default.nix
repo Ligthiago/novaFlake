@@ -54,11 +54,29 @@ in {
         confirm_os_window_close = "-1";
 
         touch_scroll_multiplier = "2.0";
+
+        shell = config.configuration.settings.defaults.shell;
       };
       keybindings = {
         "ctrl+c" = "copy_or_interrupt";
         "ctrl+shift+c" = "copy_to_clipboard";
         "ctrl+v" = "paste_from_clipboard";
+      };
+    };
+
+    xdg.desktopEntries."kitty" = {
+      name = "Kitty";
+      genericName = "Terminal Emulator";
+      categories = ["System" "TerminalEmulator"];
+      type = "Application";
+      terminal = false;
+      icon = "kitty";
+      comment = "Fast and feature-rich terminal emulator";
+      exec = "kitty";
+      settings = {
+        StartupNotify = "true";
+        Keywords = "Terminal;Emulator;Commands;CLI;";
+        StartupWMClass = "Kitty";
       };
     };
   };

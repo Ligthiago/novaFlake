@@ -63,5 +63,21 @@ in {
         };
       };
     };
+
+    xdg.desktopEntries."Alacritty" = {
+      name = "Alacritty";
+      genericName = "Terminal Emulator";
+      categories = ["System" "TerminalEmulator"];
+      type = "Application";
+      terminal = false;
+      icon = "Alacritty";
+      comment = "Fast and minimalistic terminal emulator";
+      exec = "alacritty";
+      settings = {
+        StartupNotify = "true";
+        Keywords = "Terminal;Emulator;Commands;CLI;";
+        StartupWMClass = "Alacritty";
+      };
+    };
   };
 }

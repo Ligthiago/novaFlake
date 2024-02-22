@@ -48,6 +48,7 @@ with lib.nova; {
       calculator = enabled;
       easyeffects = enabled;
       warpinator = enabled;
+      dconf-editor = enabled;
     };
 
     shells = {

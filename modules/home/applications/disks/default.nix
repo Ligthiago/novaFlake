@@ -21,5 +21,21 @@ in {
     home.packages = with pkgs; [
       gnome.gnome-disk-utility
     ];
+
+    xdg.desktopEntries."org.gnome.DiskUtility" = {
+      name = "Disks";
+      genericName = "Drive Manager";
+      categories = ["Utility"];
+      type = "Application";
+      terminal = false;
+      icon = "org.gnome.DiskUtility";
+      comment = "Utility for managing drives and external media";
+      exec = "gnome-disks";
+      settings = {
+        StartupNotify = "true";
+        Keywords = "Disk;Drive;Partition;Write;Mount;";
+        DBusActivatable = "true";
+      };
+    };
   };
 }

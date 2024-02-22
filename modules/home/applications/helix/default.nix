@@ -36,5 +36,20 @@ in {
         };
       };
     };
+
+    xdg.desktopEntries."Helix" = {
+      name = "Helix";
+      genericName = "Text Editor";
+      categories = ["Utility" "TextEditor"];
+      type = "Application";
+      terminal = true;
+      icon = "helix";
+      comment = "Text editor for terminal";
+      exec = "hx %F";
+      settings = {
+        StartupNotify = "true";
+        Keywords = "Text;Editor;Terminal;TUI;Code;";
+      };
+    };
   };
 }

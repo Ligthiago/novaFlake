@@ -135,7 +135,7 @@ in {
       type = "Application";
       terminal = true;
       icon = "btop";
-      comment = "Terminal resource monitor";
+      comment = "Resource monitor for terminal";
       exec = "btop";
       settings = {
         Keywords = "Resource;Monitoring,Processes,Memory,Disks,Network,Statistics;";

@@ -23,7 +23,7 @@ in {
     ];
 
     xdg.desktopEntries."org.gnome.FileRoller" = {
-      name = "Archive Manager";
+      name = "File Roller";
       genericName = "Archive Manager";
       categories = ["Utility" "Compression" "Archiving"];
       type = "Application";

@@ -192,16 +192,16 @@ in {
         bindm = [
           "SUPER, mouse:272, movewindow"
           "SUPER, mouse:273, resizewindow"
+          "SUPER SHIFT, mouse:273, resizewindow 1"
         ];
         windowrule = [
           "float,^(io.github.celluloid_player.Celluloid)$"
           "center,^(io.github.celluloid_player.Celluloid)$"
           "size 80% 80%,^(io.github.celluloid_player.Celluloid)$"
-          "fakefullscreen,^(io.github.celluloid_player.Celluloid)$"
 
           "float,^(org.gnome.Loupe)$"
           "center,^(org.gnome.Loupe)$"
-          "size 80% 80%,^(org.gnome.Loupe)$"
+          # "size 80% 80%,^(org.gnome.Loupe)$"
 
           "float,^(org.gnome.baobab)$"
           "center,^(org.gnome.baobab)$"

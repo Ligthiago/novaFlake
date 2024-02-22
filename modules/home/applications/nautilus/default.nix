@@ -22,5 +22,21 @@ in {
       gnome.nautilus
       gnome.adwaita-icon-theme
     ];
+
+    xdg.desktopEntries."org.gnome.Nautilus" = {
+      name = "Nautilus";
+      genericName = "File Manager";
+      categories = ["Utility" "FileManager"];
+      type = "Application";
+      terminal = false;
+      icon = "org.gnome.Nautilus";
+      comment = "Graphical file manager";
+      exec = "nautilus --new-window %U";
+      settings = {
+        StartupNotify = "true";
+        Keywords = "Files;Explore;Directory;Folder;Browse;";
+        DBusActivatable = "true";
+      };
+    };
   };
 }

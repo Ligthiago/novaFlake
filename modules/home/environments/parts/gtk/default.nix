@@ -29,6 +29,26 @@ in {
 
     gtk = let
       namedColors = ''
+        @define-color accent_color ${palette.accents.blue};
+        @define-color accent_bg_color ${palette.accents.blue};
+        @define-color accent_fg_color ${palette.foreground.normal};
+
+        @define-color destructive_color ${palette.accents.red};
+        @define-color destructive_bg_color ${palette.accents.red};
+        @define-color destructive_fg_color ${palette.foreground.normal};
+
+        @define-color success_color ${palette.accents.green};
+        @define-color success_bg_color ${palette.accents.green};
+        @define-color success_fg_color ${palette.foreground.normal};
+
+        @define-color warning_color ${palette.accents.yellow};
+        @define-color warning_bg_color ${palette.accents.yellow};
+        @define-color warning_fg_color ${palette.foreground.normal};
+
+        @define-color error_color ${palette.accents.red};
+        @define-color error_bg_color ${palette.accents.red};
+        @define-color error_fg_color ${palette.foreground.normal};
+
         @define-color window_bg_color ${palette.background.dim};
         @define-color window_fg_color ${palette.foreground.normal};
         @define-color view_bg_color ${palette.background.dark};
@@ -77,16 +97,17 @@ in {
         .sidebar-pane scrolledwindow{
         border-right: 1px solid #161616;
         }
-        
+
         .top-bar {
           border-bottom: 1px solid #161616;
         }
         stack .top-bar {
-	        border:none;	
+         border:none;
         }
         .sidebar-pane viewport{
           border-right: 1px solid #161616;
         }
+
         .close image {
           background-color: transparent;
           -gtk-icon-size: 20px;
@@ -101,6 +122,14 @@ in {
         .maximize:hover {
           background-color: ${palette.background.bright};
         }
+        .mimimize image {
+          background-color: transparent;
+          -gtk-icon-size: 20px;
+        }
+        .minimize:hover {
+          background-color: ${palette.background.bright};
+        }
+
         windowhandle{
           filter: opacity(1)
         }

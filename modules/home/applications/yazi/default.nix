@@ -46,7 +46,7 @@ in {
       type = "Application";
       terminal = true;
       icon = "system-file-manager";
-      comment = "Terminal-based file manager";
+      comment = "File manager for terminal";
       exec = "yazi";
       settings = {
         Keywords = "Files;Directory,Explorer,Manager";

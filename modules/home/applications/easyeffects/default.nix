@@ -7,33 +7,34 @@
 }:
 with lib;
 with lib.nova; let
-  cfg = config.configuration.applications.calculator;
+  cfg = config.configuration.applications.easyeffects;
 in {
-  options.configuration.applications.calculator = {
+  options.configuration.applications.easyeffects = {
     enable = mkOptEnable (lib.mdDoc ''
-      Enable calculator module.
-      gnome-calculator is a graphical calculator app
-      Source: https://gitlab.gnome.org/GNOME/gnome-calculator
+      Enable easyeffects module.
+      easyeffects is a utility to apply audio effects for PipeWire applications.
+      Source: https://github.com/wwmm/easyeffects
     '');
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      gnome.gnome-calculator
+      easyeffects
     ];
 
-    xdg.desktopEntries."org.gnome.Calculator" = {
-      name = "Calculator";
-      genericName = "Calculator";
-      categories = ["Utility" "Calculator"];
+    xdg.desktopEntries."com.github.wwmm.easyeffects" = {
+      name = "Easy Effects";
+      genericName = "Sound Control Utility";
+      categories = ["AudioVideo" "Audio"];
       type = "Application";
       terminal = false;
-      icon = "org.gnome.Calculator";
-      comment = "Grapical tool to perform calculations";
-      exec = "gnome-calculator";
+      icon = "com.github.wwmm.easyeffects";
+      comment = "Sound effects control utility";
+      exec = "easyeffects";
       settings = {
         StartupNotify = "true";
-        Keywords = "Calculation;Arithmetic;Scientific;Financial;";
+        Keywords = "Effects;Sound;Equalizer;Volume;";
+        DBusActivatable = "true";
       };
     };
   };

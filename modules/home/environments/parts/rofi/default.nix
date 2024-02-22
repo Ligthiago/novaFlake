@@ -227,7 +227,7 @@ in {
       98 org.gnome.Nautilus.desktop
       97 firefox.desktop
       96 codium.desktop
-      95 nvim.desktop
+      95 Helix.desktop
       94 com.obsproject.Studio.desktop
       93 org.gnome.Evince.desktop
       92 io.github.celluloid_player.Celluloid.desktop
