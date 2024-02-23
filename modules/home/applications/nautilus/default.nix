@@ -15,6 +15,7 @@ in {
       Nautilus is a graphical file manager.
       Source: https://gitlab.gnome.org/GNOME/nautilus
     '');
+    desktopName = mkOpt types.str "org.gnome.Nautilus" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +24,7 @@ in {
       gnome.adwaita-icon-theme
     ];
 
-    xdg.desktopEntries."org.gnome.Nautilus" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Nautilus";
       genericName = "File Manager";
       categories = ["Utility" "FileManager"];

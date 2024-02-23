@@ -15,6 +15,7 @@ in {
       Secrets is a graphical password manager.
       Source: https://gitlab.gnome.org/World/secrets
     '');
+    desktopName = mkOpt types.str "org.gnome.World.Secrets" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       gnome-secrets
     ];
 
-    xdg.desktopEntries."org.gnome.World.Secrets" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Secrets";
       genericName = "Password Manager";
       categories = ["Utility"];

@@ -15,6 +15,7 @@ in {
       Btop is a terminal resource monitor.
       Source: https://github.com/aristocratos/btop
     '');
+    desktopName = mkOpt types.str "btop" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -128,7 +129,7 @@ in {
       theme[upload_end]="#f03e3e"
     '';
 
-    xdg.desktopEntries."btop" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Btop";
       genericName = "Resource Monitor";
       categories = ["System" "Monitor"];

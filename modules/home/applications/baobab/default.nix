@@ -15,6 +15,7 @@ in {
       Baobab is a graphical disk usage analyzer.
       Source: https://gitlab.gnome.org/GNOME/baobab
     '');
+    desktopName = mkOpt types.str "org.gnome.baobab" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       baobab
     ];
 
-    xdg.desktopEntries."org.gnome.baobab" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Baobab";
       genericName = "Disk Usage Analyzer";
       categories = ["System" "Filesystem"];

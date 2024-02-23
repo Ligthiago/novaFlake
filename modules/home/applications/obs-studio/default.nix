@@ -15,6 +15,7 @@ in {
       OBS Studio is a application for live streaming and screen recording.
       Source: https://github.com/obsproject/obs-studio
     '');
+    desktopName = mkOpt types.str "com.obsproject.Studio" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       enable = true;
     };
 
-    xdg.desktopEntries."com.obsproject.Studio" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "OBS Studio";
       genericName = "Streaming/Recording Application";
       categories = ["AudioVideo" "Recorder"];

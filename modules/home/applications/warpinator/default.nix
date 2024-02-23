@@ -15,6 +15,7 @@ in {
       warpinator is a utility for sharing files over the LAN
       Source: https://github.com/linuxmint/warpinator
     '');
+    desktopName = mkOpt types.str "org.x.Warpinator" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       cinnamon.warpinator
     ];
 
-    xdg.desktopEntries."org.x.Warpinator" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Warpinator";
       genericName = "Sharing Utility";
       categories = ["Utility" "Network"];

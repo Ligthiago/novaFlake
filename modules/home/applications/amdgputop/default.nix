@@ -15,6 +15,7 @@ in {
       amdgputop is a tool to display AMD GPU usage.
       Source: https://github.com/Umio-Yasuno/amdgpu_top
     '');
+    desktopName = mkOpt types.str "amdgpu_top" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       amdgpu_top
     ];
 
-    xdg.desktopEntries."amdgpu_top" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "GPU Monitor";
       genericName = "GPU Monitor";
       categories = ["System" "Monitor"];

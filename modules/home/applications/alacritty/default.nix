@@ -15,6 +15,7 @@ in {
       Source: https://github.com/alacritty/alacritty
       Documentation: https://alacritty.org/config-alacritty.html
     '');
+    desktopName = mkOpt types.str "Alacritty" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -64,7 +65,7 @@ in {
       };
     };
 
-    xdg.desktopEntries."Alacritty" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Alacritty";
       genericName = "Terminal Emulator";
       categories = ["System" "TerminalEmulator"];

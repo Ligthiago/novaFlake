@@ -1,5 +1,4 @@
 {
-  options,
   config,
   inputs,
   pkgs,
@@ -33,7 +32,6 @@ in {
       };
       services = {
         polkit-agent = enabled;
-        dunst = enabled;
       };
     };
 
@@ -161,10 +159,9 @@ in {
 
             "SUPER, E, exec, rofi -show drun"
 
-            "SUPER, T, exec, alacritty"
-            "SUPER, Y, exec, nautilus"
-            "SUPER, U, exec, firefox"
-            "SUPER, I, exec, codium"
+            "SUPER, T, exec, ${config.configuration.settings.defaults.terminal}"
+            "SUPER, Y, exec, ${config.configuration.settings.defaults.fileManager}"
+            "SUPER, U, exec, ${config.configuration.settings.defaults.browser}"
 
             "SUPER, Tab, hycov:toggleoverview"
 

@@ -14,13 +14,15 @@ with lib.nova; {
         email = "donets.andre@gmail.com";
       };
       defaults = {
+        shell = "nu";
         terminal = "kitty";
         fileManager = "nautilus";
         textEditor = "helix";
         browser = "firefox";
         videoPlayer = "celluloid";
         imageViewer = "loupe";
-        shell = "nu";
+        pdfViewer = "evince";
+        archiveManager = "file-roller";
       };
       stateVersion = "23.11";
     };

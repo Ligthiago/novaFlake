@@ -15,6 +15,7 @@ in {
       Gnome-disks is a tool for dealing with storage devices.
       Source: https://gitlab.gnome.org/GNOME/gnome-disk-utility
     '');
+    desktopName = mkOpt types.str "org.gnome.DiskUtility" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       gnome.gnome-disk-utility
     ];
 
-    xdg.desktopEntries."org.gnome.DiskUtility" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Disks";
       genericName = "Drive Manager";
       categories = ["Utility"];

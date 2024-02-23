@@ -15,6 +15,7 @@ in {
       Celluloid is a simple GTK+ frontend for mpv
       Source: https://github.com/celluloid-player/celluloid
     '');
+    desktopName = mkOpt types.str "io.github.celluloid_player.Celluloid" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       celluloid
     ];
 
-    xdg.desktopEntries."io.github.celluloid_player.Celluloid" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Celluloid";
       genericName = "Media Player";
       categories = ["Audio" "Video"];

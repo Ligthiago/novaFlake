@@ -15,6 +15,7 @@ in {
       Newsflash is a RSS feed reader
       Source: https://gitlab.com/news-flash/news_flash_gtk
     '');
+    desktopName = mkOpt types.str "io.gitlab.news_flash.NewsFlash" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       newsflash
     ];
 
-    xdg.desktopEntries."io.gitlab.news_flash.NewsFlash" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Newsflash";
       genericName = "RSS Reader";
       categories = ["Network" "Feed"];

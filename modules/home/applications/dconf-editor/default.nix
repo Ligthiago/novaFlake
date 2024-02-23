@@ -15,6 +15,7 @@ in {
       dconf-editor is a GSettings editor.
       Source: https://gitlab.gnome.org/GNOME/dconf-editor
     '');
+    desktopName = mkOpt types.str "ca.desrt.dconf-editor" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       gnome.dconf-editor
     ];
 
-    xdg.desktopEntries."ca.desrt.dconf-editor" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Dconf Editor";
       genericName = "Settings";
       categories = ["System"];

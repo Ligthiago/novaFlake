@@ -13,13 +13,15 @@ with lib.nova; {
         email = "donets.andre@gmail.com";
       };
       defaults = {
+        shell = "nu";
         terminal = "kitty";
         fileManager = "nautilus";
         textEditor = "helix";
         browser = "firefox";
         videoPlayer = "celluloid";
         imageViewer = "loupe";
-        shell = "nu";
+        pdfViewer = "evince";
+        archiveManager = "file-roller";
       };
       stateVersion = "23.11";
     };
@@ -34,6 +36,7 @@ with lib.nova; {
       firefox = enabled;
       vscode = enabled;
       obs-studio = enabled;
+      inkscape = enabled;
       celluloid = enabled;
       loupe = enabled;
       evince = enabled;

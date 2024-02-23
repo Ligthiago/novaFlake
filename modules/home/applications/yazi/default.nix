@@ -15,6 +15,7 @@ in {
       Yazi is a terminal file manager.
       Source: https://yazi-rs.github.io/docs/configuration/overview
     '');
+    desktopName = mkOpt types.str "yazi" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -39,7 +40,7 @@ in {
 
     home.file."${config.xdg.configHome}/yazi/plugins/".source = ./plugins;
 
-    xdg.desktopEntries."yazi" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Yazi";
       genericName = "File Manager";
       categories = ["FileManager" "Utility"];

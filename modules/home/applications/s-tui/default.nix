@@ -15,6 +15,7 @@ in {
       s-yui is a terminal-based CPU stress and monitoring utility.
       Source: https://github.com/amanusk/s-tui
     '');
+    desktopName = mkOpt types.str "stui" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +24,7 @@ in {
       stress
     ];
 
-    xdg.desktopEntries."stui" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Stress Monitor";
       genericName = "Stress Monitor";
       categories = ["System" "Monitor"];

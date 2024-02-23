@@ -15,6 +15,7 @@ in {
       Source: https://github.com/neovim/neovim
       Documentation: https://neovim.io/doc/
     '');
+    desktopName = mkOpt types.str "nvim" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -33,7 +34,7 @@ in {
       EDITOR = "nvim";
     };
 
-    xdg.desktopEntries."nvim" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Neovim";
       genericName = "Text Editor";
       categories = ["Utility" "TextEditor"];

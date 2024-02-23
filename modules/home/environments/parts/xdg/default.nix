@@ -45,48 +45,15 @@ in {
         enable = true;
         defaultApplications = let
           defaultApps = config.configuration.settings.defaults;
-          apps = let
-            terminal =
-              if defaultApps.terminal == "kitty"
-              then "kitty"
-              else if defaultApps.terminal == "alacritty"
-              then "Alacritty"
-              else "unknown";
-            fileManager =
-              if defaultApps.fileManager == "nautilus"
-              then "org.gnome.Nautilus"
-              else if defaultApps.fileManager == "yazi"
-              then "yazi"
-              else "unknown";
-            textEditor =
-              if defaultApps.textEditor == "helix"
-              then "Helix"
-              else if defaultApps.textEditor == "neovim"
-              then "nvim"
-              else if defaultApps.textEditor == "codium"
-              then "codium"
-              else "unknown";
-            browser =
-              if defaultApps.browser == "firefox"
-              then "firefox"
-              else "unknown";
-            videoPlayer =
-              if defaultApps.videoPlayer == "celluloid"
-              then "io.github.celluloid_player.Celluloid"
-              else "unknown";
-            imageViewer =
-              if defaultApps.imageViewer == "loupe"
-              then "org.gnome.Loupe"
-              else "unknown";
-          in {
-            terminal = ["${terminal}.desktop"];
-            directory = ["${fileManager}.desktop"];
-            pdf = ["org.gnome.Evince.desktop"];
-            text = ["${textEditor}.desktop"];
-            video = ["${videoPlayer}.desktop"];
-            image = ["${imageViewer}.desktop"];
-            archive = ["org.gnome.FileRoller.desktop"];
-            browser = ["${browser}.desktop"];
+          apps = {
+            terminal = ["${config.configuration.applications."${defaultApps.terminal}".desktopName}.desktop"];
+            directory = ["${config.configuration.applications."${defaultApps.fileManager}".desktopName}.desktop"];
+            pdf = ["${config.configuration.applications."${defaultApps.pdfViewer}".desktopName}.desktop"];
+            text = ["${config.configuration.applications."${defaultApps.textEditor}".desktopName}.desktop"];
+            video = ["${config.configuration.applications."${defaultApps.videoPlayer}".desktopName}.desktop"];
+            image = ["${config.configuration.applications."${defaultApps.imageViewer}".desktopName}.desktop"];
+            archive = ["${config.configuration.applications."${defaultApps.archiveManager}".desktopName}.desktop"];
+            browser = ["${config.configuration.applications."${defaultApps.browser}".desktopName}.desktop"];
           };
           mimeTypes = {
             directory = ["inode/directory"];

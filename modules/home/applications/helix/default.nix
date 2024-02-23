@@ -16,6 +16,7 @@ in {
       Source: https://github.com/helix-editor/helix
       Documentation: https://docs.helix-editor.com/
     '');
+    desktopName = mkOpt types.str "Helix" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -37,7 +38,7 @@ in {
       };
     };
 
-    xdg.desktopEntries."Helix" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Helix";
       genericName = "Text Editor";
       categories = ["Utility" "TextEditor"];

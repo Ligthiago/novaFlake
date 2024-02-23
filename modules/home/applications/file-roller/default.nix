@@ -15,6 +15,7 @@ in {
       File Roller is an archive manager utility.
       Source: https://gitlab.gnome.org/GNOME/file-roller
     '');
+    desktopName = mkOpt types.str "org.gnome.FileRoller" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       gnome.file-roller
     ];
 
-    xdg.desktopEntries."org.gnome.FileRoller" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "File Roller";
       genericName = "Archive Manager";
       categories = ["Utility" "Compression" "Archiving"];

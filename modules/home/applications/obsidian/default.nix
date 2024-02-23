@@ -16,6 +16,7 @@ in {
       Obsidian is a application for live notetaking and planing.
       Source: https://obsidian.md/
     '');
+    desktopName = mkOpt types.str "obsidian" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -27,7 +28,7 @@ in {
       XDG_VAULTS_DIR = "${home}/Vaults";
     };
 
-    xdg.desktopEntries."obsidian" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Obsidian";
       genericName = "Knowledge base";
       categories = ["Office" "Documentation"];

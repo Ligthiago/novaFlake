@@ -18,6 +18,7 @@ in {
       Firefox is a customizable web browser.
       Source: https://www.mozilla.org/en-US/firefox/
     '');
+    desktopName = mkOpt types.str "firefox" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -284,7 +285,7 @@ in {
     };
 
     # Create custom desktop entry
-    xdg.desktopEntries."firefox" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Firefox";
       genericName = "Web Browser";
       categories = ["Network" "WebBrowser"];

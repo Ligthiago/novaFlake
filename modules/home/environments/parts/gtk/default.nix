@@ -81,9 +81,6 @@ in {
         .top-bar {
           background-color: ${palette.background.normal};
         }
-        //.navigation-sidebar {
-        //  border-right: ${geometry.border} ${palette.background.normal};
-        //}
 
         .custom-sidebar scrolledwindow viewport{
         border-right: 1px solid #323232;
@@ -132,6 +129,24 @@ in {
 
         windowhandle{
           filter: opacity(1)
+        }
+        .boxed-list{
+          border: 1px solid #464646;
+        }
+        .boxed-list row {
+          border-bottom: 1px solid #242424;
+        }
+        .boxed-list row row {
+          border-bottom: none;
+        }
+        .boxed-list row:last-child{
+          border-bottom: none;
+        }
+        .menu contents, .menu arrow{
+          border: 1px solid #464646;
+        }
+        .menu scrolledwindow, .menu viewport{
+          border-right: none;
         }
 
       '';

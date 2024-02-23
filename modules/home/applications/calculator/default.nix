@@ -15,6 +15,7 @@ in {
       gnome-calculator is a graphical calculator app
       Source: https://gitlab.gnome.org/GNOME/gnome-calculator
     '');
+    desktopName = mkOpt types.str "org.gnome.Calculator" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       gnome.gnome-calculator
     ];
 
-    xdg.desktopEntries."org.gnome.Calculator" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Calculator";
       genericName = "Calculator";
       categories = ["Utility" "Calculator"];

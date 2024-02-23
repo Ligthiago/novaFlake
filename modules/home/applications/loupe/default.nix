@@ -15,6 +15,7 @@ in {
       Loupe is a image viewer.
       Source: https://gitlab.gnome.org/GNOME/loupe
     '');
+    desktopName = mkOpt types.str "org.gnome.Loupe" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       loupe
     ];
 
-    xdg.desktopEntries."org.gnome.Loupe" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Loupe";
       genericName = "Image Viewer";
       categories = ["Graphics" "Viewer"];

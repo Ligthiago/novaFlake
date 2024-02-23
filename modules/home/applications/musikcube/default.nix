@@ -16,6 +16,7 @@ in {
       Source: https://github.com/clangen/musikcube
       Documentation: https://github.com/clangen/musikcube/wiki/user-guide
     '');
+    desktopName = mkOpt types.str "org.gnome.Loupe" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +24,7 @@ in {
       musikcube
     ];
 
-    xdg.desktopEntries."musikcube" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Musikcube";
       genericName = "Music Player";
       categories = ["Audio" "Music"];

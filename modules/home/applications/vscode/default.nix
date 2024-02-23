@@ -16,6 +16,7 @@ in {
       Source: https://code.visualstudio.com/
       Documentation: https://code.visualstudio.com/docs
     '');
+    desktopName = mkOpt types.str "codium" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -54,7 +55,7 @@ in {
       };
     };
 
-    xdg.desktopEntries."codium" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "VSCodium";
       genericName = "Text Editor";
       categories = ["Utility" "TextEditor"];

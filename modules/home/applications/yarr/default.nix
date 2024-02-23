@@ -15,6 +15,7 @@ in {
       yarr is a web-based rss reader.
       Source: https://github.com/nkanaev/yarr
     '');
+    desktopName = mkOpt types.str "yarr" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       yarr
     ];
 
-    xdg.desktopEntries."yarr" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Yarr";
       genericName = "RSS Reader";
       categories = ["Network" "Feed"];

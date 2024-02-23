@@ -16,6 +16,7 @@ in {
       Source: https://github.com/kovidgoyal/kitty
       Documentation: https://sw.kovidgoyal.net/kitty/
     '');
+    desktopName = mkOpt types.str "kitty" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -51,7 +52,7 @@ in {
 
         window_padding_width = 6;
         enable_audio_bell = false;
-        confirm_os_window_close = "-1";
+        confirm_os_window_close = 0;
 
         touch_scroll_multiplier = "2.0";
 
@@ -64,7 +65,7 @@ in {
       };
     };
 
-    xdg.desktopEntries."kitty" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Kitty";
       genericName = "Terminal Emulator";
       categories = ["System" "TerminalEmulator"];

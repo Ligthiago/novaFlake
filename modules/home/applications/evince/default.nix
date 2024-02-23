@@ -15,13 +15,14 @@ in {
       Evince is a document viewer for multiple document formats.
       Source: https://gitlab.gnome.org/GNOME/evince
     '');
+    desktopName = mkOpt types.str "org.gnome.Evince" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       evince
     ];
-    xdg.desktopEntries."org.gnome.Evince" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Evince";
       genericName = "Document Viewer";
       categories = ["Graphics" "Office"];

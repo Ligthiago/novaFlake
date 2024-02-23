@@ -15,6 +15,7 @@ in {
       easyeffects is a utility to apply audio effects for PipeWire applications.
       Source: https://github.com/wwmm/easyeffects
     '');
+    desktopName = mkOpt types.str "com.github.wwmm.easyeffects" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +23,7 @@ in {
       easyeffects
     ];
 
-    xdg.desktopEntries."com.github.wwmm.easyeffects" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Easy Effects";
       genericName = "Sound Control Utility";
       categories = ["AudioVideo" "Audio"];

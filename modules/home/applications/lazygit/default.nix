@@ -15,13 +15,14 @@ in {
       Lazygit is a simple terminal UI for git commands.
       Source: https://github.com/jesseduffield/lazygit
     '');
+    desktopName = mkOpt types.str "lazygit" "Name of desktop file";
   };
 
   config = mkIf cfg.enable {
     programs.lazygit = {
       enable = true;
     };
-    xdg.desktopEntries."lazygit" = {
+    xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Lazygit";
       genericName = "Git TUI";
       categories = ["Development" "Utility"];
