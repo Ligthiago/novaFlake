@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -52,6 +53,7 @@ with lib.nova; {
       easyeffects = enabled;
       warpinator = enabled;
       dconf-editor = enabled;
+      foliate = enabled;
     };
 
     shells = {
@@ -87,6 +89,8 @@ with lib.nova; {
       pget = enabled;
       yq = enabled;
       rclone = enabled;
+      onefetch = enabled;
+      s = enabled;
     };
 
     services = {

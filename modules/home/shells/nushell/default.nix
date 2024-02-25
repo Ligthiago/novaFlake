@@ -23,6 +23,7 @@ in {
       enable = true;
       configFile.source = ./config.nu;
       package = pkgs.nushell;
+      shellAliases = aliases.global // aliases.nushell;
     };
   };
 }

@@ -55,10 +55,7 @@ in {
         hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
-        exec = [
-          # "swww init"
-          # "hyprzen ~/Pictures/Wallpapers/wire.png ~/Pictures/Wallpapers/dark.png"
-        ];
+        exec = [];
         env = [
           "GDK_BACKEND,wayland"
           "SDL_VIDEODRIVER,wayland,x11"
@@ -89,10 +86,10 @@ in {
             "simple,0.13,0.99,0.29,1"
           ];
           animation = [
-            "windows,1,6,simple,slide"
+            "windows,1,5,simple,popin 50%"
             "border,1,5,default"
-            "fade,1,3,default"
-            "workspaces,0,6,simple,slidevert"
+            "fade,1,5,default"
+            "workspaces,1,5,simple,slidevert"
           ];
         };
         input = {
@@ -167,6 +164,11 @@ in {
 
             "SUPER, Print, exec, hyprscreen -m screen"
             "SUPER SHIFT, Print, exec, hyprscreen -f"
+
+            "SUPER,F10,pass,^(com.obsproject.Studio)$"
+            "SUPER,F11,pass,^(com.obsproject.Studio)$"
+
+            "SUPER SHIFT, e, exec, nautilus"
           ]
           ++ (
             builtins.concatLists (builtins.genList (
@@ -209,7 +211,6 @@ in {
           "size 400 640,^(org.gnome.Calculator)$"
         ];
         windowrulev2 = [
-          "animation popin,floating:1"
           "noshadow, floating:0"
         ];
       };
