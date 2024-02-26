@@ -36,11 +36,14 @@ with lib.nova; {
       nautilus = enabled;
       firefox = enabled;
       vscode = enabled;
+      obsidian = enabled;
+      lutris = enabled;
       obs-studio = enabled;
       inkscape = enabled;
       celluloid = enabled;
       loupe = enabled;
       evince = enabled;
+      foliate = enabled;
       secrets = enabled;
       btop = enabled;
       yazi = enabled;
@@ -53,7 +56,6 @@ with lib.nova; {
       easyeffects = enabled;
       warpinator = enabled;
       dconf-editor = enabled;
-      foliate = enabled;
     };
 
     shells = {

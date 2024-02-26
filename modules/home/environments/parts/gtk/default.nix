@@ -153,7 +153,7 @@ in {
       bookmarksList = [
         "file://${home}/Projects"
         "file://${home}/Library"
-        "file://${home}/Games"
+        (mkIf (config.configuration.applications.lutris.enable) "file://${home}/Games")
         "file://${home}/Misc"
         "file://${home}/Backups"
         "file://${home}/Pictures/Screenshots"

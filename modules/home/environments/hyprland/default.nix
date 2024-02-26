@@ -42,9 +42,9 @@ in {
       libnotify
       hyprpicker
       swww
-      nova.hyprscreen
-      nova.hyprzen
-      nova.hyprexclusive
+      # nova.hyprscreen
+      # nova.hyprzen
+      # nova.hyprexclusive
       socat
     ];
 
@@ -212,6 +212,9 @@ in {
         ];
         windowrulev2 = [
           "noshadow, floating:0"
+          "float,class:(firefox),title:(Library)"
+          "center,class:(firefox),title:(Library)"
+          "size 80% 80%,class:(firefox),title:(Library)"
         ];
       };
       extraConfig = ''

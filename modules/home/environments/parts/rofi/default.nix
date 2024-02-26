@@ -221,29 +221,38 @@ in {
         };
       };
     };
+
     # Fixed and reproducible history. Rofi can't change read-only file, just give a warning.
     home.file."${config.xdg.dataHome}/rofi/history/rofi3.druncache".text = ''
-      99 kitty.desktop
-      98 org.gnome.Nautilus.desktop
-      97 firefox.desktop
-      96 codium.desktop
-      95 Helix.desktop
-      94 com.obsproject.Studio.desktop
-      93 org.gnome.Evince.desktop
-      92 io.github.celluloid_player.Celluloid.desktop
-      91 org.gnome.Loupe.desktop
-      90 org.gnome.World.Secrets.desktop
-      89 yarr.desktop
-      88 io.gitlab.news_flash.NewsFlash.desktop
-      87 org.x.Warpinator.desktop
-      87 org.gnome.Calculator
-      80 btop.desktop
-      79 stui.desktop
-      78 lazygit.desktop
-      77 yazi.desktop
-      76 musikcube.desktop
-      70 amdgpu_top.desktop
-      69 Alacritty.desktop
+      1 kitty.desktop
+      1 Alacritty.desktop
+      1 org.gnome.Nautilus.desktop
+      1 firefox.desktop
+      1 codium.desktop
+      1 obsidian.desktop
+      1 net.lutris.Lutris.desktop
+      1 com.obsproject.Studio.desktop
+      1 org.inkscape.Inkscape.desktop
+      1 org.gnome.Evince.desktop
+      1 com.github.johnfactotum.Foliate.desktop
+      1 io.github.celluloid_player.Celluloid.desktop
+      1 org.gnome.Loupe.desktop
+      1 org.gnome.World.Secrets.desktop
+      1 yarr.desktop
+      1 io.gitlab.news_flash.NewsFlash.desktop
+      1 com.github.wwmm.easyeffects.desktop
+      1 org.gnome.FileRoller.desktop
+      1 org.gnome.baobab.desktop
+      1 org.x.Warpinator.desktop
+      1 org.gnome.Calculator.desktop
+      1 org.gnome.DiskUtility.desktop
+      1 Helix.desktop
+      1 btop.desktop
+      1 stui.desktop
+      1 lazygit.desktop
+      1 yazi.desktop
+      1 musikcube.desktop
+      1 amdgpu_top.desktop
     '';
   };
 }
