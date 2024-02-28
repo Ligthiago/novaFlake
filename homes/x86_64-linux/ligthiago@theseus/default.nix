@@ -57,6 +57,7 @@ with lib.nova; {
       warpinator = enabled;
       dconf-editor = enabled;
       resources = enabled;
+      logs = enabled;
     };
 
     shells = {

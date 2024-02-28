@@ -33,7 +33,7 @@ in {
       comment = "Streaming and recording application";
       exec = "obs";
       settings = {
-        Keywords = "Streaming;Recoarding,Screensharing,Video,Audio;";
+        Keywords = "Streaming;Recoarding;Screensharing;Video;Audio;";
         StartupNotify = "true";
         StartupWMClass = "obs";
       };

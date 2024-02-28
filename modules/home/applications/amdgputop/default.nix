@@ -33,7 +33,7 @@ in {
       comment = "Graphic card monitoring utility";
       exec = "amdgpu_top --gui";
       settings = {
-        Keywords = "Resource;Monitoring,GPU,Statistics,AMD;";
+        Keywords = "Resource;Monitoring;GPU;Statistics;AMD;";
       };
     };
   };

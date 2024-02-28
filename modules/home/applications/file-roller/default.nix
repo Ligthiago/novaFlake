@@ -34,7 +34,7 @@ in {
       exec = "file-roller %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Archive;tar;zip;rar;unpack;";
+        Keywords = "Archive;tar;zip;rar;Unpack;";
       };
     };
   };

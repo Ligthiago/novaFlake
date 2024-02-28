@@ -34,7 +34,7 @@ in {
       comment = "Terminal-based CPU stress monitoring utility";
       exec = "s-tui";
       settings = {
-        Keywords = "Resource;Monitoring,Stress,Statistics,Processor;";
+        Keywords = "Resource;Monitoring;Stress;Statistics;Processor;";
       };
     };
   };

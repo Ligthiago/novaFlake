@@ -34,7 +34,7 @@ in {
       exec = "resources";
       settings = {
         StartupNotify = "true";
-        Keywords = "Resource;Monitoring,Processes,Memory,Disks,Network,Statistics;";
+        Keywords = "Resource;Monitoring;Processes;Memory;Disks;Network;Statistics;";
       };
     };
   };

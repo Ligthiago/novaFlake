@@ -50,7 +50,7 @@ in {
       comment = "File manager for terminal";
       exec = "yazi";
       settings = {
-        Keywords = "Files;Directory,Explorer,Manager";
+        Keywords = "Files;Directory;Explorer;Manager;";
       };
     };
   };

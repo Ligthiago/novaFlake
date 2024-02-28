@@ -14,16 +14,16 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "satty";
-  version = "0.11.0";
+  version = "0.11.1";
 
   src = fetchFromGitHub {
     owner = "gabm";
     repo = "Satty";
     rev = "v${version}";
-    hash = "sha256-LKVm2+lWGNuSu9Rcxj6EbKYClCzeaxB96cJ+qgfjLZI=";
+    hash = "sha256-4MU58tYF5UnFUZzgipG21wISQMawqdENYBhQHBxcFK0=";
   };
 
-  cargoHash = "sha256-Uvc8eS65JfZw3kIcm78ToLAUI6c4l38mv3ob5WYxIMw=";
+  cargoHash = "sha256-4u66RuasU9TiHtqpgkdb1zKPkY6Rzq2rcFlqPSHC5N8=";
 
   nativeBuildInputs = [
     copyDesktopItems
