@@ -42,10 +42,10 @@ in {
       libnotify
       hyprpicker
       swww
-      # nova.hyprscreen
-      # nova.hyprzen
-      # nova.hyprexclusive
+      nova.hyprscreen
       socat
+      nova.satty
+      inputs.hyprkeys.packages.${pkgs.system}.hyprkeys
     ];
 
     wayland.windowManager.hyprland = {
@@ -55,7 +55,10 @@ in {
         hycov.packages.${pkgs.system}.hycov
       ];
       settings = {
-        exec = [];
+        exec = [
+          "swww init"
+          "swww img ${config.xdg.userDirs.extraConfig.XDG_WALLPAPERS_DIR}/DarkNoise06.png"
+        ];
         env = [
           "GDK_BACKEND,wayland"
           "SDL_VIDEODRIVER,wayland,x11"
