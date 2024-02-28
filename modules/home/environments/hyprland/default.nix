@@ -203,7 +203,6 @@ in {
 
           "float,^(org.gnome.Loupe)$"
           "center,^(org.gnome.Loupe)$"
-          # "size 80% 80%,^(org.gnome.Loupe)$"
 
           "float,^(org.gnome.baobab)$"
           "center,^(org.gnome.baobab)$"
@@ -212,6 +211,10 @@ in {
           "float,^(org.gnome.Calculator)$"
           "center,^(org.gnome.Calculator)$"
           "size 400 640,^(org.gnome.Calculator)$"
+
+          "float,^(net.nokyan.Resources)$"
+          "center,^(net.nokyan.Resources)$"
+          "size 80% 80%,^(net.nokyan.Resources)$"
         ];
         windowrulev2 = [
           "noshadow, floating:0"

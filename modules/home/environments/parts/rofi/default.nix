@@ -241,6 +241,7 @@ in {
       1 yarr.desktop
       1 io.gitlab.news_flash.NewsFlash.desktop
       1 com.github.wwmm.easyeffects.desktop
+      1 net.nokyan.Resources.desktop
       1 org.gnome.FileRoller.desktop
       1 org.gnome.baobab.desktop
       1 org.x.Warpinator.desktop
