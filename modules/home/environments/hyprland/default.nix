@@ -93,6 +93,7 @@ in {
             "border,1,5,default"
             "fade,1,5,default"
             "workspaces,1,5,simple,slidevert"
+            "layers,1,5,simple,popin 50%"
           ];
         };
         input = {
