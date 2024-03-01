@@ -237,14 +237,16 @@ in {
       1 com.github.johnfactotum.Foliate.desktop
       1 io.github.celluloid_player.Celluloid.desktop
       1 org.gnome.Loupe.desktop
+      1 io.bassi.Amberol.desktop
       1 org.gnome.World.Secrets.desktop
+      1 org.nicotine_plus.Nicotine.desktop
       1 yarr.desktop
       1 io.gitlab.news_flash.NewsFlash.desktop
-      1 com.github.wwmm.easyeffects.desktop
       1 net.nokyan.Resources.desktop
       1 org.gnome.FileRoller.desktop
       1 org.gnome.baobab.desktop
       1 org.x.Warpinator.desktop
+      1 com.github.wwmm.easyeffects.desktop
       1 org.gnome.Calculator.desktop
       1 org.gnome.DiskUtility.desktop
       1 org.gnome.Logs.desktop

@@ -85,6 +85,7 @@ in {
         };
         animations = {
           enabled = true;
+          first_launch_animation = false;
           bezier = [
             "simple,0.13,0.99,0.29,1"
           ];
@@ -93,7 +94,7 @@ in {
             "border,1,5,default"
             "fade,1,5,default"
             "workspaces,1,5,simple,slidevert"
-            "layers,1,5,simple,popin 50%"
+            "layers,1,5,simple,popin 80%"
           ];
         };
         input = {
@@ -173,6 +174,11 @@ in {
             "SUPER,F11,pass,^(com.obsproject.Studio)$"
 
             "SUPER SHIFT, e, exec, nautilus"
+
+            "SUPER,mouse_down,workspace,-1"
+            "SUPER,mouse_up,workspace,+1"
+            "SUPER SHIFT,mouse_down,movetoworkspace,-1"
+            "SUPER SHIFT,mouse_up,movetoworkspace,+1"
           ]
           ++ (
             builtins.concatLists (builtins.genList (
@@ -216,6 +222,10 @@ in {
           "float,^(net.nokyan.Resources)$"
           "center,^(net.nokyan.Resources)$"
           "size 80% 80%,^(net.nokyan.Resources)$"
+
+          "float,^(io.bassi.Amberol)$"
+          "center,^(io.bassi.Amberol)$"
+          "size 400 700,^(io.bassi.Amberol)$"
         ];
         windowrulev2 = [
           "noshadow, floating:0"

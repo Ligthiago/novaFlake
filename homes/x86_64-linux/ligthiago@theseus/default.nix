@@ -21,6 +21,7 @@ with lib.nova; {
         browser = "firefox";
         videoPlayer = "celluloid";
         imageViewer = "loupe";
+        audioPlayer = "amberol";
         pdfViewer = "evince";
         archiveManager = "file-roller";
       };
@@ -58,6 +59,8 @@ with lib.nova; {
       dconf-editor = enabled;
       resources = enabled;
       logs = enabled;
+      nicotine = enabled;
+      amberol = enabled;
     };
 
     shells = {

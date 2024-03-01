@@ -52,6 +52,7 @@ in {
             text = ["${config.configuration.applications."${defaultApps.textEditor}".desktopName}.desktop"];
             video = ["${config.configuration.applications."${defaultApps.videoPlayer}".desktopName}.desktop"];
             image = ["${config.configuration.applications."${defaultApps.imageViewer}".desktopName}.desktop"];
+            audio = ["${config.configuration.applications."${defaultApps.audioPlayer}".desktopName}.desktop"];
             archive = ["${config.configuration.applications."${defaultApps.archiveManager}".desktopName}.desktop"];
             browser = ["${config.configuration.applications."${defaultApps.browser}".desktopName}.desktop"];
           };
@@ -85,6 +86,30 @@ in {
               "image/x-dwg"
               "image/webp"
               "image/bmp"
+            ];
+            audio = [
+              "audio/mpeg"
+              "audio/wav"
+              "audio/x-aac"
+              "audio/x-aiff"
+              "audio/x-ape"
+              "audio/x-flac"
+              "audio/x-m4a"
+              "audio/x-m4b"
+              "audio/x-mp1"
+              "audio/x-mp2"
+              "audio/x-mp3"
+              "audio/x-mpg"
+              "audio/x-mpeg"
+              "audio/x-mpegurl"
+              "audio/x-opus+ogg"
+              "audio/x-pn-aiff"
+              "audio/x-pn-au"
+              "audio/x-pn-wav"
+              "audio/x-speex"
+              "audio/x-vorbis"
+              "audio/x-vorbis+ogg"
+              "audio/x-wavpack"
             ];
             pdf = ["application/pdf"];
             archive = [

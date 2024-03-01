@@ -65,6 +65,7 @@ with lib.nova; {
     allowedTCPPorts = [
       42000
       42001
+      2234
     ];
     allowedUDPPorts = [
       5353
