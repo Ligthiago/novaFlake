@@ -39,5 +39,26 @@ in {
         DBusActivatable = "true";
       };
     };
+
+    dconf.settings = {
+      "org/gnome/nautilus/icon-view" = {
+        captions = ["size" "none" "none"];
+        default-zoom-level = "small-plus";
+      };
+
+      "org/gnome/nautilus/list-view" = {
+        default-visible-columns = ["name" "size" "date_modified"];
+        default-zoom-level = "medium";
+        use-tree-view = true;
+      };
+
+      "org/gnome/nautilus/preferences" = {
+        default-folder-viewer = "icon-view";
+        fts-enabled = true;
+        migrated-gtk-settings = true;
+        search-filter-time-type = "last_modified";
+        show-create-link = true;
+      };
+    };
   };
 }

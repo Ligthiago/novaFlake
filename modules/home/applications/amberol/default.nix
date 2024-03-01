@@ -37,5 +37,11 @@ in {
         Keywords = "Music;Player;Audio;Playlist;";
       };
     };
+
+    dconf.settings = {
+      "io/bassi/Amberol" = {
+        enable-recoloring = false;
+      };
+    };
   };
 }

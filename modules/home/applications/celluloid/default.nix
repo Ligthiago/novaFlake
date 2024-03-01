@@ -37,5 +37,11 @@ in {
         DBusActivatable = "true";
       };
     };
+
+    dconf.settings = {
+      "io/github/celluloid-player/celluloid" = {
+        always-use-floating-controls = true;
+      };
+    };
   };
 }

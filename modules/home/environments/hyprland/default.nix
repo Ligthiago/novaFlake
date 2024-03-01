@@ -28,7 +28,6 @@ in {
         eww = disabled;
         ags = enabled;
         dunst = enabled;
-        dconf = enabled;
       };
       services = {
         polkit-agent = enabled;

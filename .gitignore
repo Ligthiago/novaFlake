@@ -8,3 +8,7 @@ result
 
 # files created with nix-init
 /default.nix
+
+# files created with dconf2nix
+/dconf.nix
+
