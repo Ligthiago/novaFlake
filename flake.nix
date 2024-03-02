@@ -117,6 +117,7 @@
             modules = with inputs; [
               nixvim.homeManagerModules.nixvim
               ags.homeManagerModules.default
+              hyprland.homeManagerModules.default
             ];
             specialArgs = {
               home-manager.useGlobalPkgs = true;
@@ -126,6 +127,7 @@
             modules = with inputs; [
               nixvim.homeManagerModules.nixvim
               ags.homeManagerModules.default
+              hyprland.homeManagerModules.default
             ];
             specialArgs = {
               home-manager.useGlobalPkgs = true;
