@@ -61,6 +61,7 @@ with lib.nova; {
       logs = enabled;
       nicotine = enabled;
       amberol = enabled;
+      identity = enabled;
     };
 
     shells = {

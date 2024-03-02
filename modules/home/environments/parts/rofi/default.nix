@@ -250,6 +250,7 @@ in {
       1 org.gnome.Calculator.desktop
       1 org.gnome.DiskUtility.desktop
       1 org.gnome.Logs.desktop
+      1 org.gnome.gitlab.YaLTeR.Identity.desktop
       1 Helix.desktop
       1 btop.desktop
       1 stui.desktop
