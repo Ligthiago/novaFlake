@@ -24,6 +24,7 @@ with lib.nova; {
         audioPlayer = "amberol";
         pdfViewer = "evince";
         archiveManager = "file-roller";
+        resourceMonitor = "resources";
       };
       stateVersion = "23.11";
     };

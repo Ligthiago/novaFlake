@@ -8,6 +8,7 @@
 with lib;
 with lib.nova; let
   cfg = config.configuration.environments.hyprland;
+  defaults = config.configuration.settings.defaults;
 in {
   options.configuration.environments.hyprland = {
     enable = mkOptEnable (lib.mdDoc ''
@@ -19,10 +20,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # Enable specific for hyprland environment modules
     configuration = {
       environments.parts = {
         gtk = enabled;
-        swayidle = disabled;
         xdg = enabled;
         rofi = enabled;
         eww = disabled;
@@ -34,6 +35,7 @@ in {
       };
     };
 
+    # Enable specific for hyprland environment packages
     home.packages = with pkgs; [
       grim
       slurp
@@ -44,15 +46,19 @@ in {
       nova.hyprscreen
       socat
       nova.satty
-      inputs.hyprkeys.packages.${pkgs.system}.hyprkeys
+      hyprkeys
     ];
 
+    # Enable hyprland compositor and apply settings
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       systemd.enable = true;
-      plugins = with inputs; [
-        hycov.packages.${pkgs.system}.hycov
-      ];
+      # Disabled for now, as plugins keep breaking due to the constant changes in Hyprland.
+      # Maybe later, when I start using fixed hyprland version
+      # plugins = with inputs; [
+      #   hycov.packages.${pkgs.system}.hycov
+      # ];
       settings = {
         exec = [
           "swww init"
@@ -60,7 +66,8 @@ in {
         ];
         env = [
           "GDK_BACKEND,wayland"
-          "SDL_VIDEODRIVER,wayland,x11"
+          "QT_QPA_PLATFORM=wayland"
+          "SDL_VIDEODRIVER,wayland"
           "CLUTTER_BACKEND,wayland"
           "NIXOS_OZONE_WL,1"
         ];
@@ -125,18 +132,25 @@ in {
         dwindle = {
           preserve_split = true;
         };
+        group = {
+          "col.border_active" = "rgb(323232) rgb(525252) 270deg";
+          "col.border_inactive" = "rgb(323232) rgb(525252) 270deg";
+          "col.border_locked_active" = "rgb(323232) rgb(525252) 270deg";
+          "col.border_locked_inactive" = "rgb(323232) rgb(525252) 270deg";
+          groupbar = {
+            enabled = true;
+            font_family = "Cantarell";
+            font_size = 12;
+            gradients = true;
+            height = 24;
+            text_color = "rgb(dddddd)";
+            "col.active" = "rgb(464646)";
+            "col.inactive" = "rgb(323232)";
+          };
+        };
         bind =
           [
-            "SUPER, Q, killactive"
-            "SUPER, M, exit"
-
-            "SUPER, V, togglefloating"
-            "SUPER SHIFT, Z, alterzorder, bottom"
-
-            "SUPER, F, fullscreen, 1"
-            "SUPER ALT, F, fullscreen"
-            "SUPER SHIFT, F, fakefullscreen"
-
+            # Focus switching
             "SUPER, W, movefocus, u"
             "SUPER, A, movefocus, l"
             "SUPER, S, movefocus, d"
@@ -146,6 +160,7 @@ in {
             "SUPER, down, movefocus, d"
             "SUPER, right, movefocus, r"
 
+            # Window swapping
             "SUPER SHIFT, W, swapwindow, u"
             "SUPER SHIFT, A, swapwindow, l"
             "SUPER SHIFT, S, swapwindow, d"
@@ -155,30 +170,55 @@ in {
             "SUPER SHIFT, down, swapwindow, d"
             "SUPER SHIFT, right, swapwindow, r"
 
+            # Window actions
+            "SUPER, Q, killactive"
+            "SUPER, V, togglefloating"
+            "SUPER, Z, alterzorder, bottom"
+            "SUPER, F, fullscreen, 1"
+            "SUPER SHIFT, F, fullscreen"
+            "SUPER ALT, F, fakefullscreen"
             "SUPER, X, togglesplit"
             "SUPER, P, pin"
 
+            # Group stuff
+            "SUPER, G, togglegroup"
+            "SUPER SHIFT, G, lockactivegroup"
+            "SUPER, bracketleft, changegroupactive, b"
+            "SUPER, bracketright, changegroupactive, f"
+            "SUPER CTRL, W, movewindoworgroup, u"
+            "SUPER CTRL, A, movewindoworgroup, l"
+            "SUPER CTRL, S, movewindoworgroup, d"
+            "SUPER CTRL, D, movewindoworgroup, r"
+            "SUPER CTRL, up, movewindoworgroup, u"
+            "SUPER CTRL, left, movewindoworgroup, l"
+            "SUPER CTRL, down, movewindoworgroup, d"
+            "SUPER CTRL, right, movewindoworgroup, r"
+
+            # Launch applications
             "SUPER, E, exec, rofi -show drun"
+            "SUPER, R, exec, ${defaults.terminal}"
+            "SUPER, T, exec, ${defaults.fileManager}"
+            "SUPER, Y, exec, ${defaults.textEditor}"
+            "SUPER, U, exec, ${defaults.browser}"
+            "SUPER, I, exec, ${defaults.audioPlayer}"
+            "SUPER, O, exec, ${defaults.resourceMonitor}"
 
-            "SUPER, T, exec, ${config.configuration.settings.defaults.terminal}"
-            "SUPER, Y, exec, ${config.configuration.settings.defaults.fileManager}"
-            "SUPER, U, exec, ${config.configuration.settings.defaults.browser}"
-
-            "SUPER, Tab, hycov:toggleoverview"
-
-            "SUPER, Print, exec, hyprscreen -m screen"
-            "SUPER SHIFT, Print, exec, hyprscreen -f"
-
-            "SUPER,F10,pass,^(com.obsproject.Studio)$"
-            "SUPER,F11,pass,^(com.obsproject.Studio)$"
-
-            "SUPER SHIFT, e, exec, nautilus"
-
+            # Extra workspace actions
             "SUPER,mouse_down,workspace,-1"
             "SUPER,mouse_up,workspace,+1"
             "SUPER SHIFT,mouse_down,movetoworkspace,-1"
             "SUPER SHIFT,mouse_up,movetoworkspace,+1"
+            "SUPER,minus,workspace,-1"
+            "SUPER,equal,workspace,+1"
+            "SUPER,backspace, workspace, previous"
+
+            # Misc
+            "SUPER, Print, exec, hyprscreen -m screen"
+            "SUPER SHIFT, Print, exec, hyprscreen -f"
+            "SUPER,F10,pass,^(com.obsproject.Studio)$"
+            "SUPER,F11,pass,^(com.obsproject.Studio)$"
           ]
+          # Generate keybinds for workspace switch via keyboard
           ++ (
             builtins.concatLists (builtins.genList (
                 x: let
@@ -234,7 +274,7 @@ in {
         ];
       };
       extraConfig = ''
-        bind = SUPER, R, submap, resize
+        bind = SUPER, C, submap, resize
         submap = resize
         binde = SUPER, W, resizeactive, 0 -20
         binde = SUPER, A, resizeactive, -20 0
@@ -256,7 +296,7 @@ in {
 
         bind = SUPER, X, togglesplit
         bind = SUPER, E, splitratio, exact 1
-        bind = SUPER, R, submap, reset
+        bind = SUPER, C, submap, reset
         bind = , escape, submap, reset
         submap = reset
 

@@ -57,17 +57,10 @@
 
     # Hycov is a hyprland overview mode plugin.
     # Source: https://github.com/DreamMaoMao/hycov
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    # Hyprkeys is a keybind inspection utility for Hyprland
-    # Source: https://github.com/hyprland-community/Hyprkeys
-    hyprkeys = {
-      url = "github:hyprland-community/hyprkeys";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+     hycov = {
+       url = "github:DreamMaoMao/hycov";
+       inputs.hyprland.follows = "hyprland";
+     };
 
     # Ags is a library built for GJS to allow defining GTK widgets in a declarative way.
     # Source: https://github.com/Aylur/ags

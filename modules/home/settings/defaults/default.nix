@@ -16,6 +16,7 @@ with lib.nova; {
     imageViewer = mkOpt types.str "none" "Default image viewer to set";
     pdfViewer = mkOpt types.str "none" "Default pdf viewer to set";
     archiveManager = mkOpt types.str "none" "Default achive manager to set";
+    resourceMonitor = mkOpt types.str "none" "Default resource monitor to set";
     shell = mkOpt types.str "none" "Default command shell to set";
   };
 }
