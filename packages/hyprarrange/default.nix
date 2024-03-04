@@ -2,36 +2,35 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  makeWrapper,
 }:
 stdenv.mkDerivation rec {
-  pname = "hyprexclusive";
-  version = "unstable-2024-01-26";
+  pname = "hyprarrange";
+  version = "unstable-2024-02-3";
 
   src = fetchFromGitHub {
     owner = "Ligthiago";
     repo = "hyprlandScripts";
-    rev = "d0ee6dd756a9c563ffb30178c14e61ae3a8da941";
-    hash = "sha256-wibX6leqqqsmzGAC3R37Tnn0f+nCUp0G7EdUJScwNRM=";
+    rev = "b1e61fdb4400c7060559672474eb7d4f1d80fd45";
+    hash = "sha256-3aiZGgsiiHu6kJzLa2C3ej+7siL08tt7yYNmZxfElEE=";
   };
 
-  strictDeps = true;
+    strictDeps = true;
 
   makeFlags = [
     "PREFIX=$(out)"
   ];
 
   installPhase = ''
-    make install-hyprexclusive PREFIX=$out
+    make install-hyprarrange PREFIX=$out
     mkdir -p $out/bin
-    cp hyprexclusive/hyprexclusive $out/bin
+    cp hyprarrange/hyprarrange $out/bin
   '';
 
   meta = with lib; {
-    description = "Exclusive window helper for Hyprland";
+    description = "Workspace rearrangement tool for Hyprland";
     homepage = "https://github.com/Ligthiago/hyprlandScripts/";
     maintainers = with maintainers; [Ligthiago];
-    mainProgram = "hyprexclusive";
+    mainProgram = "hyprarrange";
     platforms = platforms.all;
   };
 }

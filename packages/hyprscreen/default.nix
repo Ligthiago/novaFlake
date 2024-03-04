@@ -19,9 +19,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "Ligthiago";
     repo = "hyprlandScripts";
-    rev = "d0ee6dd756a9c563ffb30178c14e61ae3a8da941";
-    hash = "sha256-wibX6leqqqsmzGAC3R37Tnn0f+nCUp0G7EdUJScwNRM=";
+    rev = "b1e61fdb4400c7060559672474eb7d4f1d80fd45";
+    hash = "sha256-3aiZGgsiiHu6kJzLa2C3ej+7siL08tt7yYNmZxfElEE=";
   };
+  
   strictDeps = true;
 
   nativeBuildInputs = [
@@ -39,11 +40,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/grimblast --prefix PATH ':' \
+    wrapProgram $out/bin/hyprscreen --prefix PATH ':' \
       "${lib.makeBinPath [
       coreutils
       grim
-      hyprland
       hyprpicker
       jq
       libnotify

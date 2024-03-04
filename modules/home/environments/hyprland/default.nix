@@ -44,6 +44,7 @@ in {
       hyprpicker
       swww
       nova.hyprscreen
+      nova.hyprarrange
       socat
       nova.satty
       hyprkeys
@@ -160,15 +161,16 @@ in {
             "SUPER, down, movefocus, d"
             "SUPER, right, movefocus, r"
 
-            # Window swapping
-            "SUPER SHIFT, W, swapwindow, u"
-            "SUPER SHIFT, A, swapwindow, l"
-            "SUPER SHIFT, S, swapwindow, d"
-            "SUPER SHIFT, D, swapwindow, r"
-            "SUPER SHIFT, up, swapwindow, u"
-            "SUPER SHIFT, left, swapwindow, l"
-            "SUPER SHIFT, down, swapwindow, d"
-            "SUPER SHIFT, right, swapwindow, r"
+            # Move windows
+            "SUPER SHIFT, W, movewindow, u"
+            "SUPER SHIFT, A, movewindow, l"
+            "SUPER SHIFT, S, movewindow, d"
+            "SUPER SHIFT, D, movewindow, r"
+            "SUPER SHIFT, up, movewindow, u"
+            "SUPER SHIFT, left, movewindow, l"
+            "SUPER SHIFT, down, movewindow, d"
+            "SUPER SHIFT, right, movewindow, r"
+            "SUPER SHIFT, c, centerwindow"
 
             # Window actions
             "SUPER, Q, killactive"
@@ -229,6 +231,8 @@ in {
                 in [
                   "SUPER,${workspace},workspace, ${toString (x + 1)}"
                   "SUPER SHIFT, ${workspace}, movetoworkspace, ${toString (x + 1)}"
+                  "SUPER CTRL, ${workspace}, exec, hyprarrange ${toString (x + 1)}"
+                  "SUPER CTRL ALT, ${workspace}, exec, hyprarrange -s ${toString (x + 1)}"
                 ]
               )
               10)

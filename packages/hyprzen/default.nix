@@ -17,10 +17,6 @@ stdenv.mkDerivation rec {
 
   strictDeps = true;
 
-  nativeBuildInputs = [
-    makeWrapper
-  ];
-
   makeFlags = [
     "PREFIX=$(out)"
   ];

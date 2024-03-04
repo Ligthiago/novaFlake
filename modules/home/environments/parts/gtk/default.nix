@@ -160,6 +160,7 @@ in {
         "file://${config.xdg.configHome} Configuration"
         "file://${home}/.mozilla/firefox/${user} Profile"
         (mkIf (config.configuration.applications.obsidian.enable) "file://${home}/Vaults")
+        "file://${home}/Misc"
       ];
     in {
       enable = true;
