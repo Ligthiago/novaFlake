@@ -101,6 +101,7 @@ with lib.nova; {
       rclone = enabled;
       onefetch = enabled;
       s = enabled;
+      ventoy = enabled;
     };
 
     services = {
