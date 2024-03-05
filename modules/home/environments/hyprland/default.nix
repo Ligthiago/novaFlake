@@ -246,32 +246,23 @@ in {
           "SUPER, mouse:273, resizewindow"
           "SUPER SHIFT, mouse:273, resizewindow 1"
         ];
-        windowrule = [
-          "float,^(io.github.celluloid_player.Celluloid)$"
-          "center,^(io.github.celluloid_player.Celluloid)$"
-          "size 80% 80%,^(io.github.celluloid_player.Celluloid)$"
-
-          "float,^(org.gnome.Loupe)$"
-          "center,^(org.gnome.Loupe)$"
-
-          "float,^(org.gnome.baobab)$"
-          "center,^(org.gnome.baobab)$"
-          "size 80% 80%,^(org.gnome.baobab)$"
-
-          "float,^(org.gnome.Calculator)$"
-          "center,^(org.gnome.Calculator)$"
-          "size 400 640,^(org.gnome.Calculator)$"
-
-          "float,^(net.nokyan.Resources)$"
-          "center,^(net.nokyan.Resources)$"
-          "size 80% 80%,^(net.nokyan.Resources)$"
-
-          "float,^(io.bassi.Amberol)$"
-          "center,^(io.bassi.Amberol)$"
-          "size 400 700,^(io.bassi.Amberol)$"
-        ];
         windowrulev2 = [
+          # Make all tiled windows shadowless
           "noshadow, floating:0"
+
+          # Set initial position and size for some applications
+          "float,class:^(.*)(?:Celluloid|Loupe|baobab|Calculator|Resources|Amberol)(.*)$"
+          "center,class:^(.*)(?:Celluloid|Loupe|baobab|Calculator|Resources|Amberol)(.*)$"
+          "size 80% 80%,class:^(.*)(?:Celluloid|baobab|Resources)(.*)$"
+          "size 400 640,class:^(.*)(Calculator)(.*)$"
+          "size 400 700,class:^(.*)(Amberol)(.*)$"
+
+          # Set initial position and size for file picker windows, except application picker in file manager
+          "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+          "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+          "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+
+          # Set initial position and size for library window in Firefox
           "float,class:(firefox),title:(Library)"
           "center,class:(firefox),title:(Library)"
           "size 80% 80%,class:(firefox),title:(Library)"
