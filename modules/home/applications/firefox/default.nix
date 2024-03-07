@@ -195,6 +195,11 @@ in {
 
           # Bypass Russian censorship
           "network.proxy.autoconfig_url" = "https://antizapret.prostovpn.org:8443/proxy.pac";
+
+          # Always restore previous session
+          "browser.sessionstore.resume_session_once" = true;
+          "browser.sessionstore.resume_from_crash" = true;
+          "browser.sessionstore.resuming_after_os_restart" = true;
         };
 
         # Search engines configurations

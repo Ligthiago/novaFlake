@@ -21,7 +21,7 @@ in {
     home.packages = with pkgs; [
       libdbusmenu-gtk3
       dart-sass
-      sassc
+      bun
     ];
   };
 }

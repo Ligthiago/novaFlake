@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-3aiZGgsiiHu6kJzLa2C3ej+7siL08tt7yYNmZxfElEE=";
   };
 
-    strictDeps = true;
+  strictDeps = true;
 
   makeFlags = [
     "PREFIX=$(out)"

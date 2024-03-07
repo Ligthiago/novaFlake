@@ -61,7 +61,7 @@ in {
 
         "window" = {
           enabled = true;
-          width = mkLiteral "60%";
+          width = mkLiteral "70%";
           margin = 0;
           padding = 0;
           background-color = mkLiteral "@background-dim";
@@ -171,8 +171,8 @@ in {
 
         "listview" = {
           enabled = true;
-          columns = 2;
-          lines = 10;
+          columns = 3;
+          lines = 11;
           layout = mkLiteral "vertical";
           dynamic = true;
           spacing = mkLiteral "12px";
@@ -252,6 +252,8 @@ in {
       1 org.gnome.Logs.desktop
       1 org.gnome.gitlab.YaLTeR.Identity.desktop
       1 org.pipewire.Helvum.desktop
+      1 org.nickvision.tubeconverter.desktop
+      1 org.nickvision.cavalier.desktop
       1 Helix.desktop
       1 btop.desktop
       1 stui.desktop

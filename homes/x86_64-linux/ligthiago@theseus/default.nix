@@ -64,6 +64,8 @@ with lib.nova; {
       amberol = enabled;
       identity = enabled;
       helvum = enabled;
+      parabolic = enabled;
+      cavalier = enabled;
     };
 
     shells = {

@@ -22,7 +22,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     rev = "b1e61fdb4400c7060559672474eb7d4f1d80fd45";
     hash = "sha256-3aiZGgsiiHu6kJzLa2C3ej+7siL08tt7yYNmZxfElEE=";
   };
-  
+
   strictDeps = true;
 
   nativeBuildInputs = [

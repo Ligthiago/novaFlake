@@ -9,6 +9,7 @@ with lib;
 with lib.nova; let
   cfg = config.configuration.environments.hyprland;
   defaults = config.configuration.settings.defaults;
+  applications = config.configuration.applications;
 in {
   options.configuration.environments.hyprland = {
     enable = mkOptEnable (lib.mdDoc ''
@@ -174,7 +175,7 @@ in {
 
             # Window actions
             "SUPER, Q, killactive"
-            "SUPER, V, togglefloating"
+            "SUPER, V, execr, hyprctl activewindow -j | jq -r .class | grep -vqE 'io.bassi.Amberol|org.gnome.Calculator' && hyprctl dispatch togglefloating"
             "SUPER, Z, alterzorder, bottom"
             "SUPER, F, fullscreen, 1"
             "SUPER SHIFT, F, fullscreen"
@@ -246,27 +247,63 @@ in {
           "SUPER, mouse:273, resizewindow"
           "SUPER SHIFT, mouse:273, resizewindow 1"
         ];
-        windowrulev2 = [
-          # Make all tiled windows shadowless
-          "noshadow, floating:0"
+        windowrulev2 =
+          [
+            # Make all tiled windows shadowless
+            "noshadow, floating:0"
 
-          # Set initial position and size for some applications
-          "float,class:^(.*)(?:Celluloid|Loupe|baobab|Calculator|Resources|Amberol)(.*)$"
-          "center,class:^(.*)(?:Celluloid|Loupe|baobab|Calculator|Resources|Amberol)(.*)$"
-          "size 80% 80%,class:^(.*)(?:Celluloid|baobab|Resources)(.*)$"
-          "size 400 640,class:^(.*)(Calculator)(.*)$"
-          "size 400 700,class:^(.*)(Amberol)(.*)$"
-
-          # Set initial position and size for file picker windows, except application picker in file manager
-          "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
-          "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
-          "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
-
-          # Set initial position and size for library window in Firefox
-          "float,class:(firefox),title:(Library)"
-          "center,class:(firefox),title:(Library)"
-          "size 80% 80%,class:(firefox),title:(Library)"
-        ];
+            # Set initial position and size for file picker windows, except application picker in file manager
+            "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+            "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+            "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
+          ]
+          ++ lib.concatLists (lib.optional applications.loupe.enable [
+            "float,class:^(org.gnome.Loupe)$"
+            "center,class:^(org.gnome.Loupe)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.celluloid.enable [
+            "float,class:^(io.github.celluloid_player.Celluloid)$"
+            "center,class:^(io.github.celluloid_player.Celluloid)$"
+            "size 80% 80%,class:^(io.github.celluloid_player.Celluloid)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.resources.enable [
+            "float,class:^(net.nokyan.Resources)$"
+            "center,class:^(net.nokyan.Resources)$"
+            "size 80% 80%,class:^(net.nokyan.Resources)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.baobab.enable [
+            "float,class:^(org.gnome.baobab)$"
+            "center,class:^(org.gnome.baobab)$"
+            "size 80% 80%,class:^(org.gnome.baobab)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.calculator.enable [
+            "float,class:^(org.gnome.Calculator)$"
+            "center,class:^(org.gnome.Calculator)$"
+            "size 300 300,class:^(org.gnome.Calculator)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.amberol.enable [
+            "float,class:^(io.bassi.Amberol)$"
+            "center,class:^(io.bassi.Amberol)$"
+            "size 400 700,class:^(io.bassi.Amberol)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.parabolic.enable [
+            "float,class:^(org.nickvision.tubeconverter)$"
+            "center,class:^(org.nickvision.tubeconverter)$"
+            "size 600 800,class:^(org.nickvision.tubeconverter)$,title:^(Preferences)$"
+            "size 450 600,class:^(org.nickvision.tubeconverter)$,title:^(org.nickvision.tubeconverter)$"
+            "size 500 700,class:^(org.nickvision.tubeconverter)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.cavalier.enable [
+            "float,class:^(org.nickvision.cavalier)$"
+            "center,class:^(org.nickvision.cavalier)$"
+            "size 600 800,class:^(org.nickvision.cavalier)$,title:^(Preferences)$"
+            "size 900 500,class:^(org.nickvision.cavalier)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.firefox.enable [
+            "float,class:(firefox),title:(Library)"
+            "center,class:(firefox),title:(Library)"
+            "size 80% 80%,class:(firefox),title:(Library)"
+          ]);
       };
       extraConfig = ''
         bind = SUPER, C, submap, resize
