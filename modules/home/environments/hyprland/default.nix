@@ -247,63 +247,108 @@ in {
           "SUPER, mouse:273, resizewindow"
           "SUPER SHIFT, mouse:273, resizewindow 1"
         ];
+        # Remember: Always try to use initialTitle instead of title, because it's safer and more predictable
         windowrulev2 =
           [
-            # Make all tiled windows shadowless
             "noshadow, floating:0"
-
-            # Set initial position and size for file picker windows, except application picker in file manager
-            "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
-            "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
-            "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract)(?:(?!\\.).)*$"
           ]
+          ++ lib.concatLists (lib.optional applications.kitty.enable [
+            "minsize 500 300, class:^(kitty)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.nautilus.enable [
+            "minsize 520 470, class:^(org.gnome.Nautilus)$,initialTitle:^(Loading...)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.firefox.enable [
+            "float,class:^(firefox)$,title:^(Library)$"
+            "center,class:^(firefox)$,title:^(Library)$"
+            "size 80% 80%,class:^(firefox)$,title:^(Library)$"
+            "minsize 900 500,class:^(firefox)$,title:^(Library)$"
+            "minsize 480 700, class:^(firefox)$,initialTitle:^(Mozilla Firefox)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.vscode.enable [
+            "minsize 480 700,class:(codium-url-handler)"
+          ])
+          ++ lib.concatLists (lib.optional applications.obs-studio.enable [
+            "minsize 160 225,class:^(com.obsproject.Studio)$,initialTitle:^(Controls)$"
+            "maxsize 160 225,class:^(com.obsproject.Studio)$,initialTitle:^(Controls)$"
+            "minsize 340 250,class:^(com.obsproject.Studio)$,initialTitle:^(?:Scenes|Sources|Scene Transitions|Audio Mixer)$"
+            "maxsize 340 250,class:^(com.obsproject.Studio)$,initialTitle:^(?:Scenes|Sources|Scene Transitions|Audio Mixer)$"
+            "minsize 950 640,class:^(com.obsproject.Studio)$,initialTitle:^(OBS).*$"
+          ])
+          ++ lib.concatLists (lib.optional applications.evince.enable [
+            "minsize 620 850,class:(evince),initialTitle:^(Document Viewer|Recent Documents)*$,title:^(?!Document Viewer)"
+          ])
+          ++ lib.concatLists (lib.optional applications.foliate.enable [
+            "minsize 480 700,class:(com.github.johnfactotum.Foliate),initialTitle:^(Foliate$|Add Catalog$)"
+            "size 480 700,class:(com.github.johnfactotum.Foliate),title:^(Add Catalog$)"
+            "maxsize 480 700,class:(com.github.johnfactotum.Foliate),title:^(Add Catalog$)"
+          ])
           ++ lib.concatLists (lib.optional applications.loupe.enable [
             "float,class:^(org.gnome.Loupe)$"
             "center,class:^(org.gnome.Loupe)$"
+            "minsize 400 450,class:^(org.gnome.Loupe)$"
           ])
           ++ lib.concatLists (lib.optional applications.celluloid.enable [
             "float,class:^(io.github.celluloid_player.Celluloid)$"
             "center,class:^(io.github.celluloid_player.Celluloid)$"
-            "size 80% 80%,class:^(io.github.celluloid_player.Celluloid)$"
+            "size 80% 80%,class:^(io.github.celluloid_player.Celluloid)$,title:^(?:(?!About|Preferences).)+$"
+            "minsize 400 450,class:^(io.github.celluloid_player.Celluloid)$"
           ])
           ++ lib.concatLists (lib.optional applications.resources.enable [
             "float,class:^(net.nokyan.Resources)$"
             "center,class:^(net.nokyan.Resources)$"
-            "size 80% 80%,class:^(net.nokyan.Resources)$"
+            "size 480 700,class:^(net.nokyan.Resources)$"
+            "minsize 360 510, class:^(net.nokyan.Resources)$,title:^(About)$"
+            "minsize 480 700, class:^(resources)$,title:^(Preferences)$"
+            "minsize 480 700, class:^(net.nokyan.Resources)$"
           ])
           ++ lib.concatLists (lib.optional applications.baobab.enable [
             "float,class:^(org.gnome.baobab)$"
             "center,class:^(org.gnome.baobab)$"
             "size 80% 80%,class:^(org.gnome.baobab)$"
+            "minsize 770 420,class:^(org.gnome.baobab)$"
           ])
           ++ lib.concatLists (lib.optional applications.calculator.enable [
             "float,class:^(org.gnome.Calculator)$"
             "center,class:^(org.gnome.Calculator)$"
-            "size 300 300,class:^(org.gnome.Calculator)$"
+            "size 340 620,class:^(org.gnome.Calculator)$"
+            "minsize 340 620,class:^(org.gnome.Calculator)$"
+            "maxsize 680 620,class:^(org.gnome.Calculator)$"
           ])
           ++ lib.concatLists (lib.optional applications.amberol.enable [
             "float,class:^(io.bassi.Amberol)$"
             "center,class:^(io.bassi.Amberol)$"
-            "size 400 700,class:^(io.bassi.Amberol)$"
+            "size 360 680,class:^(io.bassi.Amberol)$"
+            "minsize 360 680,class:^(io.bassi.Amberol)$"
+            "maxsize 680 680,class:^(io.bassi.Amberol)$"
           ])
           ++ lib.concatLists (lib.optional applications.parabolic.enable [
             "float,class:^(org.nickvision.tubeconverter)$"
             "center,class:^(org.nickvision.tubeconverter)$"
-            "size 600 800,class:^(org.nickvision.tubeconverter)$,title:^(Preferences)$"
-            "size 450 600,class:^(org.nickvision.tubeconverter)$,title:^(org.nickvision.tubeconverter)$"
-            "size 500 700,class:^(org.nickvision.tubeconverter)$"
+            "size 600 800,class:^(org.nickvision.tubeconverter)$,initialTitle:^(Preferences)$"
+            "size 450 600,class:^(org.nickvision.tubeconverter)$,initialTitle:^(org.nickvision.tubeconverter)$"
+            "size 500 700,class:^(org.nickvision.tubeconverter)$,initialTitle:^(Parabolic)$"
+            "minsize 400 450,class:^(org.nickvision.tubeconverter)$,initialTitle:^(Parabolic)$"
           ])
           ++ lib.concatLists (lib.optional applications.cavalier.enable [
             "float,class:^(org.nickvision.cavalier)$"
             "center,class:^(org.nickvision.cavalier)$"
             "size 600 800,class:^(org.nickvision.cavalier)$,title:^(Preferences)$"
-            "size 900 500,class:^(org.nickvision.cavalier)$"
+            "minsize 600 800,class:^(org.nickvision.cavalier)$,title:^(Preferences)$"
+            "maxsize 600 800,class:^(org.nickvision.cavalier)$,title:^(Preferences)$"
+            "size 900 500,class:^(org.nickvision.cavalier)$,initialTitle:^(Cavalier)$"
+            "minsize 600 400,class:^(org.nickvision.cavalier)$,initialTitle:^(Cavalier)$"
           ])
-          ++ lib.concatLists (lib.optional applications.firefox.enable [
-            "float,class:(firefox),title:(Library)"
-            "center,class:(firefox),title:(Library)"
-            "size 80% 80%,class:(firefox),title:(Library)"
-          ]);
+          ++ lib.concatLists (lib.optional applications.secrets.enable [
+            "minsize 400 450,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
+            "maxsize 620 900,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
+          ])
+          ++ [
+            # Set initial position and size for file picker windows, except application picker in file manager
+            "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
+            "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
+            "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
+          ];
       };
       extraConfig = ''
         bind = SUPER, C, submap, resize
