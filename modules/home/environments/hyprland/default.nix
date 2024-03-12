@@ -251,6 +251,14 @@ in {
         windowrulev2 =
           [
             "noshadow, floating:0"
+
+            # Don't allow windows to maximise or become fullscreen on their own.
+            "suppressevent maximize fullscreen, class:.*"
+
+            # Set initial position and size for file picker windows, except application picker in file manager
+            "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
+            "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
+            "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
           ]
           ++ lib.concatLists (lib.optional applications.kitty.enable [
             "minsize 500 300, class:^(kitty)$"
@@ -342,13 +350,7 @@ in {
           ++ lib.concatLists (lib.optional applications.secrets.enable [
             "minsize 400 450,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
             "maxsize 620 900,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
-          ])
-          ++ [
-            # Set initial position and size for file picker windows, except application picker in file manager
-            "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
-            "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
-            "size 70% 70%,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
-          ];
+          ]);
       };
       extraConfig = ''
         bind = SUPER, C, submap, resize

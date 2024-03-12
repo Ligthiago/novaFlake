@@ -73,7 +73,7 @@ in {
       terminal = false;
       icon = "kitty";
       comment = "Fast and feature-rich terminal emulator";
-      exec = "kitty";
+      exec = "kitty --single-instance";
       settings = {
         StartupNotify = "true";
         Keywords = "Terminal;Emulator;Commands;CLI;";

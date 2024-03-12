@@ -7,71 +7,66 @@ This is my personal NixOS configuration, built with Snowfall Lib and Home Manage
 
 ## Structure
 
+The structure of this flake is largely defined by [Snowfall lib](https://github.com/snowfallorg/lib), as this library imposes an opinionated file structure to make flake easy to develop and maintain. It's define directory names and layout, and automatically wiring everything together, allowing to focus on building, not writing boilerplate code.
+
+<details close>
+<summary>Expand to see flake scheme</summary>
+
 ```sh
-# Root directory of the flake
-.
-# Entry point of the flake
-├── flake.nix
-# Locked dependencies
-├── flake.lock
-# Assets directory contains media files, such as logos and other images.
-├── assets
+.                                 # Root directory of the flake
+├── flake.nix                     # Flake entry point with all necessary inputs
+├── flake.lock                    # Locked dependencies
+├── justfile                      # Project-specific commands
+├── assets                        # Assets directory contains media files, such as logos and other images.
 │  └── logo.png
-# Homes directory contains home-manager configurations
-├── homes
-│  └── x86_64-linux
-│     └── host@username
+├── homes                         # Homes directory contains home-manager configurations
+│  └── x86_64-linux               # Architecture directory contains systems with the same target architecture
+│     └── host@username           # Home directory per every host and user
 │        └── default.nix
-# Lib directory contains internal libraries 
-├── lib
+├── lib                           # Lib directory contains internal libraries 
 │  └── helpers
 │     └── default.nix
-# Modules directory contains modules for nixos and home-manager
-├── modules
-│  ├── home
-│  │  │  # Applications (Interactive applications, GUI or TUI)
-│  │  ├── applications
-│  │  │  └── app-name
+├── modules                       # Modules directory contains modules for nixos and home-manager
+│  ├── home                       # Home directory contains user specific modules
+│  │  ├── applications            # Applications directory contains interactive applications modules, GUI or TUI
+│  │  │  └── app
 │  │  │     └── default.nix
-│  │  │  # Compositors, launchers and widgets
-│  │  ├── environments
+│  │  ├── environments            # Environments directory contains compositors, launchers and widgets modules
 │  │  │  ├── env-name
 │  │  │  │  └── default.nix
 │  │  │  └── parts
-│  │  │     └── part-name
+│  │  │     └── part
 │  │  │        └── default.nix
-│  │  │  # Services and daemons
-│  │  ├── services
-│  │  │  └── service-name
+│  │  ├── services                # Services directory contains services and daemons modules
+│  │  │  └── service
 │  │  │     └── default.nix
-│  │  │  # Command shells and related software
-│  │  ├── shells
-│  │  │  ├── shell-name
+│  │  ├── shells                  # Shells directory contains sommand shells and related software modules
+│  │  │  ├── shell
 │  │  │  │  └── default.nix
 │  │  │  └── parts
-│  │  │     └── program-name
+│  │  │     └── part
 │  │  │        └── default.nix
-│  │  │   # CLI tools
-│  │  └── tools
-│  │     └── program-name
+│  │  └── tools                   # Tools directory contains CLI tools modules
+│  │     └── program
 │  │        └── default.nix
-│  └── nixos
-│     │  # Hardware modules, such as sound and printing
-│     ├── hardware
-│     │  └── category-name
+│  └── nixos                      # Home directory contains system-wide modules
+│     ├── hardware                # Hardware directory contains hardware modules, such as sound and printing
+│     │  └── category
 │     │     └── default.nix
-│     │  # Services and daemons
-│     └── services
-│        └── service-name
+│     └── services                # Services directory contains services and daemons modules
+│        └── service
 │           └── default.nix
-│   # Overlays directory contains custom overlays
-├── overlays
-│   # Overlays directory contains custom packages
-├── packages
-│  # Systems directory contains nixos configurations
-└── systems
-   └── x86_64-linux
-      └── host
-         ├── default.nix
-         └── hardware.nix
+├── overlays                      # Overlays directory contains overlays
+├── packages                      # Packages directory contains internal packages
+├── shells                        # Shells directory contains development shells
+├── systems                       # Systems directory contains system-wide configurations
+│  └── x86_64-linux               # Architecture directory contains systems with the same target architecture
+│     └── host                    # Host directory, one per system
+│        ├── default.nix
+│        └── hardware.nix
+└── templates                     # Templates directory contains templates for fast flake initialisation
 ```
+
+</details>
+
+See [Snowfall lib reference](https://snowfall.org/reference/lib/#flake-structure) for more information.

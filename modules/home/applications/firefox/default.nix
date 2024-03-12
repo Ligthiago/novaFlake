@@ -200,6 +200,9 @@ in {
           "browser.sessionstore.resume_session_once" = true;
           "browser.sessionstore.resume_from_crash" = true;
           "browser.sessionstore.resuming_after_os_restart" = true;
+
+          # Disable speech synth
+          "media.webspeech.synth.enabled" = false;
         };
 
         # Search engines configurations
