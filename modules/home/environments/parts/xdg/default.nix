@@ -55,6 +55,7 @@ in {
             audio = ["${config.configuration.applications."${defaultApps.audioPlayer}".desktopName}.desktop"];
             archive = ["${config.configuration.applications."${defaultApps.archiveManager}".desktopName}.desktop"];
             browser = ["${config.configuration.applications."${defaultApps.browser}".desktopName}.desktop"];
+            office = ["${config.configuration.applications."${defaultApps.office}".desktopName}.desktop"];
           };
           mimeTypes = {
             directory = ["inode/directory"];
@@ -135,6 +136,27 @@ in {
               "application/x-xz"
               "application/x-xz-compressed-tar"
               "application/zip"
+            ];
+            office = [
+              "application/vnd.oasis.opendocument.text"
+              "application/msword"
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              "application/rtf"
+
+              "application/vnd.oasis.opendocument.presentation"
+              "application/vnd.ms-powerpoint"
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+
+              "application/vnd.oasis.opendocument.formula"
+
+              "application/vnd.oasis.opendocument.base"
+
+              "application/vnd.oasis.opendocument.spreadsheet"
+              "application/vnd.ms-excel"
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
+              "application/vnd.oasis.opendocument.graphics"
+              "application/vnd.visio"
             ];
           };
         in

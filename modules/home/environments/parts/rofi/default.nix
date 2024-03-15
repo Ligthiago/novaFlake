@@ -232,6 +232,7 @@ in {
       1 obsidian.desktop
       1 net.lutris.Lutris.desktop
       1 com.obsproject.Studio.desktop
+      1 libreoffice.desktop
       1 org.inkscape.Inkscape.desktop
       1 org.gnome.Evince.desktop
       1 com.github.johnfactotum.Foliate.desktop

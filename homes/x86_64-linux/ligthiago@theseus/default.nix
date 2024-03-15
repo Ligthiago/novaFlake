@@ -25,6 +25,7 @@ with lib.nova; {
         pdfViewer = "evince";
         archiveManager = "file-roller";
         resourceMonitor = "resources";
+        office = "libreoffice";
       };
       stateVersion = "23.11";
     };
@@ -66,6 +67,7 @@ with lib.nova; {
       helvum = enabled;
       parabolic = enabled;
       cavalier = enabled;
+      libreoffice = enabled;
     };
 
     shells = {

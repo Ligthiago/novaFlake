@@ -182,6 +182,7 @@ in {
             "SUPER ALT, F, fakefullscreen"
             "SUPER, X, togglesplit"
             "SUPER, P, pin"
+            "SUPER SHIFT, P, pseudo"
 
             # Group stuff
             "SUPER, G, togglegroup"
@@ -351,6 +352,25 @@ in {
             "minsize 400 450,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
             "maxsize 620 900,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
           ]);
+        plugin = {
+          hycov = {
+            overview_gappo = 20;
+            overview_gappi = 20;
+            hotarea_size = 10;
+            enable_hotarea = 0;
+            swipe_fingers = 4;
+            move_focus_distance = 100;
+            enable_gesture = 1;
+            disable_workspace_change = 1;
+            disable_spawn = 1;
+            auto_exit = 1;
+            auto_fullscreen = 0;
+            only_active_workspace = 0;
+            only_active_monitor = 1;
+            enable_alt_release_exit = 0;
+            alt_toggle_auto_next = 0;
+          };
+        };
       };
       extraConfig = ''
         bind = SUPER, C, submap, resize
@@ -378,26 +398,6 @@ in {
         bind = SUPER, C, submap, reset
         bind = , escape, submap, reset
         submap = reset
-
-        plugin {
-          hycov {
-            overview_gappo = 20
-            overview_gappi = 20
-            hotarea_size = 10
-            enable_hotarea = 0
-            swipe_fingers = 4
-            move_focus_distance = 100
-            enable_gesture = 1
-            disable_workspace_change = 1
-            disable_spawn = 1
-            auto_exit = 1
-            auto_fullscreen = 0
-            only_active_workspace = 0
-            only_active_monitor = 1
-            enable_alt_release_exit = 0
-            alt_toggle_auto_next = 0
-          }
-        }
       '';
     };
   };

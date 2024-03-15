@@ -203,6 +203,9 @@ in {
 
           # Disable speech synth
           "media.webspeech.synth.enabled" = false;
+
+          # Why it disabled huh?
+          "screenshots.browser.component.enabled" = true;
         };
 
         # Search engines configurations

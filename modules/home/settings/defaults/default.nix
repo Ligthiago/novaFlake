@@ -18,5 +18,6 @@ with lib.nova; {
     archiveManager = mkOpt types.str "none" "Default achive manager to set";
     resourceMonitor = mkOpt types.str "none" "Default resource monitor to set";
     shell = mkOpt types.str "none" "Default command shell to set";
+    office = mkOpt types.str "none" "Default office suit to set";
   };
 }
