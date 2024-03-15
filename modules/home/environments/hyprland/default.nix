@@ -49,6 +49,7 @@ in {
       socat
       nova.satty
       hyprkeys
+      glib
     ];
 
     # Enable hyprland compositor and apply settings

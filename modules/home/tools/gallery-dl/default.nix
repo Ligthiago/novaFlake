@@ -19,6 +19,11 @@ in {
   config = mkIf cfg.enable {
     programs.gallery-dl = {
       enable = true;
+      settings = {
+        extractor = {
+          base-directory = config.xdg.userDirs.extraConfig.XDG_GALLERYDL_DIR;
+        };
+      };
     };
   };
 }

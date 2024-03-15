@@ -24,10 +24,6 @@ in {
       obsidian
     ];
 
-    xdg.userDirs.extraConfig = {
-      XDG_VAULTS_DIR = "${home}/Vaults";
-    };
-
     xdg.desktopEntries."${cfg.desktopName}" = {
       name = "Obsidian";
       genericName = "Knowledge base";

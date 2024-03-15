@@ -9,6 +9,8 @@ with lib;
 with lib.nova; let
   cfg = config.configuration.environments.parts.xdg;
   home = config.home.homeDirectory;
+  applications = config.configuration.applications;
+  tools = config.configuration.tools;
 in {
   options.configuration.environments.parts.xdg = {
     enable = mkOptEnable (lib.mdDoc "Enable xdg module");
@@ -17,7 +19,7 @@ in {
   config = mkIf cfg.enable {
     xdg = {
       enable = true;
-      userDirs = {
+      userDirs = rec {
         enable = true;
         createDirectories = true;
         desktop = null;
@@ -28,9 +30,7 @@ in {
         pictures = "${home}/Pictures";
         documents = "${home}/Documents";
         download = "${home}/Downloads";
-        extraConfig = let
-          pictures = config.xdg.userDirs.pictures;
-        in {
+        extraConfig = {
           XDG_MISC_DIR = "${home}/Misc";
           XDG_PROJECTS_DIR = "${home}/Projects";
           XDG_GAMES_DIR = "${home}/Games";
@@ -38,6 +38,8 @@ in {
           XDG_BACKUPS_DIR = "${home}/Backups";
           XDG_SCREENSHOTS_DIR = "${pictures}/Screenshots";
           XDG_WALLPAPERS_DIR = "${pictures}/Wallpapers";
+          XDG_VAULTS_DIR = mkIf (applications.obsidian.enable) "${home}/Vaults";
+          XDG_GALLERYDL_DIR = mkIf (tools.gallery-dl.enable) "${download}/Gallery-dl";
         };
       };
       mime.enable = true;
@@ -46,16 +48,16 @@ in {
         defaultApplications = let
           defaultApps = config.configuration.settings.defaults;
           apps = {
-            terminal = ["${config.configuration.applications."${defaultApps.terminal}".desktopName}.desktop"];
-            directory = ["${config.configuration.applications."${defaultApps.fileManager}".desktopName}.desktop"];
-            pdf = ["${config.configuration.applications."${defaultApps.pdfViewer}".desktopName}.desktop"];
-            text = ["${config.configuration.applications."${defaultApps.textEditor}".desktopName}.desktop"];
-            video = ["${config.configuration.applications."${defaultApps.videoPlayer}".desktopName}.desktop"];
-            image = ["${config.configuration.applications."${defaultApps.imageViewer}".desktopName}.desktop"];
-            audio = ["${config.configuration.applications."${defaultApps.audioPlayer}".desktopName}.desktop"];
-            archive = ["${config.configuration.applications."${defaultApps.archiveManager}".desktopName}.desktop"];
-            browser = ["${config.configuration.applications."${defaultApps.browser}".desktopName}.desktop"];
-            office = ["${config.configuration.applications."${defaultApps.office}".desktopName}.desktop"];
+            terminal = ["${applications."${defaultApps.terminal}".desktopName}.desktop"];
+            directory = ["${applications."${defaultApps.fileManager}".desktopName}.desktop"];
+            pdf = ["${applications."${defaultApps.pdfViewer}".desktopName}.desktop"];
+            text = ["${applications."${defaultApps.textEditor}".desktopName}.desktop"];
+            video = ["${applications."${defaultApps.videoPlayer}".desktopName}.desktop"];
+            image = ["${applications."${defaultApps.imageViewer}".desktopName}.desktop"];
+            audio = ["${applications."${defaultApps.audioPlayer}".desktopName}.desktop"];
+            archive = ["${applications."${defaultApps.archiveManager}".desktopName}.desktop"];
+            browser = ["${applications."${defaultApps.browser}".desktopName}.desktop"];
+            office = ["${applications."${defaultApps.office}".desktopName}.desktop"];
           };
           mimeTypes = {
             directory = ["inode/directory"];
@@ -166,12 +168,41 @@ in {
       };
     };
 
+    # Apply custom folder icons
+    home.activation = let
+      iconPath = "file://${home}/.nix-profile/share/icons/Papirus/128x128/places";
+      dirs = config.xdg.userDirs.extraConfig;
+    in {
+      applyCustomIcons =
+        ''
+          mkdir -p ${dirs.XDG_MISC_DIR} ${dirs.XDG_PROJECTS_DIR} ${dirs.XDG_BACKUPS_DIR} ${dirs.XDG_GAMES_DIR} \
+          ${dirs.XDG_LIBRARY_DIR} ${dirs.XDG_SCREENSHOTS_DIR} ${dirs.XDG_WALLPAPERS_DIR} ${dirs.XDG_WALLPAPERS_DIR}
+
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_MISC_DIR} metadata::custom-icon ${iconPath}/folder-activities.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_PROJECTS_DIR} metadata::custom-icon ${iconPath}/folder-projects.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_BACKUPS_DIR} metadata::custom-icon ${iconPath}/folder-backup.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_GAMES_DIR} metadata::custom-icon ${iconPath}/folder-games.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_LIBRARY_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_SCREENSHOTS_DIR} metadata::custom-icon ${iconPath}/folder-photo.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WALLPAPERS_DIR} metadata::custom-icon ${iconPath}/folder-pictures.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WALLPAPERS_DIR} metadata::custom-icon ${iconPath}/folder-pictures.svg
+        ''
+        + lib.strings.concatStrings (lib.optional applications.obsidian.enable ''
+          mkdir -p ${dirs.XDG_VAULTS_DIR}
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_VAULTS_DIR} metadata::custom-icon ${iconPath}/folder-obsidian.svg
+        '')
+          + lib.strings.concatStrings (lib.optional tools.gallery-dl.enable ''
+          mkdir -p ${dirs.XDG_GALLERYDL_DIR}
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_GALLERYDL_DIR} metadata::custom-icon ${iconPath}/folder-downloads.svg
+        '');
+    };
+
     home.packages = with pkgs; [
       xdg-utils
     ];
 
     home.sessionVariables = {
-      TERMINAL = "kitty";
+      TERMINAL = config.configuration.settings.defaults.terminal;
     };
   };
 }
