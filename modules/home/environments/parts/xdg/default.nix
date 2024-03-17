@@ -40,6 +40,8 @@ in {
           XDG_WALLPAPERS_DIR = "${pictures}/Wallpapers";
           XDG_VAULTS_DIR = mkIf (applications.obsidian.enable) "${home}/Vaults";
           XDG_GALLERYDL_DIR = mkIf (tools.gallery-dl.enable) "${download}/Gallery-dl";
+          XDG_REMOTE_DIR = mkIf (tools.rclone.enable) "${home}/Remote";
+          XDG_WARPINATOR_DIR = mkIf (applications.warpinator.enable) "${download}/Warpinator";
         };
       };
       mime.enable = true;
@@ -174,6 +176,7 @@ in {
       dirs = config.xdg.userDirs.extraConfig;
     in {
       applyCustomIcons =
+        config.lib.dag.entryAfter ["installPackages"]
         ''
           mkdir -p ${dirs.XDG_MISC_DIR} ${dirs.XDG_PROJECTS_DIR} ${dirs.XDG_BACKUPS_DIR} ${dirs.XDG_GAMES_DIR} \
           ${dirs.XDG_LIBRARY_DIR} ${dirs.XDG_SCREENSHOTS_DIR} ${dirs.XDG_WALLPAPERS_DIR} ${dirs.XDG_WALLPAPERS_DIR}
@@ -185,16 +188,24 @@ in {
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_LIBRARY_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_SCREENSHOTS_DIR} metadata::custom-icon ${iconPath}/folder-photo.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WALLPAPERS_DIR} metadata::custom-icon ${iconPath}/folder-pictures.svg
-          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WALLPAPERS_DIR} metadata::custom-icon ${iconPath}/folder-pictures.svg
-        ''
-        + lib.strings.concatStrings (lib.optional applications.obsidian.enable ''
-          mkdir -p ${dirs.XDG_VAULTS_DIR}
-          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_VAULTS_DIR} metadata::custom-icon ${iconPath}/folder-obsidian.svg
-        '')
-          + lib.strings.concatStrings (lib.optional tools.gallery-dl.enable ''
-          mkdir -p ${dirs.XDG_GALLERYDL_DIR}
-          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_GALLERYDL_DIR} metadata::custom-icon ${iconPath}/folder-downloads.svg
-        '');
+
+          ${lib.strings.concatStrings (lib.optional applications.obsidian.enable ''
+            mkdir -p ${dirs.XDG_VAULTS_DIR}
+            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_VAULTS_DIR} metadata::custom-icon ${iconPath}/folder-obsidian.svg
+          '')}
+          ${lib.strings.concatStrings (lib.optional tools.gallery-dl.enable ''
+            mkdir -p ${dirs.XDG_GALLERYDL_DIR}
+            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_GALLERYDL_DIR} metadata::custom-icon ${iconPath}/folder-downloads.svg
+          '')}
+          ${lib.strings.concatStrings (lib.optional tools.rclone.enable ''
+            mkdir -p ${dirs.XDG_REMOTE_DIR}
+            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_REMOTE_DIR} metadata::custom-icon ${iconPath}/folder-remote.svg
+          '')}
+          ${lib.strings.concatStrings (lib.optional applications.warpinator.enable ''
+            mkdir -p ${dirs.XDG_WARPINATOR_DIR}
+            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WARPINATOR_DIR} metadata::custom-icon ${iconPath}/folder-remote.svg
+          '')}
+        '';
     };
 
     home.packages = with pkgs; [

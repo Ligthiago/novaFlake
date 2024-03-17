@@ -202,6 +202,7 @@ in {
             # Launch applications
             "SUPER, E, exec, rofi -show drun"
             "SUPER, R, exec, ${defaults.terminal}"
+            "SUPER SHIFT, R, exec, [float;size exact 60% 60%;center;] ${defaults.terminal}"
             "SUPER, T, exec, ${defaults.fileManager}"
             "SUPER, Y, exec, ${defaults.textEditor}"
             "SUPER, U, exec, ${defaults.browser}"
@@ -254,9 +255,6 @@ in {
           [
             "noshadow, floating:0"
 
-            # Don't allow windows to maximise or become fullscreen on their own.
-            "suppressevent maximize fullscreen, class:.*"
-
             # Set initial position and size for file picker windows, except application picker in file manager
             "float,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
             "center,class:^(?:(?!Nautilus).)*$,title:^(?:Open|Save|Add|Extract|Pick)(?:(?!\\.).)*$"
@@ -287,6 +285,7 @@ in {
           ])
           ++ lib.concatLists (lib.optional applications.evince.enable [
             "minsize 620 850,class:(evince),initialTitle:^(Document Viewer|Recent Documents)*$,title:^(?!Document Viewer)"
+            "suppressevent maximize, class:^(evince)$"
           ])
           ++ lib.concatLists (lib.optional applications.foliate.enable [
             "minsize 480 700,class:(com.github.johnfactotum.Foliate),initialTitle:^(Foliate$|Add Catalog$)"
