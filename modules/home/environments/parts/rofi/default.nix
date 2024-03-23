@@ -172,7 +172,7 @@ in {
         "listview" = {
           enabled = true;
           columns = 3;
-          lines = 11;
+          lines = 12;
           layout = mkLiteral "vertical";
           dynamic = true;
           spacing = mkLiteral "12px";
@@ -190,7 +190,7 @@ in {
         "element" = {
           enabled = true;
           spacing = mkLiteral "14px";
-          padding = mkLiteral "8px 14px";
+          padding = mkLiteral "4px 8px";
           cursor = mkLiteral "pointer";
           border = mkLiteral "1px solid";
           border-radius = mkLiteral "6px";
@@ -209,6 +209,7 @@ in {
           size = mkLiteral "32px";
           cursor = mkLiteral "inherit";
           background-color = mkLiteral "transparent";
+          padding = mkLiteral "4px";
         };
 
         "element-text" = {
@@ -239,6 +240,7 @@ in {
       1 io.github.celluloid_player.Celluloid.desktop
       1 org.gnome.Loupe.desktop
       1 io.bassi.Amberol.desktop
+      1 com.github.geigi.cozy.desktop
       1 org.gnome.World.Secrets.desktop
       1 org.nicotine_plus.Nicotine.desktop
       1 yarr.desktop
@@ -255,6 +257,7 @@ in {
       1 org.pipewire.Helvum.desktop
       1 org.nickvision.tubeconverter.desktop
       1 org.nickvision.cavalier.desktop
+      1 org.gnome.dspy.desktop
       1 Helix.desktop
       1 btop.desktop
       1 stui.desktop

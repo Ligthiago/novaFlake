@@ -42,6 +42,7 @@ in {
           XDG_GALLERYDL_DIR = mkIf (tools.gallery-dl.enable) "${download}/Gallery-dl";
           XDG_REMOTE_DIR = mkIf (tools.rclone.enable) "${home}/Remote";
           XDG_WARPINATOR_DIR = mkIf (applications.warpinator.enable) "${download}/Warpinator";
+          XDG_AUDIOBOOKS_DIR = mkIf (applications.cozy.enable) "${home}/Audiobooks";
         };
       };
       mime.enable = true;
@@ -204,6 +205,10 @@ in {
           ${lib.strings.concatStrings (lib.optional applications.warpinator.enable ''
             mkdir -p ${dirs.XDG_WARPINATOR_DIR}
             PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WARPINATOR_DIR} metadata::custom-icon ${iconPath}/folder-remote.svg
+          '')}
+          ${lib.strings.concatStrings (lib.optional applications.cozy.enable ''
+            mkdir -p ${dirs.XDG_AUDIOBOOKS_DIR}
+            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_AUDIOBOOKS_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
           '')}
         '';
     };

@@ -68,6 +68,8 @@ with lib.nova; {
       parabolic = enabled;
       cavalier = enabled;
       libreoffice = enabled;
+      cozy = enabled;
+      d-spy = enabled;
     };
 
     shells = {

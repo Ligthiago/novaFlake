@@ -76,7 +76,7 @@ in {
           EmailTracking = true;
         };
         PictureInPicture = {
-          Enabled = false;
+          Enabled = true;
         };
       };
 

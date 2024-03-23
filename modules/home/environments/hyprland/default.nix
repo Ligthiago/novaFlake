@@ -272,6 +272,11 @@ in {
             "size 80% 80%,class:^(firefox)$,title:^(Library)$"
             "minsize 900 500,class:^(firefox)$,title:^(Library)$"
             "minsize 480 700, class:^(firefox)$,initialTitle:^(Mozilla Firefox)$"
+
+            "float, class:^(firefox)$,title:^(Picture-in-Picture)$"
+            "pin, class:^(firefox)$,title:^(Picture-in-Picture)$"
+            "size 700 394, class:^(firefox)$,title:^(Picture-in-Picture)$"
+            "move onscreen 100%-720 100%-414, class:^(firefox)$,title:^(Picture-in-Picture)$"
           ])
           ++ lib.concatLists (lib.optional applications.vscode.enable [
             "minsize 480 700,class:(codium-url-handler)"
@@ -351,6 +356,17 @@ in {
           ++ lib.concatLists (lib.optional applications.secrets.enable [
             "minsize 400 450,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
             "maxsize 620 900,class:^(org.gnome.World.Secrets)$,initialTitle:^(Secrets)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.cozy.enable [
+            "float,class:^(com.github.geigi.cozy)$,title:^(Cozy)$"
+            "center,class:^(com.github.geigi.cozy)$,title:^(Cozy)$"
+            "minsize 360 540,class:^(com.github.geigi.cozy)$,initialTitle:^(Cozy)$"
+            "maxsize 1200 540,class:^(com.github.geigi.cozy)$,initialTitle:^(Cozy)$"
+          ])
+          ++ lib.concatLists (lib.optional applications.d-spy.enable [
+            "float,class:^(org.gnome.dspy)$,title:^(D-Spy)$"
+            "center,class:^(org.gnome.dspy)$,title:^(D-Spy)$"
+            "minsize 1000 700,class:^(org.gnome.dspy)$,initialTitle:^(D-Spy)$"
           ]);
         plugin = {
           hycov = {
