@@ -44,7 +44,7 @@ in {
       comment = "Terminal text editor";
       exec = "nvim %F";
       settings = {
-        Keywords = "Text;Code;Editor;";
+        Keywords = "TUI;Text;Code;Editor;";
       };
     };
   };

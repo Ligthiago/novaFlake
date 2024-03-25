@@ -35,7 +35,7 @@ in {
         exec = "libreoffice %U";
         settings = {
           StartupNotify = "true";
-          Keywords = "Document;Write;Presentation;Viewer;Spreadsheet";
+          Keywords = "GUI;Document;Write;Presentation;Viewer;Spreadsheet";
         };
       };
       # Oh God there's so many of them and none of them just called "libreoffice".

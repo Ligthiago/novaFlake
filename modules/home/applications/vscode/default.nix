@@ -67,7 +67,7 @@ in {
       settings = {
         StartupNotify = "true";
         StartupWMClass = "vscodium";
-        Keywords = "Text;Code;Editor;IDE;Development;";
+        Keywords = "GUI;Text;Code;Editor;IDE;Development;";
       };
     };
   };

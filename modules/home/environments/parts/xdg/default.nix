@@ -30,11 +30,10 @@ in {
         pictures = "${home}/Pictures";
         documents = "${home}/Documents";
         download = "${home}/Downloads";
-        extraConfig = {
+        extraConfig = rec {
           XDG_MISC_DIR = "${home}/Misc";
           XDG_PROJECTS_DIR = "${home}/Projects";
           XDG_GAMES_DIR = "${home}/Games";
-          XDG_LIBRARY_DIR = "${home}/Library";
           XDG_BACKUPS_DIR = "${home}/Backups";
           XDG_SCREENSHOTS_DIR = "${pictures}/Screenshots";
           XDG_WALLPAPERS_DIR = "${pictures}/Wallpapers";
@@ -42,7 +41,12 @@ in {
           XDG_GALLERYDL_DIR = mkIf (tools.gallery-dl.enable) "${download}/Gallery-dl";
           XDG_REMOTE_DIR = mkIf (tools.rclone.enable) "${home}/Remote";
           XDG_WARPINATOR_DIR = mkIf (applications.warpinator.enable) "${download}/Warpinator";
-          XDG_AUDIOBOOKS_DIR = mkIf (applications.cozy.enable) "${home}/Audiobooks";
+
+          XDG_LIBRARY_DIR = "${home}/Library";
+          XDG_BOOKS_DIR = "${XDG_LIBRARY_DIR}/Books";
+          XDG_AUDIOBOOKS_DIR = "${XDG_LIBRARY_DIR}/Audiobooks";
+          XDG_PAPERS_DIR = "${XDG_LIBRARY_DIR}/Papers";
+          XDG_TEXTS_DIR = "${XDG_LIBRARY_DIR}/Texts";
         };
       };
       mime.enable = true;
@@ -186,9 +190,15 @@ in {
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_PROJECTS_DIR} metadata::custom-icon ${iconPath}/folder-projects.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_BACKUPS_DIR} metadata::custom-icon ${iconPath}/folder-backup.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_GAMES_DIR} metadata::custom-icon ${iconPath}/folder-games.svg
-          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_LIBRARY_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_SCREENSHOTS_DIR} metadata::custom-icon ${iconPath}/folder-photo.svg
           PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WALLPAPERS_DIR} metadata::custom-icon ${iconPath}/folder-pictures.svg
+
+          mkdir -p ${dirs.XDG_LIBRARY_DIR} ${dirs.XDG_BOOKS_DIR} ${dirs.XDG_AUDIOBOOKS_DIR} ${dirs.XDG_PAPERS_DIR} ${dirs.XDG_TEXTS_DIR}
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_LIBRARY_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_BOOKS_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_AUDIOBOOKS_DIR} metadata::custom-icon ${iconPath}/folder-music.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_PAPERS_DIR} metadata::custom-icon ${iconPath}/folder-documents.svg
+          PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_TEXTS_DIR} metadata::custom-icon ${iconPath}/folder-notes.svg
 
           ${lib.strings.concatStrings (lib.optional applications.obsidian.enable ''
             mkdir -p ${dirs.XDG_VAULTS_DIR}
@@ -205,10 +215,6 @@ in {
           ${lib.strings.concatStrings (lib.optional applications.warpinator.enable ''
             mkdir -p ${dirs.XDG_WARPINATOR_DIR}
             PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_WARPINATOR_DIR} metadata::custom-icon ${iconPath}/folder-remote.svg
-          '')}
-          ${lib.strings.concatStrings (lib.optional applications.cozy.enable ''
-            mkdir -p ${dirs.XDG_AUDIOBOOKS_DIR}
-            PATH="${config.home.path}/bin:$PATH" $DRY_RUN_CMD gio set ${dirs.XDG_AUDIOBOOKS_DIR} metadata::custom-icon ${iconPath}/folder-books.svg
           '')}
         '';
     };

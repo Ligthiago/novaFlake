@@ -34,7 +34,7 @@ in {
       exec = "foliate %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Ebook;Book;Reader;EPUB;Viewer;";
+        Keywords = "GUI;Ebook;Book;Reader;EPUB;Viewer;";
       };
     };
   };

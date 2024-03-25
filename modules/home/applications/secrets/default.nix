@@ -33,7 +33,7 @@ in {
       comment = "Password manager";
       exec = "secrets %U";
       settings = {
-        Keywords = "Password;Encrypt;Security;";
+        Keywords = "GUI;Password;Encrypt;Security;";
       };
     };
   };

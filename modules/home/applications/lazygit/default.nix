@@ -32,7 +32,7 @@ in {
       comment = "Terminal-based UI for git";
       exec = "lazygit";
       settings = {
-        Keywords = "Git;";
+        Keywords = "TUI;Git;";
       };
     };
   };

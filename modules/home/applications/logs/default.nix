@@ -34,7 +34,7 @@ in {
       exec = "gnome-logs";
       settings = {
         StartupNotify = "true";
-        Keywords = "Logs;Monitoring;Systemd;Journal;Errors;";
+        Keywords = "GUI;Logs;Monitoring;Systemd;Journal;Errors;";
       };
     };
   };

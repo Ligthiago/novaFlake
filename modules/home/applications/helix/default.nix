@@ -49,7 +49,7 @@ in {
       exec = "hx %F";
       settings = {
         StartupNotify = "true";
-        Keywords = "Text;Editor;Terminal;TUI;Code;";
+        Keywords = "TUI;Text;Editor;Terminal;TUI;Code;";
       };
     };
   };

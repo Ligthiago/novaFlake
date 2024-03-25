@@ -35,7 +35,7 @@ in {
       exec = "inkscape %F";
       settings = {
         StartupNotify = "true";
-        Keywords = "Image;Editor;Drawing;Illustration;Vector;";
+        Keywords = "GUI;Image;Editor;Drawing;Illustration;Vector;";
       };
     };
   };

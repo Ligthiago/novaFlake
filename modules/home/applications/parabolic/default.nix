@@ -34,7 +34,7 @@ in {
       exec = "NickvisionTubeConverter.GNOME";
       settings = {
         StartupNotify = "true";
-        Keywords = "YouTube;Downloader;yt-dlp;Video;Audio;";
+        Keywords = "GUI;YouTube;Downloader;yt-dlp;Video;Audio;";
         DBusActivatable = "true";
       };
     };

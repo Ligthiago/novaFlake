@@ -34,7 +34,7 @@ in {
       exec = "com.github.geigi.cozy %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Audiobook;Listen;";
+        Keywords = "GUI;Audiobook;Listen;";
       };
     };
   };

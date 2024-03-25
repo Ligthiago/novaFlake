@@ -70,6 +70,7 @@ with lib.nova; {
       libreoffice = enabled;
       cozy = enabled;
       d-spy = enabled;
+      amdgputop = enabled;
     };
 
     shells = {

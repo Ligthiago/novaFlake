@@ -34,7 +34,7 @@ in {
       exec = "io.gitlab.news_flash.NewsFlash";
       settings = {
         StartupNotify = "true";
-        Keywords = "Feed;RSS;Reader;News;";
+        Keywords = "GUI;Feed;RSS;Reader;News;";
       };
     };
   };

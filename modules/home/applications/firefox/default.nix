@@ -308,7 +308,7 @@ in {
       settings = {
         StartupNotify = "true";
         StartupWMClass = "firefox";
-        Keywords = "Browser;Internet;Network;Web;";
+        Keywords = "GUI;Browser;Internet;Network;Web;";
       };
     };
   };

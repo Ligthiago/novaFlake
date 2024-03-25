@@ -34,7 +34,7 @@ in {
       exec = "helvum";
       settings = {
         StartupNotify = "true";
-        Keywords = "Pipewire;Control;Output;Wire;Sound;";
+        Keywords = "GUI;Pipewire;Control;Output;Wire;Sound;";
       };
     };
   };

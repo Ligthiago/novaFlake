@@ -34,7 +34,7 @@ in {
       exec = "d-spy";
       settings = {
         StartupNotify = "true";
-        Keywords = "Dbus;";
+        Keywords = "GUI;Dbus;";
       };
     };
   };

@@ -34,7 +34,7 @@ in {
       exec = "loupe %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Image;Picture;Graphics;Viewer;";
+        Keywords = "GUI;Image;Picture;Graphics;Viewer;";
         DBusActivatable = "true";
       };
     };

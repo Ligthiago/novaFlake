@@ -33,7 +33,7 @@ in {
       comment = "Web-based RSS Reader";
       exec = "yarr -open";
       settings = {
-        Keywords = "RSS;Reader;Feed;Web";
+        Keywords = "GUI;RSS;Reader;Feed;Web";
       };
     };
   };

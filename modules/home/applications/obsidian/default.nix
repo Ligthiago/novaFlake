@@ -35,7 +35,7 @@ in {
       exec = "obsidian %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Knowledge;Vault;Tasks;";
+        Keywords = "GUI;Knowledge;Vault;Tasks;";
       };
     };
   };

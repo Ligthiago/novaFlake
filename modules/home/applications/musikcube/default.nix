@@ -34,7 +34,7 @@ in {
       comment = "Terminal-based music player";
       exec = "musikcube %U";
       settings = {
-        Keywords = "Music;Audio;Player;Playlist;";
+        Keywords = "TUI;Music;Audio;Player;Playlist;";
       };
     };
   };

@@ -33,7 +33,7 @@ in {
       exec = "evince %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Document;PDF;Presentation;Viewer;";
+        Keywords = "GUI;Document;PDF;Presentation;Viewer;";
       };
     };
   };

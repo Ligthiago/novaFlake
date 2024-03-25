@@ -34,7 +34,7 @@ in {
       exec = "nicotine";
       settings = {
         StartupNotify = "true";
-        Keywords = "Chat;Soulseek;Messaging;Sharing;P2P;";
+        Keywords = "GUI;Chat;Soulseek;Messaging;Sharing;P2P;";
       };
     };
   };

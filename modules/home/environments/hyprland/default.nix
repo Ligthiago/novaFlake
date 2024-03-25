@@ -66,6 +66,7 @@ in {
       # ];
       settings = {
         exec = [
+          "hyprlock"
           "swww init"
           "swww img ${config.xdg.userDirs.extraConfig.XDG_WALLPAPERS_DIR}/DarkNoise06.png"
         ];

@@ -34,7 +34,7 @@ in {
       exec = "lutris %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Gaming;Wine;Library;Emulation;";
+        Keywords = "GUI;Gaming;Wine;Library;Emulation;";
       };
     };
   };

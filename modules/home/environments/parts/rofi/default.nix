@@ -24,10 +24,10 @@ in {
       cycle = false;
       extraConfig = {
         cache-dir = "${config.xdg.dataHome}/rofi/history/";
-        modi = "drun";
+        modi = "drun,filebrowser";
         case-sensetive = false;
         show-icons = true;
-        icon-theme = "Papirus";
+        icon-theme = "Papirus-Dark";
         steal-focus = true;
 
         drun-categories = "";
@@ -41,7 +41,7 @@ in {
 
         display-window = "Windows";
         display-run = "Runner";
-        display-drun = "Launcher";
+        display-drun = "Apps";
         display-keys = "Shortcuts";
         display-filebrowser = "Files";
         display-calc = "Calculator";
@@ -61,7 +61,7 @@ in {
 
         "window" = {
           enabled = true;
-          width = mkLiteral "70%";
+          width = mkLiteral "60%";
           margin = 0;
           padding = 0;
           background-color = mkLiteral "@background-dim";
@@ -73,23 +73,30 @@ in {
 
         "mainbox" = {
           enabled = true;
-          children = map mkLiteral ["inputbar" "message" "listview"];
+          children = map mkLiteral ["inputbar" "listview" "message"];
           background-color = mkLiteral "inherit";
+          spacing = mkLiteral "0px";
+        };
+
+        "textbox" = {
+          background-color = mkLiteral "@background-bright";
+          text-color = mkLiteral "@foreground";
+          padding = mkLiteral "6px 12px";
         };
 
         "inputbar" = {
           enabled = true;
-          children = map mkLiteral ["textbox-logo" "input-box" "textbox-logo2"];
+          children = map mkLiteral ["textbox-logo" "input-box" "mode-switcher" "icon-exit"];
           padding = mkLiteral "6px";
           margin = mkLiteral "0px";
           spacing = mkLiteral "6px";
           background-color = mkLiteral "@background-bright";
-          border = mkLiteral "0px solid";
+          border = mkLiteral "0px solid 0px solid 1px solid 0px solid";
         };
 
         "input-box" = {
           enabled = true;
-          children = map mkLiteral ["textbox-search" "entry"];
+          children = map mkLiteral ["icon-search" "textbox-search" "entry"];
           margin = mkLiteral "0px";
           padding = mkLiteral "6px";
           background-color = mkLiteral "@background-exbright";
@@ -112,22 +119,11 @@ in {
         "textbox-logo" = {
           enabled = true;
           expand = false;
-          padding = mkLiteral "6px 50px";
+          padding = mkLiteral "6px 30px";
           background-color = mkLiteral "inherit";
           text-color = mkLiteral "@foreground";
           border = mkLiteral "0px solid";
-          str = "Applications";
-          font = "Cantarell Bold 12";
-        };
-
-        "textbox-logo2" = {
-          enabled = true;
-          expand = false;
-          padding = mkLiteral "6px 50px";
-          background-color = mkLiteral "inherit";
-          text-color = mkLiteral "transparent";
-          border = mkLiteral "0px solid";
-          str = "Applications";
+          str = "Launcher";
           font = "Cantarell Bold 12";
         };
 
@@ -151,8 +147,29 @@ in {
           border = mkLiteral "0px solid";
           background-color = mkLiteral "inherit";
           text-color = mkLiteral "inherit";
-          width = mkLiteral "300px";
+          width = mkLiteral "200px";
           padding = mkLiteral "0px 0px 0px 30px";
+        };
+
+        "icon-exit" = {
+          filename = "window-close-symbolic";
+          background-color = mkLiteral "inherit";
+          border-radius = mkLiteral "6px";
+          expand = false;
+          vertical-align = mkLiteral "0.5";
+          action = "kb-cancel";
+          size = mkLiteral "20px";
+          padding = mkLiteral "6px";
+        };
+
+        "icon-search" = {
+          filename = "search-symbolic";
+          background-color = mkLiteral "inherit";
+          border-radius = mkLiteral "6px";
+          expand = false;
+          vertical-align = mkLiteral "0.5";
+          size = mkLiteral "16px";
+          padding = mkLiteral "0px 4px";
         };
 
         "button" = {
@@ -172,7 +189,7 @@ in {
         "listview" = {
           enabled = true;
           columns = 3;
-          lines = 12;
+          lines = 10;
           layout = mkLiteral "vertical";
           dynamic = true;
           spacing = mkLiteral "12px";

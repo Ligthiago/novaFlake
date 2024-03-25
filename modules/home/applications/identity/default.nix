@@ -34,7 +34,7 @@ in {
       exec = "identity %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Image;Video;Difference;Compare;";
+        Keywords = "GUI;Image;Video;Difference;Compare;";
       };
     };
   };

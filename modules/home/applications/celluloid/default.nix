@@ -33,7 +33,7 @@ in {
       comment = "Mpv-based video player";
       exec = "celluloid %U";
       settings = {
-        Keywords = "Audio;Video;Media;Player";
+        Keywords = "GUI;Audio;Video;Media;Player";
         DBusActivatable = "true";
       };
     };

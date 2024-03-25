@@ -34,7 +34,7 @@ in {
       exec = "amberol %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Music;Player;Audio;Playlist;";
+        Keywords = "GUI;Music;Player;Audio;Playlist;";
       };
     };
 

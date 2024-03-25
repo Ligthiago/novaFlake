@@ -34,7 +34,7 @@ in {
       exec = "dconf-editor";
       settings = {
         StartupNotify = "true";
-        Keywords = "Settings;Configuration;GTK;";
+        Keywords = "GUI;Settings;Configuration;GTK;";
         DBusActivatable = "true";
       };
     };

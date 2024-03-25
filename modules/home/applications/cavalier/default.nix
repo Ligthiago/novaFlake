@@ -34,7 +34,7 @@ in {
       exec = "NickvisionCavalier.GNOME";
       settings = {
         StartupNotify = "true";
-        Keywords = "Audio;Visualisation;Cava;";
+        Keywords = "GUI;Audio;Visualisation;Cava;";
         DBusActivatable = "true";
       };
     };

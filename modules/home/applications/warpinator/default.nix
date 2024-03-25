@@ -34,7 +34,7 @@ in {
       exec = "warpinator";
       settings = {
         StartupNotify = "true";
-        Keywords = "Transfer;Airdrop;Exchange;Local;";
+        Keywords = "GUI;Transfer;Airdrop;Exchange;Local;";
       };
     };
   };

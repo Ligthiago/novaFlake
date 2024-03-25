@@ -34,7 +34,7 @@ in {
       exec = "baobab %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Storage;Space;Disk;Stats;";
+        Keywords = "GUI;Storage;Space;Disk;Stats;";
         DBusActivatable = "true";
       };
     };

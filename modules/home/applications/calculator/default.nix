@@ -34,7 +34,7 @@ in {
       exec = "gnome-calculator";
       settings = {
         StartupNotify = "true";
-        Keywords = "Calculation;Arithmetic;Scientific;Financial;";
+        Keywords = "GUI;Calculation;Arithmetic;Scientific;Financial;";
       };
     };
   };

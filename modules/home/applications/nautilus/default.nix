@@ -35,7 +35,7 @@ in {
       exec = "nautilus --new-window %U";
       settings = {
         StartupNotify = "true";
-        Keywords = "Files;Explore;Directory;Folder;Browse;";
+        Keywords = "GUI;Files;Explore;Directory;Folder;Browse;";
         DBusActivatable = "true";
       };
     };

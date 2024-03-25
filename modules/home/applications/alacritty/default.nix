@@ -76,7 +76,7 @@ in {
       exec = "alacritty";
       settings = {
         StartupNotify = "true";
-        Keywords = "Terminal;Emulator;Commands;CLI;";
+        Keywords = "GUI;Terminal;Emulator;Commands;CLI;";
         StartupWMClass = "Alacritty";
       };
     };

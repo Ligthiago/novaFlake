@@ -34,7 +34,7 @@ in {
       exec = "gnome-disks";
       settings = {
         StartupNotify = "true";
-        Keywords = "Disk;Drive;Partition;Write;Mount;";
+        Keywords = "GUI;Disk;Drive;Partition;Write;Mount;";
         DBusActivatable = "true";
       };
     };

@@ -34,7 +34,7 @@ in {
       exec = "easyeffects";
       settings = {
         StartupNotify = "true";
-        Keywords = "Effects;Sound;Equalizer;Volume;";
+        Keywords = "GUI;Effects;Sound;Equalizer;Volume;";
         DBusActivatable = "true";
       };
     };
