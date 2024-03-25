@@ -55,6 +55,18 @@
       url = "github:hyprwm/Hyprland";
     };
 
+    # Hyprlock is a lockscreen for hyprland
+    # Source: https://github.com/hyprwm/hyprlock
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+    };
+
+    # Hyprlock is a lockscreen for hyprland
+    # Source: https://github.com/hyprwm/hypridle
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+    };
+
     # Hycov is a hyprland overview mode plugin.
     # Source: https://github.com/DreamMaoMao/hycov
     hycov = {
@@ -121,6 +133,8 @@
               nixvim.homeManagerModules.nixvim
               ags.homeManagerModules.default
               hyprland.homeManagerModules.default
+              hyprlock.homeManagerModules.hyprlock
+              hypridle.homeManagerModules.hypridle
             ];
             specialArgs = {
               home-manager.useGlobalPkgs = true;

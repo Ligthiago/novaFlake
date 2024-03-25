@@ -72,5 +72,7 @@ with lib.nova; {
     ];
   };
 
+  security.pam.services.hyprlock = {};
+
   system.stateVersion = "23.11";
 }

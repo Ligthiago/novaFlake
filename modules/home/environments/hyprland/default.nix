@@ -30,6 +30,8 @@ in {
         eww = disabled;
         ags = enabled;
         dunst = enabled;
+        hyprlock = enabled;
+        hypridle = enabled;
       };
       services = {
         polkit-agent = enabled;
@@ -223,6 +225,7 @@ in {
             "SUPER SHIFT, Print, exec, hyprscreen -f"
             "SUPER,F10,pass,^(com.obsproject.Studio)$"
             "SUPER,F11,pass,^(com.obsproject.Studio)$"
+            "SUPER, L, exec, hyprlock"
           ]
           # Generate keybinds for workspace switch via keyboard
           ++ (
@@ -361,7 +364,6 @@ in {
             "float,class:^(com.github.geigi.cozy)$,title:^(Cozy)$"
             "center,class:^(com.github.geigi.cozy)$,title:^(Cozy)$"
             "minsize 360 540,class:^(com.github.geigi.cozy)$,initialTitle:^(Cozy)$"
-            "maxsize 1200 540,class:^(com.github.geigi.cozy)$,initialTitle:^(Cozy)$"
           ])
           ++ lib.concatLists (lib.optional applications.d-spy.enable [
             "float,class:^(org.gnome.dspy)$,title:^(D-Spy)$"
